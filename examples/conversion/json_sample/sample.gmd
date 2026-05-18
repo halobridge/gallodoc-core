@@ -1,0 +1,49 @@
+# Sample
+
+::gallodoc
+schema_version: gallodoc-core/v1
+doc_id: gmd-sample
+title: Sample
+document_type: structured_data
+source: gallodoc_convert
+source_kind: json
+connector_slug: gallodoc_convert
+created_at: 2026-05-06T14:10:29+00:00
+primary_intent: conversion
+workflow_intent: gallodoc_convert
+confidence: 1.0
+::
+
+## Content
+
+- **report_id**: ops-q1-2026
+- **title**: Q1 2026 Operations Report
+- **summary**: Operations remained on track. 18 of 20 initiatives closed.
+- **metrics**:
+    - **initiatives_closed**: 18
+    - **initiatives_planned**: 20
+    - **average_latency_ms**: 320
+    - **spend_usd**: 48200.5
+- **open_items**:
+    - vendor_contract_renewal_2026-06-01
+    - audit_followup
+
+## Structured Source
+
+```json
+{
+  "metrics": {
+    "average_latency_ms": 320,
+    "initiatives_closed": 18,
+    "initiatives_planned": 20,
+    "spend_usd": 48200.5
+  },
+  "open_items": [
+    "vendor_contract_renewal_2026-06-01",
+    "audit_followup"
+  ],
+  "report_id": "ops-q1-2026",
+  "summary": "Operations remained on track. 18 of 20 initiatives closed.",
+  "title": "Q1 2026 Operations Report"
+}
+```

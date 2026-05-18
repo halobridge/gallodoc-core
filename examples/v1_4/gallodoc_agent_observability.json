@@ -1,0 +1,287 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-v14-agent-obs-001",
+    "document_id": "doc-v14-agent-obs-001",
+    "title": "Synthetic agent observability demo (v1.4)",
+    "document_type": "clinical_note",
+    "mime_type": "application/pdf",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-05-02T12:00:00+00:00",
+    "content_hash": "cd100000000000000000000000000000000000000000000000000000000000ef"
+  },
+  "source": {
+    "source_system": "ehr_connector",
+    "source_kind": "document",
+    "source_record_id": "",
+    "connector_slug": "demo_ehr",
+    "connection_id": "",
+    "sync_run_id": "",
+    "ingested_at": "2026-05-02T11:58:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "phi_review",
+    "workflow_intent": "phi_review",
+    "app_slug": "",
+    "requested_by": "reviewer@example.com",
+    "reason_code": "agent_observability_demo_v14",
+    "reason_text": "",
+    "evidence": [
+      "synthetic:v1_3_governance"
+    ],
+    "confidence": 0.88
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "schema_version": "",
+    "stages": [],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": true,
+    "phi_categories": [
+      "clinical_note"
+    ],
+    "phi_risk_level": "medium",
+    "encrypted": true,
+    "encryption_backend": "fernet",
+    "encryption_key_id": "kid_demo_001",
+    "encrypted_fields": [
+      "body_blob"
+    ],
+    "masked_fields": [
+      "patient_display"
+    ],
+    "redaction_policy": "phi_default_v1",
+    "raw_export_allowed": false,
+    "encryption_policy_status": "required",
+    "last_phi_scan_at": "2026-05-02T11:59:00+00:00",
+    "last_encrypted_at": "2026-05-02T11:59:30+00:00"
+  },
+  "exports": [],
+  "extensions": {},
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "units": [],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  },
+  "agent_observability": {
+    "schema_version": "gallodoc.agent_observability.v1.4",
+    "agent_traces": [
+      {
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "execution_request_id": null,
+        "execution_receipt_id": null,
+        "document_id": "doc-v14-agent-obs-001",
+        "packet_id": null,
+        "agent_id": "demo-agent",
+        "actor_type": "system",
+        "task_name": "ask-hybrid",
+        "task_goal_summary": "Answer billing policy question using retrieval + governed tools.",
+        "status": "success",
+        "started_at": "2026-05-01T18:00:00+00:00",
+        "completed_at": "2026-05-01T18:00:02+00:00",
+        "duration_ms": 2100,
+        "step_count": 4,
+        "tool_call_count": 1,
+        "retrieval_count": 1,
+        "model_call_count": 1,
+        "total_cost_estimate": 0.0021,
+        "total_tokens_estimate": 950,
+        "trace_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "redaction_status": "redacted",
+        "risk_level": "low",
+        "summary": "Retrieval returned three scoped refs; model answered with citations hashes only."
+      }
+    ],
+    "tool_invocation_logs": [
+      {
+        "invocation_id": "inv-001",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "tool_name": "vector_search",
+        "tool_contract_id": "vector_search",
+        "input_schema_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "input_summary": "keyword + optional doc_ids",
+        "output_schema_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "output_summary": "k hits with scores summarized",
+        "parameters_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "status": "success",
+        "error_code": "",
+        "error_summary": "",
+        "latency_ms": 420,
+        "cost_estimate": 0.0003,
+        "called_at": "2026-05-01T18:00:01+00:00"
+      }
+    ],
+    "retrieval_traces": [
+      {
+        "retrieval_id": "rt-001",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "query_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "query_summary": "billing policy timing question (redacted)",
+        "index_name": "mvp_corpus_v1",
+        "retrieval_method": "hybrid",
+        "top_k": 8,
+        "returned_count": 8,
+        "selected_count": 3,
+        "score_summary": "max=0.82 mean=0.54",
+        "artifact_refs": [
+          "artifact:demo:1"
+        ],
+        "chunk_refs": [
+          "chunk:demo:7",
+          "chunk:demo:8"
+        ],
+        "relevance_grade": "medium",
+        "noise_flag": false,
+        "latency_ms": 410,
+        "created_at": "2026-05-01T18:00:01+00:00"
+      }
+    ],
+    "reasoning_summaries": [
+      {
+        "reasoning_id": "rs-001",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "reasoning_type": "final_answer",
+        "summary": "Selected passages agree on 45-day timely filing window; abstain on jurisdiction-specific nuances.",
+        "confidence": 0.74,
+        "uncertainty_flags": [
+          "jurisdiction_unknown"
+        ],
+        "decision_rationale_refs": [
+          "policy:timely_filing_v2"
+        ],
+        "evidence_refs": [
+          "artifact:demo:1"
+        ],
+        "redacted": true
+      }
+    ],
+    "evaluation_results": [
+      {
+        "evaluation_id": "ev-001",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "dataset_id": "eval_bench_demo",
+        "test_case_id": "tc-014",
+        "evaluator_type": "rule",
+        "evaluator_name": "groundedness_rules_v1",
+        "metric_name": "groundedness",
+        "score": 0.91,
+        "passed": true,
+        "threshold": 0.85,
+        "expected_summary": "Answer cites retrieval refs only.",
+        "actual_summary": "Answer cites chunk hashes only.",
+        "failure_category": "",
+        "created_at": "2026-05-01T18:00:02+00:00"
+      }
+    ],
+    "latency_cost_metrics": [
+      {
+        "metric_id": "m-001",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "model_name_hash_or_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "provider_class": "internal",
+        "latency_ms": 1200,
+        "input_tokens": 600,
+        "output_tokens": 350,
+        "total_tokens": 950,
+        "estimated_cost": 0.0018,
+        "cache_hit": false,
+        "created_at": "2026-05-01T18:00:02+00:00"
+      }
+    ],
+    "failure_analyses": [],
+    "regression_test_results": [
+      {
+        "regression_id": "reg-001",
+        "test_name": "agent_eval_timely_filing",
+        "test_case_id": "tc-014",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "dataset_id": "eval_bench_demo",
+        "status": "pass",
+        "baseline_score": 0.88,
+        "current_score": 0.91,
+        "delta": 0.03,
+        "blocker": false,
+        "created_at": "2026-05-01T18:00:03+00:00"
+      }
+    ],
+    "escalation_decisions": []
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "report_id": "ops-q1-2026",
+  "title": "Q1 2026 Operations Report",
+  "summary": "Operations remained on track. 18 of 20 initiatives closed.",
+  "metrics": {
+    "initiatives_closed": 18,
+    "initiatives_planned": 20,
+    "average_latency_ms": 320,
+    "spend_usd": 48200.50
+  },
+  "open_items": [
+    "vendor_contract_renewal_2026-06-01",
+    "audit_followup"
+  ]
+}

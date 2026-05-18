@@ -1,0 +1,44 @@
+{
+  "plan": {
+    "created_at": "2026-05-17T02:33:03Z",
+    "expected_output_shape": "list[dict]",
+    "filters": [
+      {
+        "field": "relationships.relationships[].target_label",
+        "op": "eq",
+        "value": "vendor X"
+      },
+      {
+        "min_confidence": 0.6,
+        "op": "has_relationship",
+        "relationship_type": "invoice_to_employee_approver"
+      }
+    ],
+    "max_results": 50,
+    "plan_id": "plan_dd12cba30d9567f2",
+    "policy_checks": [
+      {
+        "check": "relationship_status",
+        "status_in": [
+          "confirmed"
+        ]
+      }
+    ],
+    "required_blocks": [
+      "relationships",
+      "identity"
+    ],
+    "safe_query_type": "relationship_query",
+    "user_intent_summary": "who approves invoices for vendor X?"
+  },
+  "receipt": {
+    "created_at": "2026-05-17T02:33:03Z",
+    "executed_at": null,
+    "executed_by_role": null,
+    "plan_id": "plan_dd12cba30d9567f2",
+    "policy_outcome_ref": null,
+    "receipt_id": "receipt_6506bc7ae7739ae7",
+    "result_count": null,
+    "status": "planned"
+  }
+}

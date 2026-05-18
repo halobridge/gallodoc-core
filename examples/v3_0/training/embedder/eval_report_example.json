@@ -1,0 +1,35 @@
+{
+  "evaluated_at": "2026-05-17T00:15:00Z",
+  "metrics": {
+    "false_positive_rate": 0.08,
+    "human_review_agreement_rate": 0.84,
+    "mrr": 0.79,
+    "per_relationship_type_accuracy": {
+      "approved_by": 0.82,
+      "belongs_to": 0.74,
+      "derived_from": 0.71,
+      "same_contract": 0.78,
+      "same_customer": 0.81,
+      "supersedes": 0.69,
+      "supports": 0.77
+    },
+    "precision_at_5": 0.68,
+    "recall_at_5": 0.74,
+    "semantic_intent_accuracy": {
+      "attachment_to_parent_document": 0.77,
+      "case_to_case_continuation": 0.71,
+      "claim_to_supporting_document": 0.79,
+      "contract_supersedes_contract": 0.7,
+      "invoice_to_employee_approver": 0.83,
+      "patient_to_consent_record": 0.76
+    }
+  },
+  "mode": "trained",
+  "notes": [
+    "Example eval report for the published gallodoc-bge-m3-v1 v3.0.0 adapter.",
+    "Numbers are synthetic placeholders sized to look plausible against the acceptance thresholds in the model card.",
+    "Decision 5: semantic_intent_accuracy buckets count only pairs with a resolved intent value on both source and target units."
+  ],
+  "pair_count": 312,
+  "purpose": "document_summary_embedding"
+}

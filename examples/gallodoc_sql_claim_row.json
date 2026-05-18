@@ -1,0 +1,328 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-sql-claim-0042",
+    "document_id": "doc-sql-claim-0042",
+    "title": "Claim row 0042 (synthetic)",
+    "document_type": "rcm_claim",
+    "mime_type": "application/json",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-04-30T13:00:00+00:00",
+    "content_hash": ""
+  },
+  "source": {
+    "source_system": "rcm_warehouse",
+    "source_kind": "sql_row",
+    "source_record_id": "claim:0042",
+    "connector_slug": "warehouse_postgres",
+    "connection_id": "conn-warehouse-001",
+    "sync_run_id": "sync-2026-04-30-13",
+    "ingested_at": "2026-04-30T12:45:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "rcm_claim",
+    "workflow_intent": "submission_readiness",
+    "app_slug": "rcm_intelligence",
+    "requested_by": "system",
+    "reason_code": "submission_readiness",
+    "reason_text": "",
+    "evidence": [
+      "metadata:submission_readiness"
+    ],
+    "confidence": 0.95
+  },
+  "lifecycle": {
+    "available": true,
+    "current_status": "ready_for_submission",
+    "schema_version": "document_lifecycle/v1",
+    "stages": [
+      {
+        "stage": "ingest",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T12:45:00+00:00",
+        "app_slug": "",
+        "source": "warehouse_postgres",
+        "metadata": {}
+      },
+      {
+        "stage": "validation",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T12:50:00+00:00",
+        "app_slug": "rcm_intelligence",
+        "source": "pipeline_v3",
+        "metadata": {
+          "checks": 14
+        }
+      }
+    ],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel-claim-0042-patient",
+      "relationship_type": "same_patient",
+      "source_document_id": "doc-sql-claim-0042",
+      "target_document_id": "doc-sql-claim-0017",
+      "method": "patient_hash_match",
+      "status": "confirmed",
+      "confidence": 0.99,
+      "evidence": {
+        "summary": "Same patient pseudonym across both claims"
+      }
+    }
+  ],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [
+      {
+        "packet_id": "pkt-rcm-batch-21",
+        "packet_type": "rcm_claim_packet",
+        "finding_count": 2
+      }
+    ],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": true,
+    "phi_categories": [
+      "patient_name",
+      "dob"
+    ],
+    "phi_risk_level": "medium",
+    "encrypted": true,
+    "encryption_backend": "fernet",
+    "encryption_key_id": "kms:key/rcm-2026",
+    "encrypted_fields": [
+      "patient_name",
+      "dob"
+    ],
+    "masked_fields": [
+      "patient_name",
+      "dob"
+    ],
+    "redaction_policy": "phi_redact_v2",
+    "raw_export_allowed": false,
+    "encryption_policy_status": "enforced",
+    "last_phi_scan_at": "2026-04-30T12:48:00+00:00",
+    "last_encrypted_at": "2026-04-30T12:48:30+00:00"
+  },
+  "exports": [],
+  "connector_source": {
+    "available": true,
+    "connector_slug": "warehouse_postgres",
+    "connector_name": "RCM Warehouse",
+    "connection_id": "conn-warehouse-001",
+    "source_record_id": "claim:0042",
+    "source_system": "rcm_warehouse",
+    "sync_run_id": "sync-2026-04-30-13",
+    "ingested_at": "2026-04-30T12:45:00+00:00",
+    "readiness_status": "ready"
+  },
+  "extensions": {
+    "halobridge": {
+      "source_profile": "enterprise-export",
+      "source_schema": "gallodoc/v1"
+    }
+  },
+  "hashes": {
+    "algorithm": "sha256",
+    "envelope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_envelope_sha256": ""
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 2,
+      "total_input_tokens": 980,
+      "total_output_tokens": 215,
+      "total_tokens": 1195,
+      "estimated_total_cost": 0.0042,
+      "currency": "USD"
+    },
+    "runs": [
+      {
+        "run_id": "run-classify-0042",
+        "operation": "classification",
+        "provider": "anthropic",
+        "model": "claude-opus-4-7",
+        "input_tokens": 540,
+        "output_tokens": 96,
+        "total_tokens": 636,
+        "estimated_cost": 0.0023,
+        "currency": "USD",
+        "latency_ms": 870,
+        "status": "success",
+        "retry_count": 0,
+        "started_at": "2026-04-30T12:50:01+00:00",
+        "completed_at": "2026-04-30T12:50:02+00:00",
+        "data_mode": "redacted",
+        "purpose": "service_line_classification",
+        "prompt_hash": "sha256:11aa22bb33cc44dd55ee66ff7700889911aa22bb33cc44dd55ee66ff77008899",
+        "response_hash": "sha256:22bb33cc44dd55ee66ff7700889911aa22bb33cc44dd55ee66ff7700889911aa",
+        "stored_prompt": false,
+        "stored_response": false
+      },
+      {
+        "run_id": "run-verify-0042",
+        "operation": "verification",
+        "provider": "openai",
+        "model": "gpt-4o-2024-08-06",
+        "input_tokens": 440,
+        "output_tokens": 119,
+        "total_tokens": 559,
+        "estimated_cost": 0.0019,
+        "currency": "USD",
+        "latency_ms": 720,
+        "status": "success",
+        "retry_count": 0,
+        "started_at": "2026-04-30T12:50:03+00:00",
+        "completed_at": "2026-04-30T12:50:04+00:00",
+        "data_mode": "redacted",
+        "purpose": "second_opinion",
+        "prompt_hash": "sha256:33cc44dd55ee66ff7700889911aa22bb33cc44dd55ee66ff7700889911aa22bb",
+        "response_hash": "sha256:44dd55ee66ff7700889911aa22bb33cc44dd55ee66ff7700889911aa22bb33cc",
+        "stored_prompt": false,
+        "stored_response": false
+      }
+    ]
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "canonical_text_hash": "sha256:fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210",
+    "units": [
+      {
+        "unit_id": "gu_claim_header",
+        "unit_type": "entity",
+        "semantic_role": "claim_detail",
+        "source_span": {
+          "page": null,
+          "start_char": null,
+          "end_char": null,
+          "start_time_ms": null,
+          "end_time_ms": null,
+          "region": null
+        },
+        "text_hash": "sha256:c1a1m000000000000000000000000000000000000000000000000000000000c1",
+        "content_summary": "Claim header for synthetic patient pseudonym (PHI redacted).",
+        "confidence": 0.96,
+        "evidence_refs": [],
+        "relationship_refs": ["rel-claim-0042-patient"],
+        "extractions": {"service_count": 3},
+        "validation_refs": [],
+        "ai_usage_refs": ["run-classify-0042", "run-verify-0042"]
+      },
+      {
+        "unit_id": "gu_service_line_1",
+        "unit_type": "cell",
+        "semantic_role": "service_line",
+        "source_span": {
+          "page": null,
+          "start_char": null,
+          "end_char": null,
+          "start_time_ms": null,
+          "end_time_ms": null,
+          "region": null
+        },
+        "text_hash": "sha256:5e4d3c2b1a0918273645a1b2c3d4e5f60718293a4b5c6d7e8f9012345678abcd",
+        "content_summary": "Service line 1 — synthetic procedure code, paid amount redacted.",
+        "confidence": 0.94,
+        "evidence_refs": [],
+        "relationship_refs": [],
+        "extractions": {"procedure_code": "SYNTH-99213"},
+        "validation_refs": [],
+        "ai_usage_refs": ["run-classify-0042"]
+      }
+    ],
+    "model_projections": [
+      {
+        "projection_id": "p-claim-1",
+        "unit_id": "gu_claim_header",
+        "provider": "anthropic",
+        "model_family": "claude-4",
+        "model": "claude-opus-4-7",
+        "tokenizer": "anthropic_v2",
+        "token_count": 84,
+        "projection_hash": "sha256:ddd00000000000000000000000000000000000000000000000000000000000dd",
+        "created_at": "2026-04-30T12:50:01+00:00"
+      },
+      {
+        "projection_id": "p-claim-2",
+        "unit_id": "gu_claim_header",
+        "provider": "openai",
+        "model_family": "gpt-4o",
+        "model": "gpt-4o-2024-08-06",
+        "tokenizer": "o200k_base",
+        "token_count": 76,
+        "projection_hash": "sha256:eee00000000000000000000000000000000000000000000000000000000000ee",
+        "created_at": "2026-04-30T12:50:03+00:00"
+      }
+    ]
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  }
+}

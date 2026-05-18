@@ -1,0 +1,1290 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://halobridge.ai/schemas/gallodoc-core-v1.schema.json",
+  "title": "GalloDoc Core v1",
+  "description": "Open-core public envelope for GalloDoc. FROZEN v1 contract — additive changes only via the extensions namespace. Top-level required sections must always exist; their inner fields default to safe empty values when not populated. See docs/specs/GALLODOC_CORE_V1_FROZEN.md for stability rules.",
+  "frozen": true,
+  "frozen_version": "gallodoc-core/v1",
+  "frozen_at": "2026-05-01",
+  "stability_rules_url": "docs/specs/GALLODOC_CORE_V1_FROZEN.md",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "identity",
+    "source",
+    "purpose",
+    "lifecycle",
+    "activity",
+    "relationships",
+    "evidence",
+    "validations",
+    "security",
+    "exports",
+    "extensions",
+    "ai_usage",
+    "gallounits",
+    "certification",
+    "gstp",
+    "truth_ledger"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "gallodoc-core/v1"
+    },
+    "profile": {
+      "type": "string",
+      "description": "Distribution profile (open-core, enterprise-export, …)."
+    },
+    "identity": {
+      "type": "object",
+      "required": ["gallodoc_id", "schema_version"],
+      "additionalProperties": true,
+      "properties": {
+        "gallodoc_id": { "type": "string" },
+        "document_id": { "type": "string" },
+        "title": { "type": "string" },
+        "document_type": { "type": "string" },
+        "mime_type": { "type": "string" },
+        "schema_version": { "type": "string" },
+        "source_schema_version": { "type": "string" },
+        "created_at": { "type": "string" },
+        "content_hash": { "type": "string" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "source_system": { "type": "string" },
+        "source_kind": { "type": "string" },
+        "source_record_id": { "type": "string" },
+        "connector_slug": { "type": "string" },
+        "connection_id": { "type": "string" },
+        "sync_run_id": { "type": "string" },
+        "ingested_at": { "type": "string" },
+        "readiness_status": { "type": "string" }
+      }
+    },
+    "purpose": {
+      "type": "object",
+      "required": ["primary_intent", "workflow_intent"],
+      "additionalProperties": true,
+      "properties": {
+        "primary_intent": { "type": "string" },
+        "workflow_intent": { "type": "string" },
+        "app_slug": { "type": "string" },
+        "requested_by": { "type": "string" },
+        "reason_code": { "type": "string" },
+        "reason_text": { "type": "string" },
+        "evidence": { "type": "array", "items": { "type": "string" } },
+        "confidence": { "type": "number" }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "required": ["available"],
+      "additionalProperties": true,
+      "properties": {
+        "available": { "type": "boolean" },
+        "current_status": { "type": "string" },
+        "schema_version": { "type": "string" },
+        "stages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "stage": { "type": "string" },
+              "status": { "type": "string" },
+              "actor": {},
+              "timestamp": { "type": "string" },
+              "app_slug": { "type": "string" },
+              "source": { "type": "string" },
+              "metadata": { "type": "object" }
+            }
+          }
+        },
+        "provenance_chain": {
+          "type": "array"
+        }
+      }
+    },
+    "activity": {
+      "type": "object",
+      "required": ["available"],
+      "additionalProperties": true,
+      "properties": {
+        "available": { "type": "boolean" },
+        "event_count": { "type": "integer" },
+        "counts_by_type": { "type": "object" },
+        "latest_events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "event_type": { "type": "string" },
+              "created_at": { "type": "string" },
+              "who": {},
+              "what": {},
+              "where": { "type": "object" },
+              "why": {},
+              "metadata": {}
+            }
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relationship_type"],
+        "additionalProperties": true,
+        "properties": {
+          "relationship_id": { "type": "string" },
+          "relationship_type": { "type": "string" },
+          "source_document_id": { "type": "string" },
+          "target_document_id": { "type": "string" },
+          "method": { "type": "string" },
+          "status": { "type": "string" },
+          "confidence": { "type": "number" },
+          "evidence": {}
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["count", "refs"],
+      "additionalProperties": true,
+      "properties": {
+        "count": { "type": "integer" },
+        "refs": { "type": "array" }
+      }
+    },
+    "validations": {
+      "type": "object",
+      "required": ["contradictions"],
+      "additionalProperties": true,
+      "properties": {
+        "contradictions": { "type": "array" },
+        "packet_findings": { "type": "array" },
+        "model_disagreements": { "type": "array" }
+      }
+    },
+    "security": {
+      "type": "object",
+      "required": [
+        "phi_detected",
+        "phi_risk_level",
+        "encrypted",
+        "raw_export_allowed",
+        "encryption_policy_status"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "phi_detected": { "type": "boolean" },
+        "phi_categories": { "type": "array", "items": { "type": "string" } },
+        "phi_risk_level": { "type": "string" },
+        "encrypted": { "type": "boolean" },
+        "encryption_backend": { "type": ["string", "null"] },
+        "encryption_key_id": { "type": ["string", "null"] },
+        "encrypted_fields": { "type": "array", "items": { "type": "string" } },
+        "masked_fields": { "type": "array", "items": { "type": "string" } },
+        "redaction_policy": { "type": ["string", "null"] },
+        "raw_export_allowed": { "type": "boolean" },
+        "encryption_policy_status": { "type": "string" },
+        "last_phi_scan_at": { "type": ["string", "null"] },
+        "last_encrypted_at": { "type": ["string", "null"] }
+      }
+    },
+    "exports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["export_type"],
+        "additionalProperties": true,
+        "properties": {
+          "export_type": { "type": "string" },
+          "artifact_family": { "type": "string" },
+          "artifact_key": { "type": "string" },
+          "created_at": { "type": "string" },
+          "checksum": { "type": "string" },
+          "redacted": { "type": "boolean" },
+          "encrypted": { "type": "boolean" },
+          "contains_phi": { "type": "boolean" }
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Open extension namespace. Vendors and tenants publish stable subkeys (e.g. extensions.halobridge.*, extensions.<tenant_slug>.*). The v1 schema does not constrain inner shapes — but vendors are expected to keep their own subschemas backwards-compatible."
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional media descriptors when the document carries non-text content.",
+      "properties": {
+        "kind": { "type": "string", "enum": ["image", "audio", "video", "binary", "mixed"] },
+        "mime_type": { "type": "string" },
+        "duration_seconds": { "type": "number" },
+        "width_px": { "type": "integer" },
+        "height_px": { "type": "integer" },
+        "page_count": { "type": "integer" },
+        "ocr_text_summary": { "type": "string" },
+        "transcript_summary": { "type": "string" },
+        "keyframes": { "type": "array" },
+        "regions": { "type": "array" }
+      }
+    },
+    "connector_source": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "available": { "type": "boolean" },
+        "connector_slug": { "type": "string" },
+        "connector_name": { "type": "string" },
+        "connection_id": { "type": "string" },
+        "source_record_id": { "type": "string" },
+        "source_system": { "type": "string" },
+        "sync_run_id": { "type": "string" },
+        "ingested_at": { "type": "string" },
+        "readiness_status": { "type": "string" }
+      }
+    },
+    "packets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "packet_id": { "type": "string" },
+          "packet_type": { "type": "string" },
+          "title": { "type": "string" },
+          "status": { "type": "string" },
+          "role": { "type": "string" },
+          "trust_score": { "type": ["number", "null"] },
+          "risk_level": { "type": "string" },
+          "item_count": { "type": "integer" },
+          "finding_count": { "type": "integer" },
+          "created_at": { "type": "string" },
+          "updated_at": { "type": "string" }
+        }
+      }
+    },
+    "contradictions": {
+      "type": "array"
+    },
+    "external_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "source_type": { "type": "string" },
+          "source_name": { "type": "string" },
+          "source_url_hash": { "type": "string" },
+          "external_id": { "type": "string" },
+          "title": { "type": "string" },
+          "summary": { "type": "string" },
+          "evidence_type": { "type": "string" },
+          "retrieved_at": { "type": "string" },
+          "payload_metadata": { "type": "object" }
+        }
+      }
+    },
+    "model_verification": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "verification_id": { "type": "string" },
+          "purpose": { "type": "string" },
+          "verification_provider": { "type": "string" },
+          "verification_model": { "type": "string" },
+          "data_mode": { "type": "string" },
+          "sent_external": { "type": "boolean" },
+          "phi_removed": { "type": "boolean" },
+          "corporate_sensitive_removed": { "type": "boolean" },
+          "agreement_score": { "type": ["number", "null"] },
+          "materiality": { "type": "string" },
+          "status": { "type": "string" },
+          "differences_count": { "type": "integer" },
+          "field_scores_summary": { "type": "object" },
+          "checked_at": { "type": "string" }
+        }
+      }
+    },
+    "trust_score": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "score": { "type": ["number", "null"] },
+        "grade": { "type": "string" },
+        "status": { "type": "string" },
+        "drivers": { "type": "array", "items": { "type": "string" } },
+        "blockers": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" } },
+        "components": { "type": "object" },
+        "calculated_at": { "type": "string" },
+        "algorithm_version": { "type": "string" }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional policy evaluation summaries (decisions only — no policy formulas)."
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional human review queue summary."
+    },
+    "corrections": {
+      "type": "array",
+      "description": "Optional reviewer correction summaries (no raw PHI)."
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional retention / legal-hold lifecycle state."
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional lineage payload (W3C PROV / OpenLineage compatible)."
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional processing metrics (timing, retries, runtime metadata)."
+    },
+    "hashes": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "algorithm": { "type": "string" },
+        "envelope_sha256": { "type": "string" },
+        "source_envelope_sha256": { "type": "string" }
+      }
+    },
+    "ai_usage": {
+      "type": "object",
+      "required": ["summary", "runs"],
+      "additionalProperties": true,
+      "description": "Provider/model/token/cost/latency usage ledger for every AI call against this document. Raw prompts/responses are never carried — only hashes.",
+      "properties": {
+        "summary": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "total_runs": { "type": "integer" },
+            "total_input_tokens": { "type": "integer" },
+            "total_output_tokens": { "type": "integer" },
+            "total_tokens": { "type": "integer" },
+            "estimated_total_cost": { "type": "number" },
+            "currency": { "type": "string" }
+          }
+        },
+        "runs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "run_id": { "type": "string" },
+              "operation": { "type": "string", "enum": ["classification", "extraction", "qa", "verification", "embedding", "ocr_correction", "policy_check", "summary", "custom"] },
+              "provider": { "type": "string", "enum": ["openai", "anthropic", "google", "azure_openai", "ollama", "local", "custom"] },
+              "model": { "type": "string" },
+              "input_tokens": { "type": "integer" },
+              "output_tokens": { "type": "integer" },
+              "total_tokens": { "type": "integer" },
+              "estimated_cost": { "type": "number" },
+              "currency": { "type": "string" },
+              "latency_ms": { "type": "integer" },
+              "status": { "type": "string", "enum": ["success", "failed", "skipped", "partial"] },
+              "retry_count": { "type": "integer" },
+              "started_at": { "type": "string" },
+              "completed_at": { "type": "string" },
+              "data_mode": { "type": "string", "enum": ["raw_internal", "redacted", "masked", "synthetic", "full_internal"] },
+              "purpose": { "type": "string" },
+              "prompt_hash": { "type": "string" },
+              "response_hash": { "type": "string" },
+              "stored_prompt": { "type": "boolean" },
+              "stored_response": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "gallounits": {
+      "type": "object",
+      "required": ["unit_strategy", "units"],
+      "additionalProperties": true,
+      "description": "Model-agnostic semantic evidence units. Models may tokenize differently, but they should all be able to point back to the same GalloUnit.",
+      "properties": {
+        "unit_strategy": { "type": "string" },
+        "canonical_text_hash": { "type": "string" },
+        "units": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "unit_id": { "type": "string" },
+              "unit_type": { "type": "string", "enum": ["sentence", "paragraph", "section", "clause", "table", "cell", "image_region", "audio_segment", "video_segment", "entity", "custom"] },
+              "semantic_role": { "type": "string" },
+              "source_span": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "page": { "type": ["integer", "null"] },
+                  "start_char": { "type": ["integer", "null"] },
+                  "end_char": { "type": ["integer", "null"] },
+                  "start_time_ms": { "type": ["integer", "null"] },
+                  "end_time_ms": { "type": ["integer", "null"] },
+                  "region": {}
+                }
+              },
+              "text_hash": { "type": "string" },
+              "content_summary": { "type": "string" },
+              "confidence": { "type": "number" },
+              "evidence_refs": { "type": "array" },
+              "relationship_refs": { "type": "array" },
+              "extractions": { "type": "object" },
+              "validation_refs": { "type": "array" },
+              "ai_usage_refs": { "type": "array" }
+            }
+          }
+        },
+        "model_projections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "projection_id": { "type": "string" },
+              "unit_id": { "type": "string" },
+              "provider": { "type": "string", "enum": ["openai", "anthropic", "google", "azure_openai", "ollama", "local", "custom"] },
+              "model_family": { "type": "string" },
+              "model": { "type": "string" },
+              "tokenizer": { "type": "string" },
+              "token_count": { "type": "integer" },
+              "projection_hash": { "type": "string" },
+              "created_at": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "certification": {
+      "type": "object",
+      "required": ["status", "certification_type"],
+      "additionalProperties": true,
+      "description": "Human-only, evidence-backed, policy-bound attestation that a GalloDoc has been certified by an authorized certifier.",
+      "properties": {
+        "status": { "type": "string", "enum": ["none", "pending", "certified", "revoked"] },
+        "certification_type": { "type": "string", "enum": ["human_certified", "system_attested", "none"] },
+        "certified_by": { "type": "string" },
+        "certified_at": { "type": "string" },
+        "policy_id": { "type": "string" },
+        "policy_version": { "type": "string" },
+        "case_id": { "type": "string" },
+        "intent": { "type": "string" },
+        "evidence_manifest_hash": { "type": "string" },
+        "payload_hash": { "type": "string" },
+        "signature_algorithm": { "type": "string" },
+        "signature_id": { "type": "string" },
+        "gstp_package_id": { "type": "string" },
+        "revocation_status": { "type": "string", "enum": ["active", "revoked", "expired", "unknown"] },
+        "revocation_reason": { "type": "string" }
+      }
+    },
+    "certifier": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional descriptor of the domain authority that performed the certification (HIM-C / SME / Providence Certifier). Identity references only — no credential secrets.",
+      "properties": {
+        "certifier_id": { "type": "string" },
+        "certifier_type": { "type": "string", "enum": ["providence_certifier", "him_c", "sme", "system"] },
+        "name": { "type": "string" },
+        "organization": { "type": "string" },
+        "certification_level": { "type": "string" },
+        "certification_authority": { "type": "string" },
+        "credential_id": { "type": "string" },
+        "credential_hash": { "type": "string" },
+        "valid_from": { "type": "string" },
+        "valid_to": { "type": "string" },
+        "revocation_status": { "type": "string", "enum": ["active", "revoked", "expired", "unknown"] },
+        "domains": { "type": "array", "items": { "type": "string" } },
+        "scope": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "document_types": { "type": "array", "items": { "type": "string" } },
+            "packet_types": { "type": "array", "items": { "type": "string" } },
+            "jurisdictions": { "type": "array", "items": { "type": "string" } },
+            "regulations": { "type": "array", "items": { "type": "string" } },
+            "allowed_purposes": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "gstp": {
+      "type": "object",
+      "required": ["package_id", "package_type", "status"],
+      "additionalProperties": true,
+      "description": "GalloDoc Secure Transport Package — signed, tamper-evident portable package for certified GalloDocs. Carries references and hashes only; full signing materials are enterprise-internal.",
+      "properties": {
+        "package_id": { "type": "string" },
+        "package_type": { "type": "string" },
+        "status": { "type": "string", "enum": ["not_created", "created", "verified", "failed", "revoked"] },
+        "payload_hash": { "type": "string" },
+        "manifest_hash": { "type": "string" },
+        "signature_algorithm": { "type": "string" },
+        "signed_at": { "type": "string" },
+        "signed_by_org": { "type": "string" },
+        "verification_mode": { "type": "string", "enum": ["offline_verifiable", "online_required", "not_available"] },
+        "contains": { "type": "array", "items": { "type": "string" } },
+        "verification_instructions": { "type": "array", "items": { "type": "string" } },
+        "public_key_reference": { "type": "string" },
+        "cert_chain_reference": { "type": "string" }
+      }
+    },
+    "truth_ledger": {
+      "type": "object",
+      "required": ["available", "truth_state"],
+      "additionalProperties": true,
+      "description": "Additive immutable truth/change history. Carries claim and event summaries plus hashes — never the raw prior values.",
+      "properties": {
+        "available": { "type": "boolean" },
+        "ledger_id": { "type": "string" },
+        "current_snapshot_id": { "type": "string" },
+        "authoritative_at": { "type": "string" },
+        "claim_count": { "type": "integer" },
+        "event_count": { "type": "integer" },
+        "latest_event_hash": { "type": "string" },
+        "snapshot_hash": { "type": "string" },
+        "truth_state": { "type": "string", "enum": ["uncertified", "reviewed", "certified", "disputed", "superseded"] },
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "claim_id": { "type": "string" },
+              "field_path": { "type": "string" },
+              "claim_value_summary": { "type": "string" },
+              "status": { "type": "string", "enum": ["proposed", "accepted", "disputed", "superseded", "certified"] },
+              "confidence": { "type": "number" },
+              "evidence_refs": { "type": "array" },
+              "created_by": { "type": "string" },
+              "created_at": { "type": "string" }
+            }
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "event_id": { "type": "string" },
+              "event_type": { "type": "string", "enum": ["claim_created", "claim_superseded", "claim_disputed", "claim_certified", "snapshot_created"] },
+              "event_hash": { "type": "string" },
+              "previous_event_hash": { "type": "string" },
+              "actor": { "type": "string" },
+              "created_at": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "execution_governance": {
+      "type": "object",
+      "description": "Optional GalloDoc Core v1.1 — governed AI/tool/agent execution on traceable documents. Uses hashes and opaque references only; never raw PHI, prompts, responses, OAuth tokens, IP/session hashes.",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "gallodoc.execution_governance.v1.1"
+        },
+        "gallodoc_schema_version": { "type": "string" },
+        "execution_governance_version": { "type": "string" },
+        "capability_tokens": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "token_id": { "type": "string" },
+              "token_type": { "type": "string" },
+              "status": { "type": "string" },
+              "actor_type": { "type": "string" },
+              "subject_type": { "type": "string" },
+              "issued_at": { "type": "string" },
+              "valid_to": { "type": ["string", "null"] },
+              "requires_him_review": { "type": "boolean" }
+            }
+          }
+        },
+        "mcp_tool_contracts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "tool_id": { "type": "string" },
+              "tool_name": { "type": "string" },
+              "version": { "type": "string" },
+              "risk_level": { "type": "string" },
+              "requires_him_review": { "type": "boolean" },
+              "requires_evidence": { "type": "boolean" },
+              "resource_scope": { "type": "object", "additionalProperties": true }
+            }
+          }
+        },
+        "a2a_agent_contracts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "agent_id": { "type": "string" },
+              "agent_name": { "type": "string" },
+              "trust_level": { "type": "string" },
+              "requires_him_review": { "type": "boolean" },
+              "capabilities_count": { "type": "integer" }
+            }
+          }
+        },
+        "skill_contracts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "skill_id": { "type": "string" },
+              "name": { "type": "string" },
+              "version": { "type": "string" },
+              "risk_level": { "type": "string" },
+              "requires_evidence": { "type": "boolean" },
+              "requires_him_review": { "type": "boolean" }
+            }
+          }
+        },
+        "prompt_contracts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "prompt_id": { "type": "string" },
+              "version": { "type": "string" },
+              "name": { "type": "string" },
+              "purpose": { "type": "string" },
+              "risk_level": { "type": "string" },
+              "prompt_hash": { "type": "string" },
+              "response_hash": { "type": "string" },
+              "model_family": { "type": "string" },
+              "default_model": { "type": "string" },
+              "requires_him_review": { "type": "boolean" },
+              "requires_evidence": { "type": "boolean" },
+              "status": { "type": "string" }
+            }
+          }
+        },
+        "delegation_policies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "policy_id": { "type": "string" },
+              "name": { "type": "string" },
+              "source_actor": { "type": "string" },
+              "target_actor": { "type": "string" },
+              "max_chain_depth": { "type": "integer" },
+              "requires_him_review": { "type": "boolean" }
+            }
+          }
+        },
+        "execution_requests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "request_id": { "type": "string" },
+              "action": { "type": "string" },
+              "status": { "type": "string" },
+              "requested_at": { "type": "string" },
+              "tool_contract_id": { "type": ["string", "null"] },
+              "skill_contract_id": { "type": ["string", "null"] },
+              "prompt_contract_id": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "execution_receipts": {
+          "type": "array",
+          "description": "Proof objects — references and hashes only.",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "receipt_id": { "type": "string" },
+              "request_id": { "type": "string" },
+              "status": { "type": "string" },
+              "created_at": { "type": "string" },
+              "action": { "type": "string" },
+              "policy_allowed": { "type": ["boolean", "string", "null"] },
+              "him_review_required": { "type": ["boolean", "string", "null"] },
+              "model_name": { "type": "string" },
+              "prompt_hash": { "type": "string" },
+              "response_hash": { "type": "string" },
+              "artifact_count": { "type": "integer" },
+              "evidence_pack_id": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "consent_ledger": {
+      "type": "object",
+      "description": "Optional GalloDoc Core v1.2 — consent ledger (metadata only; no raw signatures or personal identifiers).",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.consent_ledger.v1.2" },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "consent_id": { "type": "string" },
+              "subject_type": { "type": "string" },
+              "consent_basis": { "type": "string" },
+              "granted_by_role": { "type": "string" },
+              "granted_at": { "type": "string" },
+              "expires_at": { "type": ["string", "null"] },
+              "scope": { "type": "object", "additionalProperties": true },
+              "restrictions": { "type": "array", "items": { "type": "string" } },
+              "revoked_at": { "type": ["string", "null"] },
+              "consent_artifact_ref": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "chain_of_custody": {
+      "type": "object",
+      "description": "Optional v1.2 — custody events (hashes and opaque locations; no raw URLs).",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.chain_of_custody.v1.2" },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "custody_event_id": { "type": "string" },
+              "event_type": { "type": "string" },
+              "actor_role": { "type": "string" },
+              "source_location": { "type": "string" },
+              "target_location": { "type": "string" },
+              "artifact_hash": { "type": "string" },
+              "package_id": { "type": "string" },
+              "occurred_at": { "type": "string" },
+              "reason_code": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "human_decisions": {
+      "type": "object",
+      "description": "Optional v1.2 — human review decisions (roles and codes only).",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.human_decisions.v1.2" },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "decision_id": { "type": "string" },
+              "reviewer_role": { "type": "string" },
+              "decision": { "type": "string" },
+              "reason_code": { "type": "string" },
+              "override_flag": { "type": "boolean" },
+              "him_c_certified": { "type": "boolean" },
+              "decided_at": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "attestations": {
+      "type": "object",
+      "description": "Optional v1.2 — trust/policy attestations (signature_ref optional digest only).",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.attestations.v1.2" },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "attestation_id": { "type": "string" },
+              "statement": { "type": "string" },
+              "attested_by_role": { "type": "string" },
+              "policy_version": { "type": "string" },
+              "trust_score_summary": { "type": "string" },
+              "evidence_refs": { "type": "array", "items": { "type": "string" } },
+              "attested_at": { "type": "string" },
+              "signature_ref": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "redaction_manifest": {
+      "type": "object",
+      "description": "Optional v1.2 — redaction audit trail (categories and field names only where policy allows).",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.redaction_manifest.v1.2" },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "redaction_id": { "type": "string" },
+              "policy_id": { "type": "string" },
+              "categories_redacted": { "type": "array", "items": { "type": "string" } },
+              "fields_redacted": { "type": "array", "items": { "type": "string" } },
+              "method": { "type": "string" },
+              "performed_at": { "type": "string" },
+              "performed_by_role": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "evidence_quality": {
+      "type": "object",
+      "description": "Optional v1.2 — evidence quality summary for attestation.",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.evidence_quality.v1.2" },
+        "summary": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "score": { "type": ["number", "null"] },
+            "grade": { "type": "string" },
+            "source_authority": { "type": "string" },
+            "freshness": { "type": "string" },
+            "hash_present": { "type": "boolean" },
+            "human_verified": { "type": "boolean" },
+            "external_internal": { "type": "string" },
+            "drivers": { "type": "array", "items": { "type": "string" } },
+            "blockers": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "data_residency": {
+      "type": "object",
+      "description": "Optional GalloDoc Core v1.3 — data residency / boundary hints (no tenant secrets).",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.data_residency.v1.3" },
+        "residency_policy_id": { "type": "string" },
+        "allowed_regions": { "type": "array", "items": { "type": "string" } },
+        "denied_regions": { "type": "array", "items": { "type": "string" } },
+        "processing_boundary": { "type": "string" },
+        "storage_boundary": { "type": "string" },
+        "cross_border_transfer_allowed": { "type": "boolean" },
+        "customer_tenant_boundary": { "type": "string" },
+        "hipaa_boundary": { "type": "string" },
+        "evaluated_at": { "type": "string" }
+      }
+    },
+    "training_permissions": {
+      "type": "object",
+      "description": "Optional v1.3 — AI training use permissions (metadata only).",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.training_permissions.v1.3" },
+        "allowed": { "type": "boolean" },
+        "permission_level": {
+          "type": "string",
+          "enum": ["denied", "internal_only", "anonymized_only", "customer_approved"]
+        },
+        "allowed_uses": { "type": "array", "items": { "type": "string" } },
+        "denied_uses": { "type": "array", "items": { "type": "string" } },
+        "anonymization_required": { "type": "boolean" },
+        "source_basis": { "type": "string" },
+        "expires_at": { "type": ["string", "null"] },
+        "reviewed_by_role": { "type": "string" },
+        "reviewed_at": { "type": "string" }
+      }
+    },
+    "model_risk": {
+      "type": "object",
+      "description": "Optional v1.3 — model/provider risk summary (hashed model id; no prompts/responses).",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.model_risk.v1.3" },
+        "provider_class": {
+          "type": "string",
+          "enum": ["local", "internal", "external", "customer_provided"]
+        },
+        "model_name_hash_or_id": { "type": "string" },
+        "approval_status": {
+          "type": "string",
+          "enum": ["approved", "experimental", "deprecated", "blocked"]
+        },
+        "phi_allowed": { "type": "boolean" },
+        "external_transmission_allowed": { "type": "boolean" },
+        "max_data_mode": {
+          "type": "string",
+          "enum": ["redacted", "masked", "synthetic", "full_internal"]
+        },
+        "reviewed_at": { "type": "string" },
+        "policy_version": { "type": "string" }
+      }
+    },
+    "retention_status": {
+      "type": "object",
+      "description": "Optional v1.3 — retention / legal hold snapshot.",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.retention_status.v1.3" },
+        "retention_type": { "type": "string" },
+        "retain_until": { "type": ["string", "null"] },
+        "legal_hold": { "type": "boolean" },
+        "archive_status": { "type": "string" },
+        "deletion_allowed": { "type": "boolean" },
+        "evaluated_at": { "type": "string" }
+      }
+    },
+    "agent_observability": {
+      "type": "object",
+      "description": "Optional GalloDoc Core v1.4 — agent evaluation, tracing, observability (hashes and summaries only; never raw prompts, chain-of-thought, or PHI).",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.agent_observability.v1.4" },
+        "agent_traces": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "tool_invocation_logs": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "retrieval_traces": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "reasoning_summaries": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "evaluation_results": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "latency_cost_metrics": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "failure_analyses": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "regression_test_results": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "escalation_decisions": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        }
+      }
+    },
+    "trust_decision": {
+      "type": "object",
+      "description": "Optional GalloDoc Core v1.5 — trust scores, decision gates, policy outcomes, recommendations, and receipts. Explainable summaries and scores only; no proprietary weight formulas, raw PHI, prompts, responses, or secrets.",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.trust_decision.v1.5" },
+        "trust_scores": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["score_id", "subject_type", "subject_id", "score", "grade", "status", "calculated_at", "components"],
+            "properties": {
+              "score_id": { "type": "string" },
+              "subject_type": { "type": "string", "enum": ["document", "packet", "execution", "agent_trace"] },
+              "subject_id": { "type": "string" },
+              "score": { "type": "number", "minimum": 0, "maximum": 100 },
+              "grade": { "type": "string", "enum": ["A", "B", "C", "D", "F"] },
+              "status": {
+                "type": "string",
+                "enum": ["trusted", "review_needed", "blocked", "insufficient_data"]
+              },
+              "calculated_at": { "type": "string" },
+              "policy_version": { "type": "string" },
+              "scoring_profile": { "type": "string" },
+              "components": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "evidence_quality",
+                  "lifecycle_completeness",
+                  "security_posture",
+                  "execution_governance",
+                  "consent_custody_attestation",
+                  "residency_training_model_risk",
+                  "agent_observability",
+                  "human_review"
+                ],
+                "properties": {
+                  "evidence_quality": {
+                    "type": "object",
+                    "required": ["score"],
+                    "additionalProperties": true,
+                    "properties": {
+                      "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                      "explanation": { "type": "string" }
+                    }
+                  },
+                  "lifecycle_completeness": {
+                    "type": "object",
+                    "required": ["score"],
+                    "additionalProperties": true,
+                    "properties": {
+                      "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                      "explanation": { "type": "string" }
+                    }
+                  },
+                  "security_posture": {
+                    "type": "object",
+                    "required": ["score"],
+                    "additionalProperties": true,
+                    "properties": {
+                      "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                      "explanation": { "type": "string" }
+                    }
+                  },
+                  "execution_governance": {
+                    "type": "object",
+                    "required": ["score"],
+                    "additionalProperties": true,
+                    "properties": {
+                      "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                      "explanation": { "type": "string" }
+                    }
+                  },
+                  "consent_custody_attestation": {
+                    "type": "object",
+                    "required": ["score"],
+                    "additionalProperties": true,
+                    "properties": {
+                      "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                      "explanation": { "type": "string" }
+                    }
+                  },
+                  "residency_training_model_risk": {
+                    "type": "object",
+                    "required": ["score"],
+                    "additionalProperties": true,
+                    "properties": {
+                      "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                      "explanation": { "type": "string" }
+                    }
+                  },
+                  "agent_observability": {
+                    "type": "object",
+                    "required": ["score"],
+                    "additionalProperties": true,
+                    "properties": {
+                      "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                      "explanation": { "type": "string" }
+                    }
+                  },
+                  "human_review": {
+                    "type": "object",
+                    "required": ["score"],
+                    "additionalProperties": true,
+                    "properties": {
+                      "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                      "explanation": { "type": "string" }
+                    }
+                  }
+                }
+              },
+              "drivers": { "type": "array", "items": { "type": "string" } },
+              "blockers": { "type": "array", "items": { "type": "string" } },
+              "warnings": { "type": "array", "items": { "type": "string" } },
+              "explanation_summary": { "type": "string" }
+            }
+          }
+        },
+        "decision_gates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["gate_id", "gate_name", "action", "subject_type", "subject_id", "decision", "evaluated_at"],
+            "properties": {
+              "gate_id": { "type": "string" },
+              "gate_name": { "type": "string" },
+              "action": { "type": "string" },
+              "subject_type": { "type": "string" },
+              "subject_id": { "type": "string" },
+              "required_min_score": { "type": ["number", "null"] },
+              "required_components": { "type": "array", "items": { "type": "string" } },
+              "blocked_conditions": { "type": "array", "items": { "type": "string" } },
+              "review_conditions": { "type": "array", "items": { "type": "string" } },
+              "decision": { "type": "string", "enum": ["allow", "warn", "block", "require_review"] },
+              "reason_codes": { "type": "array", "items": { "type": "string" } },
+              "evaluated_at": { "type": "string" },
+              "policy_version": { "type": "string" }
+            }
+          }
+        },
+        "policy_outcomes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["outcome_id", "policy_name", "policy_version", "decision", "evaluated_at"],
+            "properties": {
+              "outcome_id": { "type": "string" },
+              "policy_name": { "type": "string" },
+              "policy_version": { "type": "string" },
+              "decision": { "type": "string" },
+              "matched_rules": { "type": "array", "items": { "type": "string" } },
+              "warnings": { "type": "array", "items": { "type": "string" } },
+              "blockers": { "type": "array", "items": { "type": "string" } },
+              "required_actions": { "type": "array", "items": { "type": "string" } },
+              "evaluated_at": { "type": "string" }
+            }
+          }
+        },
+        "action_recommendations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["recommendation_id", "recommended_action", "priority", "reason", "created_at"],
+            "properties": {
+              "recommendation_id": { "type": "string" },
+              "recommended_action": { "type": "string" },
+              "priority": { "type": "string", "enum": ["low", "medium", "high", "urgent"] },
+              "reason": { "type": "string" },
+              "expected_impact": { "type": "string" },
+              "assigned_to_role": { "type": "string" },
+              "due_hint": { "type": "string" },
+              "created_at": { "type": "string" }
+            }
+          }
+        },
+        "decision_receipts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["receipt_id", "action", "decision", "created_at"],
+            "properties": {
+              "receipt_id": { "type": "string" },
+              "action": { "type": "string" },
+              "decision": { "type": "string" },
+              "trust_score_id": { "type": ["string", "null"] },
+              "gate_id": { "type": ["string", "null"] },
+              "policy_outcome_id": { "type": ["string", "null"] },
+              "actor_role": { "type": "string" },
+              "created_at": { "type": "string" },
+              "evidence_refs": { "type": "array", "items": { "type": "string" } },
+              "execution_receipt_refs": { "type": "array", "items": { "type": "string" } },
+              "attestation_refs": { "type": "array", "items": { "type": "string" } },
+              "export_refs": { "type": "array", "items": { "type": "string" } },
+              "portal_refs": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "agent_supply_chain_security": {
+      "type": "object",
+      "description": "Optional GalloDoc Core v1.6 — agent supply chain security for install/run/delegation risk across skills, MCP tools, prompt packs, browser agents, and executable skill bundles. Stores hashes, summaries, scanner IDs, sandbox observations, and decision records only; never raw secrets, PHI, executable payloads, or host execution output.",
+      "additionalProperties": true,
+      "required": ["schema_version"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "gallodoc.agent_supply_chain_security.v1.6" },
+        "scans": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "findings": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "package_manifests": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "permission_reviews": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "dependency_reviews": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "sandbox_observations": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "llm_security_reviews": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "quarantine_decisions": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "install_receipts": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        }
+      }
+    }
+  },
+  "$comment": "Forbidden under the v1 contract: 'fhir' (extension), 'structured_data' (extension), 'entities' (extension), 'audit' (enterprise), 'app_results' (enterprise), 'replay_summary' (enterprise). These belong under extensions.halobridge.* or stay private. Field map: docs/specs/gallodoc-core-v1-field-map.csv. Amendment 1 added required sections: ai_usage, gallounits, certification, gstp, truth_ledger; optional certifier. GalloDoc Core v1.1 adds optional top-level execution_governance (schema_version gallodoc.execution_governance.v1.1). GalloDoc Core v1.2 adds optional consent_ledger, chain_of_custody, human_decisions, attestations, redaction_manifest, evidence_quality — compliance metadata only; no raw URLs, PHI, or signature payloads. GalloDoc Core v1.3 adds optional data_residency, training_permissions, model_risk, retention_status — AI risk / data governance metadata only; never raw training payloads, prompts, or model weights. GalloDoc Core v1.4 adds optional agent_observability — traces, tool logs, retrieval summaries, metrics, evaluations, failures, regressions, escalations — safe summaries and hashes only; never raw prompts, responses, chain-of-thought, or PHI chunks. GalloDoc Core v1.5 adds optional trust_decision — trust scores, gates, policy outcomes, recommendations, receipts — explainable only; no proprietary formulas or sensitive payloads. GalloDoc Core v1.6 adds optional agent_supply_chain_security — install/run/delegation risk for AI agent packages, skills, MCP tools, prompt packs, browser agents, and executable bundles; hashes, summaries, scanner IDs, sandbox observations, and decisions only; no raw secrets, PHI, executable payloads, host execution output, or network-on sandbox defaults."
+}

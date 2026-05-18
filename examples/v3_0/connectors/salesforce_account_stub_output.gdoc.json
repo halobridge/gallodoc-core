@@ -1,0 +1,196 @@
+{
+  "schema_version": "gallodoc-core/v3",
+  "identity": {
+    "gallodoc_id": "sfdc-account:sha256:f95ad6a5d17d2c5a9071fed2eda3a200374dabad84e411cd53e19545124e8bc4",
+    "schema_version": "gallodoc-core/v3",
+    "title": "Acme Health Co.",
+    "document_type": "account_record"
+  },
+  "source": {
+    "source_system": "salesforce",
+    "source_kind": "account",
+    "readiness_status": "ready",
+    "connector_slug": "salesforce_account_stub",
+    "sync_run_id": "sync-salesforce_account_stub-EXAMPLE0001",
+    "connector_lineage": {
+      "schema_version": "gallodoc.connector_lineage.v2.0",
+      "connector_sources": [
+        {
+          "connector_slug": "salesforce_account_stub",
+          "connector_category": "open_sdk",
+          "status": "active"
+        }
+      ],
+      "sync_runs": [
+        {
+          "sync_run_id": "sync-salesforce_account_stub-EXAMPLE0001",
+          "connector_slug": "salesforce_account_stub",
+          "connector_version": "3.0.0",
+          "started_at": "2026-05-16T00:00:00Z",
+          "completed_at": "2026-05-16T00:00:00Z",
+          "record_count": 1,
+          "success_count": 1,
+          "failed_count": 0,
+          "source_ref_hash": null,
+          "status": "completed"
+        }
+      ],
+      "record_receipts": [
+        {
+          "receipt_id": "rcpt-sync-salesforce_account_stub-EXAMPLE0001",
+          "sync_run_id": "sync-salesforce_account_stub-EXAMPLE0001",
+          "record_hash": "sha256:b9d05c452a38fe7822929410167dc0436df715f93e3a11bd6a98d65ce2dd47e5",
+          "source_record_id_hash": "sha256:f95ad6a5d17d2c5a9071fed2eda3a200374dabad84e411cd53e19545124e8bc4",
+          "gallodoc_ref": "sfdc-account:sha256:f95ad6a5d17d2c5a9071fed2eda3a200374dabad84e411cd53e19545124e8bc4"
+        }
+      ]
+    }
+  },
+  "purpose": {
+    "primary_intent": "ingest",
+    "workflow_intent": "ingest"
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "stages": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": {
+    "schema_version": "gallodoc.relationships.v3.0",
+    "relationships": [],
+    "relationship_evidence": [],
+    "relationship_decisions": []
+  },
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": null,
+    "last_encrypted_at": null
+  },
+  "exports": [],
+  "extensions": {
+    "connector_input": {
+      "salesforce_account_stub": {
+        "account_id": "001-EX-0001",
+        "name": "Acme Health Co.",
+        "type": "Customer",
+        "industry": "Healthcare",
+        "owner_email": "rep@example.com"
+      }
+    }
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "sfdc_account_v1",
+    "units": [
+      {
+        "unit_id": "sha256:d1ccfe89f7fe272838c56c1e2d3be18050039a77fdaa6ecde275336d794b1d95",
+        "unit_type": "entity",
+        "semantic_role": "sfdc_account.name",
+        "text_hash": "sha256:4d43dfa81208094cd50a33e91997514abe03b6670bbe4d5a7465f80d08eee82a",
+        "content_summary": "name: Acme Health Co.",
+        "evidence_refs": [],
+        "relationship_refs": [],
+        "extractions": {},
+        "validation_refs": [],
+        "ai_usage_refs": []
+      },
+      {
+        "unit_id": "sha256:05748cd20f07ad396d3857ae283f1bf86efdf443895fc64c028582daf183cc84",
+        "unit_type": "entity",
+        "semantic_role": "sfdc_account.type",
+        "text_hash": "sha256:bf3763383aaf43069885db20b386631c6d5d8b8481df2a26769e9de5fe2f9c82",
+        "content_summary": "type: Customer",
+        "evidence_refs": [],
+        "relationship_refs": [],
+        "extractions": {},
+        "validation_refs": [],
+        "ai_usage_refs": []
+      },
+      {
+        "unit_id": "sha256:8e4d9249b78be2450e1556575ce42ed39d4e90d4331fd6dd1ceb42fb8cbcc797",
+        "unit_type": "entity",
+        "semantic_role": "sfdc_account.industry",
+        "text_hash": "sha256:a64b892ff09a8da719660e7dbec3c8c185b861385c8cdc723935ae9ee7ae344a",
+        "content_summary": "industry: Healthcare",
+        "evidence_refs": [],
+        "relationship_refs": [],
+        "extractions": {},
+        "validation_refs": [],
+        "ai_usage_refs": []
+      },
+      {
+        "unit_id": "sha256:13f1d9a5b4db4a80e2bdc68ed5107ea6cfcd85a0fc9ae873d2bdc584b14d434e",
+        "unit_type": "entity",
+        "semantic_role": "sfdc_account.owner_email",
+        "text_hash": "sha256:56bfa5ab0529cfaa3b1651debdbf3c786065efb7e12f85cc321c0bb51693ad59",
+        "content_summary": "owner_email: rep@example.com",
+        "evidence_refs": [],
+        "relationship_refs": [],
+        "extractions": {},
+        "validation_refs": [],
+        "ai_usage_refs": []
+      }
+    ]
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none"
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "none",
+    "status": "not_created"
+  },
+  "truth_ledger": {
+    "available": false,
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  },
+  "trust": {
+    "schema_version": "gallodoc.trust.v3.0",
+    "components": [],
+    "drivers": [],
+    "blockers": [],
+    "warnings": [],
+    "decision_gates": [],
+    "policy_outcomes": [],
+    "action_recommendations": [],
+    "decision_receipts": []
+  }
+}

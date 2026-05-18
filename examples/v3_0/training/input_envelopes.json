@@ -1,0 +1,303 @@
+[
+  {
+    "schema_version": "gallodoc-core/v3",
+    "identity": {
+      "gallodoc_id": "doc_invoice_001",
+      "schema_version": "gallodoc-core/v3",
+      "title": "Synthetic invoice (Acme Co)",
+      "document_type": "invoice",
+      "mime_type": "application/pdf",
+      "created_at": "2026-05-16T08:00:00+00:00",
+      "content_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "source": {
+      "source_system": "demo_ap",
+      "source_kind": "synthetic",
+      "ingested_at": "2026-05-16T08:00:00+00:00",
+      "readiness_status": "ready"
+    },
+    "purpose": {"primary_intent": "ap_review", "workflow_intent": "match_and_pay"},
+    "lifecycle": {"available": false, "current_status": "", "stages": []},
+    "activity": {"available": false, "event_count": 0, "counts_by_type": {}, "latest_events": []},
+    "relationships": {
+      "schema_version": "gallodoc.relationships.v3.0",
+      "relationships": [
+        {
+          "relationship_id": "rel_inv001_emp042_confirmed_human",
+          "source_document_ref": "doc_invoice_001",
+          "target_document_ref": "doc_employee_042",
+          "relationship_type": "approved_by",
+          "status": "confirmed",
+          "discovered_by": "human_review",
+          "confidence": 0.95,
+          "semantic_intent": "invoice_to_employee_approver"
+        },
+        {
+          "relationship_id": "rel_inv001_emp099_confirmed_linker",
+          "source_document_ref": "doc_invoice_001",
+          "target_document_ref": "doc_employee_099",
+          "relationship_type": "approved_by",
+          "status": "confirmed",
+          "discovered_by": "gallodoc-linker/3.0.0",
+          "confidence": 0.88,
+          "semantic_intent": "invoice_to_employee_approver"
+        },
+        {
+          "relationship_id": "rel_inv001_emp123_rejected",
+          "source_document_ref": "doc_invoice_001",
+          "target_document_ref": "doc_employee_123",
+          "relationship_type": "approved_by",
+          "status": "rejected",
+          "discovered_by": "gallodoc-linker/3.0.0",
+          "confidence": 0.42
+        },
+        {
+          "relationship_id": "rel_inv001_inv002_suggested",
+          "source_document_ref": "doc_invoice_001",
+          "target_document_ref": "doc_invoice_002",
+          "relationship_type": "related_to",
+          "status": "suggested",
+          "discovered_by": "gallodoc-linker/3.0.0",
+          "confidence": 0.55
+        }
+      ],
+      "relationship_decisions": [
+        {
+          "decision_id": "dec_rel_inv001_emp042",
+          "relationship_id": "rel_inv001_emp042_confirmed_human",
+          "verdict": "confirmed",
+          "decided_by": "ap_lead@example.com",
+          "decided_at": "2026-05-16T09:00:00Z"
+        },
+        {
+          "decision_id": "dec_rel_inv001_emp099",
+          "relationship_id": "rel_inv001_emp099_confirmed_linker",
+          "verdict": "confirmed",
+          "decided_by": "ap_lead@example.com",
+          "decided_at": "2026-05-16T09:05:00Z"
+        },
+        {
+          "decision_id": "dec_rel_inv001_emp123",
+          "relationship_id": "rel_inv001_emp123_rejected",
+          "verdict": "rejected",
+          "decided_by": "ap_lead@example.com",
+          "decided_at": "2026-05-16T09:10:00Z"
+        }
+      ],
+      "relationship_evidence": [
+        {
+          "evidence_id": "ev_inv001_emp042_email_match",
+          "relationship_id": "rel_inv001_emp042_confirmed_human",
+          "evidence_type": "field_match",
+          "field_name": "approver_email",
+          "value_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ]
+    },
+    "evidence": {"count": 1, "refs": ["ev_inv001_emp042_email_match"]},
+    "validations": {"contradictions": [], "packet_findings": [], "model_disagreements": []},
+    "security": {
+      "phi_detected": false,
+      "phi_categories": [],
+      "phi_risk_level": "none",
+      "encrypted": false,
+      "encryption_backend": null,
+      "encryption_key_id": null,
+      "encrypted_fields": [],
+      "masked_fields": [],
+      "redaction_policy": null,
+      "raw_export_allowed": true,
+      "encryption_policy_status": "not_required",
+      "last_phi_scan_at": null,
+      "last_encrypted_at": null
+    },
+    "exports": [],
+    "extensions": {},
+    "ai_usage": {
+      "summary": {"total_runs": 0, "total_input_tokens": 0, "total_output_tokens": 0, "total_tokens": 0, "estimated_total_cost": 0.0, "currency": "USD"},
+      "runs": []
+    },
+    "gallounits": {
+      "unit_strategy": "gallounit_v1",
+      "units": [
+        {"unit_id": "u_inv001_vendor", "semantic_role": "vendor", "content_summary": "Acme Co"},
+        {"unit_id": "u_inv001_total", "semantic_role": "amount", "content_summary": "1500.00 USD"}
+      ]
+    },
+    "certification": {"status": "none", "certification_type": "none"},
+    "gstp": {"package_id": "", "package_type": "none", "status": "not_created"},
+    "truth_ledger": {
+      "available": true,
+      "truth_state": "uncertified",
+      "claims": [
+        {"claim_id": "c_inv001_vendor", "field_path": "vendor_name", "value": "Acme Co"},
+        {"claim_id": "c_inv001_amount", "field_path": "total_amount", "value": "1500.00"}
+      ],
+      "events": []
+    },
+    "trust": {
+      "schema_version": "gallodoc.trust.v3.0",
+      "components": [],
+      "drivers": [],
+      "blockers": [],
+      "warnings": [],
+      "decision_gates": [],
+      "policy_outcomes": [],
+      "action_recommendations": [],
+      "decision_receipts": []
+    }
+  },
+  {
+    "schema_version": "gallodoc-core/v3",
+    "identity": {
+      "gallodoc_id": "doc_invoice_002",
+      "schema_version": "gallodoc-core/v3",
+      "title": "Synthetic invoice (Acme Co, second)",
+      "document_type": "invoice",
+      "mime_type": "application/pdf",
+      "created_at": "2026-05-16T08:00:00+00:00",
+      "content_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+    },
+    "source": {"source_system": "demo_ap", "source_kind": "synthetic", "ingested_at": "2026-05-16T08:00:00+00:00", "readiness_status": "ready"},
+    "purpose": {"primary_intent": "ap_review", "workflow_intent": "match_and_pay"},
+    "lifecycle": {"available": false, "current_status": "", "stages": []},
+    "activity": {"available": false, "event_count": 0, "counts_by_type": {}, "latest_events": []},
+    "relationships": {
+      "schema_version": "gallodoc.relationships.v3.0",
+      "relationships": [],
+      "relationship_decisions": [],
+      "relationship_evidence": []
+    },
+    "evidence": {"count": 0, "refs": []},
+    "validations": {"contradictions": [], "packet_findings": [], "model_disagreements": []},
+    "security": {
+      "phi_detected": false, "phi_categories": [], "phi_risk_level": "none",
+      "encrypted": false, "encryption_backend": null, "encryption_key_id": null,
+      "encrypted_fields": [], "masked_fields": [], "redaction_policy": null,
+      "raw_export_allowed": true, "encryption_policy_status": "not_required",
+      "last_phi_scan_at": null, "last_encrypted_at": null
+    },
+    "exports": [],
+    "extensions": {},
+    "ai_usage": {"summary": {"total_runs": 0, "total_input_tokens": 0, "total_output_tokens": 0, "total_tokens": 0, "estimated_total_cost": 0.0, "currency": "USD"}, "runs": []},
+    "gallounits": {
+      "unit_strategy": "gallounit_v1",
+      "units": [
+        {"unit_id": "u_inv002_vendor", "semantic_role": "vendor", "content_summary": "Acme Co"},
+        {"unit_id": "u_inv002_total", "semantic_role": "amount", "content_summary": "950.00 USD"}
+      ]
+    },
+    "certification": {"status": "none", "certification_type": "none"},
+    "gstp": {"package_id": "", "package_type": "none", "status": "not_created"},
+    "truth_ledger": {
+      "available": true,
+      "truth_state": "uncertified",
+      "claims": [
+        {"claim_id": "c_inv002_vendor", "field_path": "vendor_name", "value": "Acme Co"},
+        {"claim_id": "c_inv002_amount", "field_path": "total_amount", "value": "950.00"}
+      ],
+      "events": []
+    },
+    "trust": {
+      "schema_version": "gallodoc.trust.v3.0",
+      "components": [], "drivers": [], "blockers": [], "warnings": [],
+      "decision_gates": [], "policy_outcomes": [], "action_recommendations": [], "decision_receipts": []
+    }
+  },
+  {
+    "schema_version": "gallodoc-core/v3",
+    "identity": {
+      "gallodoc_id": "doc_employee_042",
+      "schema_version": "gallodoc-core/v3",
+      "title": "Synthetic employee record (Approver A)",
+      "document_type": "employee_record",
+      "mime_type": "application/json",
+      "created_at": "2026-05-16T08:00:00+00:00",
+      "content_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333"
+    },
+    "source": {"source_system": "demo_hr", "source_kind": "synthetic", "ingested_at": "2026-05-16T08:00:00+00:00", "readiness_status": "ready"},
+    "purpose": {"primary_intent": "identity", "workflow_intent": "lookup"},
+    "lifecycle": {"available": false, "current_status": "", "stages": []},
+    "activity": {"available": false, "event_count": 0, "counts_by_type": {}, "latest_events": []},
+    "relationships": {
+      "schema_version": "gallodoc.relationships.v3.0",
+      "relationships": [],
+      "relationship_decisions": [],
+      "relationship_evidence": []
+    },
+    "evidence": {"count": 0, "refs": []},
+    "validations": {"contradictions": [], "packet_findings": [], "model_disagreements": []},
+    "security": {
+      "phi_detected": false, "phi_categories": [], "phi_risk_level": "none",
+      "encrypted": false, "encryption_backend": null, "encryption_key_id": null,
+      "encrypted_fields": [], "masked_fields": [], "redaction_policy": null,
+      "raw_export_allowed": true, "encryption_policy_status": "not_required",
+      "last_phi_scan_at": null, "last_encrypted_at": null
+    },
+    "exports": [],
+    "extensions": {},
+    "ai_usage": {"summary": {"total_runs": 0, "total_input_tokens": 0, "total_output_tokens": 0, "total_tokens": 0, "estimated_total_cost": 0.0, "currency": "USD"}, "runs": []},
+    "gallounits": {
+      "unit_strategy": "gallounit_v1",
+      "units": [
+        {"unit_id": "u_emp042_role", "semantic_role": "person", "content_summary": "Approver A — handles Acme Co contracts"}
+      ]
+    },
+    "certification": {"status": "none", "certification_type": "none"},
+    "gstp": {"package_id": "", "package_type": "none", "status": "not_created"},
+    "truth_ledger": {"available": false, "truth_state": "uncertified", "claims": [], "events": []},
+    "trust": {
+      "schema_version": "gallodoc.trust.v3.0",
+      "components": [], "drivers": [], "blockers": [], "warnings": [],
+      "decision_gates": [], "policy_outcomes": [], "action_recommendations": [], "decision_receipts": []
+    }
+  },
+  {
+    "schema_version": "gallodoc-core/v3",
+    "identity": {
+      "gallodoc_id": "doc_employee_099",
+      "schema_version": "gallodoc-core/v3",
+      "title": "Synthetic employee record (Approver B)",
+      "document_type": "employee_record",
+      "mime_type": "application/json",
+      "created_at": "2026-05-16T08:00:00+00:00",
+      "content_hash": "sha256:4444444444444444444444444444444444444444444444444444444444444444"
+    },
+    "source": {"source_system": "demo_hr", "source_kind": "synthetic", "ingested_at": "2026-05-16T08:00:00+00:00", "readiness_status": "ready"},
+    "purpose": {"primary_intent": "identity", "workflow_intent": "lookup"},
+    "lifecycle": {"available": false, "current_status": "", "stages": []},
+    "activity": {"available": false, "event_count": 0, "counts_by_type": {}, "latest_events": []},
+    "relationships": {
+      "schema_version": "gallodoc.relationships.v3.0",
+      "relationships": [],
+      "relationship_decisions": [],
+      "relationship_evidence": []
+    },
+    "evidence": {"count": 0, "refs": []},
+    "validations": {"contradictions": [], "packet_findings": [], "model_disagreements": []},
+    "security": {
+      "phi_detected": false, "phi_categories": [], "phi_risk_level": "none",
+      "encrypted": false, "encryption_backend": null, "encryption_key_id": null,
+      "encrypted_fields": [], "masked_fields": [], "redaction_policy": null,
+      "raw_export_allowed": true, "encryption_policy_status": "not_required",
+      "last_phi_scan_at": null, "last_encrypted_at": null
+    },
+    "exports": [],
+    "extensions": {},
+    "ai_usage": {"summary": {"total_runs": 0, "total_input_tokens": 0, "total_output_tokens": 0, "total_tokens": 0, "estimated_total_cost": 0.0, "currency": "USD"}, "runs": []},
+    "gallounits": {
+      "unit_strategy": "gallounit_v1",
+      "units": [
+        {"unit_id": "u_emp099_role", "semantic_role": "person", "content_summary": "Approver B"}
+      ]
+    },
+    "certification": {"status": "none", "certification_type": "none"},
+    "gstp": {"package_id": "", "package_type": "none", "status": "not_created"},
+    "truth_ledger": {"available": false, "truth_state": "uncertified", "claims": [], "events": []},
+    "trust": {
+      "schema_version": "gallodoc.trust.v3.0",
+      "components": [], "drivers": [], "blockers": [], "warnings": [],
+      "decision_gates": [], "policy_outcomes": [], "action_recommendations": [], "decision_receipts": []
+    }
+  }
+]

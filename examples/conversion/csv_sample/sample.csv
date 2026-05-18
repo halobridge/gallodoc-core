@@ -1,0 +1,6 @@
+date,category,amount,currency
+2026-04-01,compute,12450.00,USD
+2026-04-02,storage,2300.50,USD
+2026-04-03,network,890.10,USD
+2026-04-04,observability,1100.00,USD
+2026-04-05,human_review,3200.00,USD

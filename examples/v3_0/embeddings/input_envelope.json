@@ -1,0 +1,131 @@
+{
+  "schema_version": "gallodoc-core/v3",
+  "identity": {
+    "gallodoc_id": "doc_embeddings_example_001",
+    "schema_version": "gallodoc-core/v3",
+    "title": "GalloDoc v3 embeddings example (synthetic)",
+    "document_type": "test_fixture",
+    "mime_type": "application/json",
+    "created_at": "2026-05-16T12:00:00Z",
+    "content_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "source": {
+    "source_system": "example.com/synthetic",
+    "source_kind": "test_fixture",
+    "ingested_at": "2026-05-16T12:00:00Z",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "demo",
+    "workflow_intent": "demo"
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "stages": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": {
+    "schema_version": "gallodoc.relationships.v3.0",
+    "relationships": [],
+    "relationship_evidence": [],
+    "relationship_decisions": []
+  },
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": null,
+    "last_encrypted_at": null
+  },
+  "exports": [],
+  "extensions": {},
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "units": [
+      {
+        "unit_id": "gu_summary",
+        "unit_type": "paragraph",
+        "semantic_role": "document_summary",
+        "text_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "content_summary": "Vendor invoice for office supplies, total $1,234.56.",
+        "confidence": 0.95
+      },
+      {
+        "unit_id": "gu_approver",
+        "unit_type": "entity",
+        "semantic_role": "approver_ref",
+        "text_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "content_summary": "Approver: jane.doe@example.com.",
+        "confidence": 0.95
+      },
+      {
+        "unit_id": "gu_terms",
+        "unit_type": "clause",
+        "semantic_role": "payment_terms",
+        "text_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "content_summary": "Net 30 payment terms; late fees apply after due date.",
+        "confidence": 0.95
+      }
+    ]
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none"
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "none",
+    "status": "not_created"
+  },
+  "truth_ledger": {
+    "available": false,
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  },
+  "trust": {
+    "schema_version": "gallodoc.trust.v3.0",
+    "components": [],
+    "drivers": [],
+    "blockers": [],
+    "warnings": [],
+    "decision_gates": [],
+    "policy_outcomes": [],
+    "action_recommendations": [],
+    "decision_receipts": []
+  }
+}

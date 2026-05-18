@@ -1,0 +1,328 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-cert-export-9900",
+    "document_id": "doc-cert-export-9900",
+    "title": "Certified audit-evidence export (synthetic)",
+    "document_type": "audit_evidence_export",
+    "mime_type": "application/json",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-04-30T21:00:00+00:00",
+    "content_hash": ""
+  },
+  "source": {
+    "source_system": "halobridge",
+    "source_kind": "evidence_bundle",
+    "source_record_id": "case:9900",
+    "connector_slug": "",
+    "connection_id": "",
+    "sync_run_id": "",
+    "ingested_at": "2026-04-30T20:55:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "ai_audit",
+    "workflow_intent": "audit_evidence",
+    "app_slug": "ai_audit",
+    "requested_by": "compliance_team",
+    "reason_code": "certified_audit_export",
+    "reason_text": "Certified GSTP package for external auditor (synthetic).",
+    "evidence": ["metadata:ai_audit"],
+    "confidence": 0.96
+  },
+  "lifecycle": {
+    "available": true,
+    "current_status": "certified",
+    "schema_version": "document_lifecycle/v1",
+    "stages": [
+      {
+        "stage": "evidence_collection",
+        "status": "completed",
+        "actor": {"actor_type": "system", "actor_id": null, "actor_name": "system"},
+        "timestamp": "2026-04-30T20:55:00+00:00",
+        "app_slug": "ai_audit",
+        "source": "external_evidence_service",
+        "metadata": {"sources": 4}
+      },
+      {
+        "stage": "certification",
+        "status": "completed",
+        "actor": {"actor_type": "user", "actor_id": "u-certifier-001", "actor_name": "certifier@example.com"},
+        "timestamp": "2026-04-30T20:58:00+00:00",
+        "app_slug": "him_c_console",
+        "source": "him_c",
+        "metadata": {"policy_id": "him_c.audit_evidence.v1"}
+      },
+      {
+        "stage": "gstp_packaging",
+        "status": "completed",
+        "actor": {"actor_type": "system", "actor_id": null, "actor_name": "gstp_signer"},
+        "timestamp": "2026-04-30T20:59:00+00:00",
+        "app_slug": "",
+        "source": "gstp_signer",
+        "metadata": {"signature_algorithm": "ed25519"}
+      }
+    ],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": true,
+    "event_count": 2,
+    "counts_by_type": {"certified": 1, "exported": 1},
+    "latest_events": [
+      {
+        "event_type": "exported",
+        "created_at": "2026-04-30T21:00:00+00:00",
+        "who": {"actor_type": "system", "actor_id": null, "actor_name": "gstp_signer"},
+        "what": {"document_id": "doc-cert-export-9900"},
+        "where": {"source": "export_center", "route": "/exports/gstp/"},
+        "why": {"reason_code": "certified_export", "reason_text": "External auditor delivery"},
+        "metadata": {"package_id": "gstp-pkg-9900"}
+      }
+    ]
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 1,
+    "refs": [
+      {"id": "ev-cert-001", "label": "Synthetic source bundle", "kind": "evidence_bundle"}
+    ]
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [
+      {"packet_id": "pkt-audit-evidence-99", "packet_type": "audit_evidence_packet", "finding_count": 0}
+    ],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": "2026-04-30T20:55:00+00:00",
+    "last_encrypted_at": null
+  },
+  "exports": [
+    {
+      "export_type": "gstp",
+      "artifact_family": "exports.gstp",
+      "artifact_key": "gstp_package_v1",
+      "created_at": "2026-04-30T21:00:00+00:00",
+      "checksum": "sha256:1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c",
+      "redacted": false,
+      "encrypted": false,
+      "contains_phi": false
+    }
+  ],
+  "extensions": {
+    "halobridge": {
+      "source_profile": "enterprise-export",
+      "source_schema": "gallodoc/v1"
+    }
+  },
+  "hashes": {
+    "algorithm": "sha256",
+    "envelope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_envelope_sha256": ""
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 1,
+      "total_input_tokens": 1200,
+      "total_output_tokens": 240,
+      "total_tokens": 1440,
+      "estimated_total_cost": 0.005,
+      "currency": "USD"
+    },
+    "runs": [
+      {
+        "run_id": "run-evidence-summary-9900",
+        "operation": "summary",
+        "provider": "anthropic",
+        "model": "claude-opus-4-7",
+        "input_tokens": 1200,
+        "output_tokens": 240,
+        "total_tokens": 1440,
+        "estimated_cost": 0.005,
+        "currency": "USD",
+        "latency_ms": 1100,
+        "status": "success",
+        "retry_count": 0,
+        "started_at": "2026-04-30T20:57:00+00:00",
+        "completed_at": "2026-04-30T20:57:01+00:00",
+        "data_mode": "redacted",
+        "purpose": "evidence_summary",
+        "prompt_hash": "sha256:55ee66ff7700889911aa22bb33cc44dd55ee66ff7700889911aa22bb33cc44dd",
+        "response_hash": "sha256:66ff7700889911aa22bb33cc44dd55ee66ff7700889911aa22bb33cc44dd55ee",
+        "stored_prompt": false,
+        "stored_response": false
+      }
+    ]
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "canonical_text_hash": "sha256:cert9900000000000000000000000000000000000000000000000000000000aa",
+    "units": [
+      {
+        "unit_id": "gu_evidence_summary",
+        "unit_type": "section",
+        "semantic_role": "evidence",
+        "source_span": {
+          "page": 1,
+          "start_char": 0,
+          "end_char": 480,
+          "start_time_ms": null,
+          "end_time_ms": null,
+          "region": null
+        },
+        "text_hash": "sha256:7a8b9c0d1e2f3a4b5c6d7e8f90123456789a0b1c2d3e4f5a6b7c8d9e0f1a2b3c",
+        "content_summary": "Summary of evidence assembled for the synthetic audit case.",
+        "confidence": 0.95,
+        "evidence_refs": ["ev-cert-001"],
+        "relationship_refs": [],
+        "extractions": {"reference_count": 4},
+        "validation_refs": [],
+        "ai_usage_refs": ["run-evidence-summary-9900"]
+      }
+    ],
+    "model_projections": [
+      {
+        "projection_id": "p-cert-1",
+        "unit_id": "gu_evidence_summary",
+        "provider": "anthropic",
+        "model_family": "claude-4",
+        "model": "claude-opus-4-7",
+        "tokenizer": "anthropic_v2",
+        "token_count": 320,
+        "projection_hash": "sha256:fff00000000000000000000000000000000000000000000000000000000000ff",
+        "created_at": "2026-04-30T20:57:00+00:00"
+      }
+    ]
+  },
+  "certification": {
+    "status": "certified",
+    "certification_type": "human_certified",
+    "certified_by": "u-certifier-001",
+    "certified_at": "2026-04-30T20:58:00+00:00",
+    "policy_id": "him_c.audit_evidence.v1",
+    "policy_version": "v1.4",
+    "case_id": "case-9900",
+    "intent": "audit_evidence_export",
+    "evidence_manifest_hash": "sha256:11111111111111111111111111111111111111111111111111111111111111aa",
+    "payload_hash": "sha256:22222222222222222222222222222222222222222222222222222222222222bb",
+    "signature_algorithm": "ed25519",
+    "signature_id": "sig-cert-9900",
+    "gstp_package_id": "gstp-pkg-9900",
+    "revocation_status": "active",
+    "revocation_reason": ""
+  },
+  "certifier": {
+    "certifier_id": "providence-cert-001",
+    "certifier_type": "providence_certifier",
+    "name": "Synthetic Providence Certifier",
+    "organization": "Synthetic Providence Authority",
+    "certification_level": "HIM-C",
+    "certification_authority": "Providence",
+    "credential_id": "providence-cred-001",
+    "credential_hash": "sha256:abc11111111111111111111111111111111111111111111111111111111111ab",
+    "valid_from": "2025-01-01T00:00:00+00:00",
+    "valid_to": "2027-01-01T00:00:00+00:00",
+    "revocation_status": "active",
+    "domains": ["healthcare", "audit_evidence"],
+    "scope": {
+      "document_types": ["audit_evidence_export", "rcm_claim"],
+      "packet_types": ["audit_evidence_packet"],
+      "jurisdictions": ["us"],
+      "regulations": ["hipaa"],
+      "allowed_purposes": ["audit_evidence", "ai_audit"]
+    }
+  },
+  "gstp": {
+    "package_id": "gstp-pkg-9900",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "verified",
+    "payload_hash": "sha256:22222222222222222222222222222222222222222222222222222222222222bb",
+    "manifest_hash": "sha256:33333333333333333333333333333333333333333333333333333333333333cc",
+    "signature_algorithm": "ed25519",
+    "signed_at": "2026-04-30T20:59:00+00:00",
+    "signed_by_org": "Synthetic Providence Authority",
+    "verification_mode": "offline_verifiable",
+    "contains": ["envelope", "evidence", "certification", "signatures"],
+    "verification_instructions": [
+      "Re-canonicalize manifest.json (canonical JSON), strip signature_id, hash with sha256.",
+      "Verify the detached signature against the manifest_hash with the public key referenced by public_key_reference.",
+      "Re-hash envelope.json and each evidence file; compare against the listed sha256s."
+    ],
+    "public_key_reference": "providence-pub-key-001",
+    "cert_chain_reference": "providence-chain-2026"
+  },
+  "truth_ledger": {
+    "available": true,
+    "ledger_id": "ledger-9900",
+    "current_snapshot_id": "snap-9900-001",
+    "authoritative_at": "2026-04-30T20:58:00+00:00",
+    "claim_count": 2,
+    "event_count": 3,
+    "latest_event_hash": "sha256:eeee0000000000000000000000000000000000000000000000000000000000ee",
+    "snapshot_hash": "sha256:dddd0000000000000000000000000000000000000000000000000000000000dd",
+    "truth_state": "certified",
+    "claims": [
+      {
+        "claim_id": "claim-9900-1",
+        "field_path": "evidence.refs[0].id",
+        "claim_value_summary": "ev-cert-001 attached as primary evidence (synthetic).",
+        "status": "certified",
+        "confidence": 0.97,
+        "evidence_refs": ["ev-cert-001"],
+        "created_by": "u-certifier-001",
+        "created_at": "2026-04-30T20:58:00+00:00"
+      },
+      {
+        "claim_id": "claim-9900-2",
+        "field_path": "purpose.primary_intent",
+        "claim_value_summary": "Primary intent is ai_audit per case-9900.",
+        "status": "accepted",
+        "confidence": 0.96,
+        "evidence_refs": [],
+        "created_by": "u-certifier-001",
+        "created_at": "2026-04-30T20:58:00+00:00"
+      }
+    ],
+    "events": [
+      {
+        "event_id": "evt-9900-1",
+        "event_type": "claim_created",
+        "event_hash": "sha256:cccc0000000000000000000000000000000000000000000000000000000000c1",
+        "previous_event_hash": "",
+        "actor": "u-certifier-001",
+        "created_at": "2026-04-30T20:57:30+00:00"
+      },
+      {
+        "event_id": "evt-9900-2",
+        "event_type": "claim_certified",
+        "event_hash": "sha256:cccc0000000000000000000000000000000000000000000000000000000000c2",
+        "previous_event_hash": "sha256:cccc0000000000000000000000000000000000000000000000000000000000c1",
+        "actor": "u-certifier-001",
+        "created_at": "2026-04-30T20:58:00+00:00"
+      },
+      {
+        "event_id": "evt-9900-3",
+        "event_type": "snapshot_created",
+        "event_hash": "sha256:eeee0000000000000000000000000000000000000000000000000000000000ee",
+        "previous_event_hash": "sha256:cccc0000000000000000000000000000000000000000000000000000000000c2",
+        "actor": "system",
+        "created_at": "2026-04-30T20:59:00+00:00"
+      }
+    ]
+  }
+}

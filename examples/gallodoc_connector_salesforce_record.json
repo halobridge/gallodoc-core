@@ -1,0 +1,189 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-sf-account-6600",
+    "document_id": "doc-sf-account-6600",
+    "title": "Account record (synthetic)",
+    "document_type": "crm_account",
+    "mime_type": "application/json",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-04-30T19:00:00+00:00",
+    "content_hash": ""
+  },
+  "source": {
+    "source_system": "salesforce",
+    "source_kind": "crm_record",
+    "source_record_id": "Account/0016g00000Synth1",
+    "connector_slug": "salesforce",
+    "connection_id": "conn-sf-001",
+    "sync_run_id": "sync-2026-04-30-19",
+    "ingested_at": "2026-04-30T18:55:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "general_document_intelligence",
+    "workflow_intent": "crm_sync",
+    "app_slug": "",
+    "requested_by": "system",
+    "reason_code": "",
+    "reason_text": "",
+    "evidence": [
+      "fallback:document_type=crm_account"
+    ],
+    "confidence": 0.55
+  },
+  "lifecycle": {
+    "available": true,
+    "current_status": "ingested",
+    "schema_version": "document_lifecycle/v1",
+    "stages": [
+      {
+        "stage": "ingest",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T18:55:00+00:00",
+        "app_slug": "",
+        "source": "salesforce",
+        "metadata": {
+          "object": "Account"
+        }
+      }
+    ],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel-sf-related-contact",
+      "relationship_type": "derived_from",
+      "source_document_id": "doc-sf-account-6600",
+      "target_document_id": "doc-sf-contact-6601",
+      "method": "salesforce_relationship",
+      "status": "confirmed",
+      "confidence": 1.0,
+      "evidence": {
+        "summary": "Primary contact reference"
+      }
+    }
+  ],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": null,
+    "last_encrypted_at": null
+  },
+  "exports": [],
+  "connector_source": {
+    "available": true,
+    "connector_slug": "salesforce",
+    "connector_name": "Salesforce CRM",
+    "connection_id": "conn-sf-001",
+    "source_record_id": "Account/0016g00000Synth1",
+    "source_system": "salesforce",
+    "sync_run_id": "sync-2026-04-30-19",
+    "ingested_at": "2026-04-30T18:55:00+00:00",
+    "readiness_status": "ready"
+  },
+  "extensions": {
+    "halobridge": {
+      "source_profile": "enterprise-export",
+      "source_schema": "gallodoc/v1"
+    }
+  },
+  "hashes": {
+    "algorithm": "sha256",
+    "envelope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_envelope_sha256": ""
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "canonical_text_hash": "",
+    "units": [],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  }
+}

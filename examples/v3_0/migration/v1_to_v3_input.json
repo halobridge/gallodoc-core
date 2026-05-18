@@ -1,0 +1,108 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "_README": "Clean v1.x envelope (no platform leakage) with: a v1 bare-array relationships list, an extensions.halobridge.attestations payload to be promoted to top level, and absent trust_score / trust_decision (so the migrator injects an empty flat trust block). Demonstrates the three migrate_v1_to_v3 transforms cleanly. The migrator does NOT translate v1 trust_score.components / trust_decision.gates shapes into v3's richer required shapes — that's downstream tooling's responsibility. See v1_to_v3_output.json for the migrated result.",
+  "identity": {
+    "gallodoc_id": "doc-v1-to-v3-input-0001",
+    "document_id": "doc-v1-to-v3-input-0001",
+    "title": "v1 -> v3 migration demo (synthetic)",
+    "document_type": "test_fixture",
+    "mime_type": "application/octet-stream",
+    "schema_version": "gallodoc-core/v1",
+    "created_at": "2026-05-16T00:00:00+00:00",
+    "content_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+  },
+  "source": {
+    "source_system": "synthetic",
+    "source_kind": "test_fixture",
+    "ingested_at": "2026-05-16T00:00:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "test",
+    "workflow_intent": "test",
+    "requested_by": "synthetic@example.com"
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "stages": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel-0001",
+      "relationship_type": "supports",
+      "source_document_id": "doc-v1-to-v3-input-0001",
+      "target_document_id": "doc-supporting-evidence-0001",
+      "confidence": 0.92
+    },
+    {
+      "relationship_id": "rel-0002",
+      "relationship_type": "supersedes",
+      "source_document_id": "doc-v1-to-v3-input-0001",
+      "target_document_id": "doc-superseded-0001",
+      "status": "rejected"
+    }
+  ],
+  "evidence": {"count": 0, "refs": []},
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": null,
+    "last_encrypted_at": null
+  },
+  "exports": [],
+  "extensions": {
+    "halobridge": {
+      "attestations": {
+        "schema_version": "gallodoc.attestations.v1.2",
+        "attestations": [
+          {
+            "attestation_id": "att-001",
+            "claim_id": "claim-001",
+            "attestation_type": "evidence_quality"
+          }
+        ]
+      }
+    }
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {"unit_strategy": "gallounit_v1", "units": []},
+  "certification": {"status": "none", "certification_type": "none"},
+  "gstp": {"package_id": "", "package_type": "none", "status": "not_created"},
+  "truth_ledger": {
+    "available": false,
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  }
+}

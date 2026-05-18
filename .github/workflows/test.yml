@@ -1,0 +1,115 @@
+name: gallodoc-core CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'opensource/gallodoc-core/**'
+      - '.github/workflows/test.yml'
+  pull_request:
+    paths:
+      - 'opensource/gallodoc-core/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.10', '3.11', '3.12']
+
+    defaults:
+      run:
+        working-directory: opensource/gallodoc-core
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install package (editable)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .[dev,schema]
+
+      - name: Lint (basic syntax check)
+        run: |
+          python -m py_compile $(find gallodoc -name '*.py')
+
+      - name: Pytest
+        run: pytest -q
+
+      - name: Release safety gate (v3)
+        run: make release-gate
+
+      - name: Validate every example envelope
+        run: |
+          set -e
+          for f in examples/gallodoc_*.json; do
+            echo "validating $f"
+            gallodoc validate --use-jsonschema "$f"
+          done
+
+      - name: Inspect every example envelope
+        run: |
+          set -e
+          for f in examples/gallodoc_*.json; do
+            echo "inspecting $f"
+            gallodoc inspect --json "$f" > /dev/null
+          done
+
+      - name: Acceptance — gallodoc validate + inspect on the canonical example
+        run: |
+          set -e
+          gallodoc validate examples/gallodoc_pdf_contract.json
+          gallodoc inspect  examples/gallodoc_pdf_contract.json --json > /dev/null
+
+      - name: PHI / sensitive-pattern scan on examples
+        shell: bash
+        run: |
+          set -e
+          fail=0
+          for f in examples/gallodoc_*.json; do
+            # SSN, MRN-style, mm/dd/yyyy DOB, non-example.com email
+            if grep -E '\b[0-9]{3}-[0-9]{2}-[0-9]{4}\b' "$f"; then
+              echo "::error file=$f::SSN-like pattern found"
+              fail=1
+            fi
+            if grep -E '\bMRN[: ]+[A-Z0-9]{6,}\b' "$f"; then
+              echo "::error file=$f::MRN-like pattern found"
+              fail=1
+            fi
+            if grep -E '[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+' "$f" | grep -v 'example\.com'; then
+              echo "::error file=$f::non-synthetic email found"
+              fail=1
+            fi
+          done
+          exit $fail
+
+      - name: Forbidden enterprise keyword scan
+        shell: bash
+        run: |
+          set -e
+          fail=0
+          # These tokens should NEVER appear in the open-source package.
+          # We scan source + docs (examples are exempt for the substring "halobridge"
+          # because synthetic example metadata legitimately mentions HaloBridge as
+          # the source profile).
+          if grep -RIn -e 'private_key' -e 'signing_key' -e 'raw_signature' -e 'PRIVATE_PEM' -- gallodoc tests; then
+            echo "::error::forbidden signing/key keyword found in package source"
+            fail=1
+          fi
+          if grep -RIn -e 'OAuthCredential' -e 'secret_ref' -- gallodoc tests; then
+            echo "::error::forbidden enterprise model name found in package source"
+            fail=1
+          fi
+          exit $fail
+
+      - name: Build wheel + sdist
+        run: |
+          pip install build
+          python -m build --outdir dist
+          ls -la dist

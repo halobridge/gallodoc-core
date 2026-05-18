@@ -1,0 +1,180 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-v13-governance-001",
+    "document_id": "doc-v13-governance-001",
+    "title": "Synthetic residency, training permission, model risk, and retention demo",
+    "document_type": "clinical_note",
+    "mime_type": "application/pdf",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-05-02T12:00:00+00:00",
+    "content_hash": "cd100000000000000000000000000000000000000000000000000000000000ef"
+  },
+  "source": {
+    "source_system": "ehr_connector",
+    "source_kind": "document",
+    "source_record_id": "",
+    "connector_slug": "demo_ehr",
+    "connection_id": "",
+    "sync_run_id": "",
+    "ingested_at": "2026-05-02T11:58:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "phi_review",
+    "workflow_intent": "phi_review",
+    "app_slug": "",
+    "requested_by": "reviewer@example.com",
+    "reason_code": "governance_demo_v13",
+    "reason_text": "",
+    "evidence": ["synthetic:v1_3_governance"],
+    "confidence": 0.88
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "schema_version": "",
+    "stages": [],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": true,
+    "phi_categories": ["clinical_note"],
+    "phi_risk_level": "medium",
+    "encrypted": true,
+    "encryption_backend": "fernet",
+    "encryption_key_id": "kid_demo_001",
+    "encrypted_fields": ["body_blob"],
+    "masked_fields": ["patient_display"],
+    "redaction_policy": "phi_default_v1",
+    "raw_export_allowed": false,
+    "encryption_policy_status": "required",
+    "last_phi_scan_at": "2026-05-02T11:59:00+00:00",
+    "last_encrypted_at": "2026-05-02T11:59:30+00:00"
+  },
+  "exports": [],
+  "extensions": {},
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "units": [],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  },
+  "data_residency": {
+    "schema_version": "gallodoc.data_residency.v1.3",
+    "residency_policy_id": "residency_policy_demo_01",
+    "allowed_regions": ["us-east-1", "eu-west-1"],
+    "denied_regions": ["ap-south-1"],
+    "processing_boundary": "customer_primary_region",
+    "storage_boundary": "encrypted_object_store",
+    "cross_border_transfer_allowed": false,
+    "customer_tenant_boundary": "tenant_boundary_opaque_demo",
+    "hipaa_boundary": "baa_covered_processing",
+    "evaluated_at": "2026-05-02T12:00:00+00:00"
+  },
+  "training_permissions": {
+    "schema_version": "gallodoc.training_permissions.v1.3",
+    "allowed": true,
+    "permission_level": "anonymized_only",
+    "allowed_uses": ["internal_evaluation", "quality_metrics"],
+    "denied_uses": ["third_party_model_training", "public_distribution"],
+    "anonymization_required": true,
+    "source_basis": "customer_dpa_addendum_2026",
+    "expires_at": "2027-05-01T00:00:00+00:00",
+    "reviewed_by_role": "privacy_officer",
+    "reviewed_at": "2026-05-01T15:00:00+00:00"
+  },
+  "model_risk": {
+    "schema_version": "gallodoc.model_risk.v1.3",
+    "provider_class": "external",
+    "model_name_hash_or_id": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+    "approval_status": "approved",
+    "phi_allowed": false,
+    "external_transmission_allowed": true,
+    "max_data_mode": "masked",
+    "reviewed_at": "2026-05-02T11:50:00+00:00",
+    "policy_version": "model_governance_v3"
+  },
+  "retention_status": {
+    "schema_version": "gallodoc.retention_status.v1.3",
+    "retention_type": "compliance",
+    "retain_until": "2031-05-02T00:00:00+00:00",
+    "legal_hold": false,
+    "archive_status": "active",
+    "deletion_allowed": true,
+    "evaluated_at": "2026-05-02T12:00:00+00:00"
+  }
+}

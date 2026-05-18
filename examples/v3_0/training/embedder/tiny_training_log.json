@@ -1,0 +1,20 @@
+{
+  "base_model": "BAAI/bge-m3",
+  "batch_size": 4,
+  "dummy_loss_final": 0.5,
+  "epochs": 5,
+  "filtered_no_intent": 0,
+  "mode": "tiny",
+  "negatives": 1,
+  "notes": [
+    "tiny mode is a CI-only dry run. No weights are produced.",
+    "standard / full modes plug the real training loop into this same orchestrator.",
+    "Decision 5: filtered_no_intent=0 positives dropped (intent missing on source or target)."
+  ],
+  "pairs_seen": 3,
+  "positives_in": 1,
+  "positives_kept": 1,
+  "purpose": "document_summary_embedding",
+  "trained_at": "2026-05-17T00:00:00Z",
+  "uncertain": 1
+}

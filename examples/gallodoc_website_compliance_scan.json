@@ -1,0 +1,224 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-website-scan-5500",
+    "document_id": "doc-website-scan-5500",
+    "title": "Marketing site compliance scan (synthetic)",
+    "document_type": "website_scan",
+    "mime_type": "text/html",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-04-30T18:00:00+00:00",
+    "content_hash": ""
+  },
+  "source": {
+    "source_system": "web_crawler",
+    "source_kind": "website_scan",
+    "source_record_id": "site:examplehealth-synth/marketing",
+    "connector_slug": "web_crawler",
+    "connection_id": "conn-crawler-001",
+    "sync_run_id": "sync-2026-04-30-18",
+    "ingested_at": "2026-04-30T17:55:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "fraud_check",
+    "workflow_intent": "fraud_check",
+    "app_slug": "fraud_check",
+    "requested_by": "compliance_team",
+    "reason_code": "claims_validation",
+    "reason_text": "FDA-claim language audit",
+    "evidence": [
+      "metadata:purpose=fraud_check"
+    ],
+    "confidence": 0.93
+  },
+  "lifecycle": {
+    "available": true,
+    "current_status": "scan_complete",
+    "schema_version": "document_lifecycle/v1",
+    "stages": [
+      {
+        "stage": "crawl",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T17:55:00+00:00",
+        "app_slug": "",
+        "source": "web_crawler",
+        "metadata": {
+          "pages": 24
+        }
+      },
+      {
+        "stage": "claim_extraction",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T17:58:00+00:00",
+        "app_slug": "fraud_check",
+        "source": "claim_extractor",
+        "metadata": {
+          "claims": 11
+        }
+      }
+    ],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": true,
+    "event_count": 1,
+    "counts_by_type": {
+      "scanned": 1
+    },
+    "latest_events": []
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 2,
+    "refs": [
+      {
+        "id": "ev-claim-001",
+        "label": "Marketing claim 1",
+        "kind": "extracted_claim"
+      },
+      {
+        "id": "ev-claim-002",
+        "label": "Marketing claim 2",
+        "kind": "extracted_claim"
+      }
+    ]
+  },
+  "validations": {
+    "contradictions": [
+      {
+        "type": "unsupported_claim",
+        "severity": "high",
+        "summary": "Page asserts treatment efficacy without FDA reference",
+        "evidence": {
+          "claim_id": "ev-claim-001",
+          "expected": "fda_reference"
+        }
+      }
+    ],
+    "packet_findings": [
+      {
+        "packet_id": "pkt-website-compliance-12",
+        "packet_type": "website_compliance_packet",
+        "finding_count": 3
+      }
+    ],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": "2026-04-30T17:58:00+00:00",
+    "last_encrypted_at": null
+  },
+  "exports": [],
+  "external_evidence": [
+    {
+      "source_type": "fda",
+      "source_name": "FDA orange book (synthetic reference)",
+      "source_url_hash": "fda-ref-synth-0001-hash",
+      "external_id": "fda:synth:0001",
+      "title": "FDA reference for therapeutic claims",
+      "summary": "Synthetic reference used to validate site claims (no real PHI).",
+      "evidence_type": "regulatory_reference",
+      "retrieved_at": "2026-04-30T17:57:00+00:00",
+      "payload_metadata": {
+        "page_section": "indications"
+      }
+    }
+  ],
+  "extensions": {
+    "halobridge": {
+      "source_profile": "enterprise-export",
+      "source_schema": "gallodoc/v1"
+    }
+  },
+  "hashes": {
+    "algorithm": "sha256",
+    "envelope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_envelope_sha256": ""
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "canonical_text_hash": "",
+    "units": [],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  }
+}

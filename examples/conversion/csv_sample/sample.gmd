@@ -1,0 +1,47 @@
+# Sample
+
+::gallodoc
+schema_version: gallodoc-core/v1
+doc_id: gmd-sample
+title: Sample
+document_type: tabular_data
+source: gallodoc_convert
+source_kind: csv
+connector_slug: gallodoc_convert
+created_at: 2026-05-06T14:10:29+00:00
+primary_intent: conversion
+workflow_intent: gallodoc_convert
+confidence: 1.0
+::
+
+## Content
+
+| date | category | amount | currency |
+| --- | --- | --- | --- |
+| 2026-04-01 | compute | 12450.00 | USD |
+| 2026-04-02 | storage | 2300.50 | USD |
+| 2026-04-03 | network | 890.10 | USD |
+| 2026-04-04 | observability | 1100.00 | USD |
+| 2026-04-05 | human_review | 3200.00 | USD |
+
+## Artifacts
+
+::artifact family=dates id=art-dates-0001
+value: 2026-04-01
+::
+
+::artifact family=dates id=art-dates-0002
+value: 2026-04-02
+::
+
+::artifact family=dates id=art-dates-0003
+value: 2026-04-03
+::
+
+::artifact family=dates id=art-dates-0004
+value: 2026-04-04
+::
+
+::artifact family=dates id=art-dates-0005
+value: 2026-04-05
+::

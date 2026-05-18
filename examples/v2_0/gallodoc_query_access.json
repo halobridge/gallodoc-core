@@ -1,0 +1,498 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-v20-query_access-001",
+    "document_id": "doc-v20-query_access-001",
+    "title": "GalloDoc Query Language demo (v2.0)",
+    "document_type": "consolidated_reference",
+    "mime_type": "application/pdf",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-05-02T12:00:00+00:00",
+    "content_hash": "cd100000000000000000000000000000000000000000000000000000000000ef"
+  },
+  "source": {
+    "source_system": "ehr_connector",
+    "source_kind": "document",
+    "source_record_id": "",
+    "connector_slug": "demo_ehr",
+    "connection_id": "",
+    "sync_run_id": "",
+    "ingested_at": "2026-05-02T11:58:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "consolidated_reference",
+    "workflow_intent": "demo_query_access",
+    "app_slug": "",
+    "requested_by": "reviewer@example.com",
+    "reason_code": "v20_query_access_demo",
+    "reason_text": "",
+    "evidence": [
+      "synthetic:v2_0_query_access"
+    ],
+    "confidence": 0.88
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "schema_version": "",
+    "stages": [],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": true,
+    "phi_categories": [
+      "clinical_note"
+    ],
+    "phi_risk_level": "medium",
+    "encrypted": true,
+    "encryption_backend": "fernet",
+    "encryption_key_id": "kid_demo_001",
+    "encrypted_fields": [
+      "body_blob"
+    ],
+    "masked_fields": [
+      "patient_display"
+    ],
+    "redaction_policy": "phi_default_v1",
+    "raw_export_allowed": false,
+    "encryption_policy_status": "required",
+    "last_phi_scan_at": "2026-05-02T11:59:00+00:00",
+    "last_encrypted_at": "2026-05-02T11:59:30+00:00"
+  },
+  "exports": [],
+  "extensions": {},
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "units": [],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  },
+  "agent_observability": {
+    "schema_version": "gallodoc.agent_observability.v1.4",
+    "agent_traces": [
+      {
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "execution_request_id": null,
+        "execution_receipt_id": null,
+        "document_id": "doc-v15-trust-decision-001",
+        "packet_id": null,
+        "agent_id": "demo-agent",
+        "actor_type": "system",
+        "task_name": "ask-hybrid",
+        "task_goal_summary": "Answer billing policy question using retrieval + governed tools.",
+        "status": "success",
+        "started_at": "2026-05-01T18:00:00+00:00",
+        "completed_at": "2026-05-01T18:00:02+00:00",
+        "duration_ms": 2100,
+        "step_count": 4,
+        "tool_call_count": 1,
+        "retrieval_count": 1,
+        "model_call_count": 1,
+        "total_cost_estimate": 0.0021,
+        "total_tokens_estimate": 950,
+        "trace_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "redaction_status": "redacted",
+        "risk_level": "low",
+        "summary": "Retrieval returned three scoped refs; model answered with citations hashes only."
+      }
+    ],
+    "tool_invocation_logs": [
+      {
+        "invocation_id": "inv-001",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "tool_name": "vector_search",
+        "tool_contract_id": "vector_search",
+        "input_schema_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "input_summary": "keyword + optional doc_ids",
+        "output_schema_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "output_summary": "k hits with scores summarized",
+        "parameters_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "status": "success",
+        "error_code": "",
+        "error_summary": "",
+        "latency_ms": 420,
+        "cost_estimate": 0.0003,
+        "called_at": "2026-05-01T18:00:01+00:00"
+      }
+    ],
+    "retrieval_traces": [
+      {
+        "retrieval_id": "rt-001",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "query_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "query_summary": "billing policy timing question (redacted)",
+        "index_name": "mvp_corpus_v1",
+        "retrieval_method": "hybrid",
+        "top_k": 8,
+        "returned_count": 8,
+        "selected_count": 3,
+        "score_summary": "max=0.82 mean=0.54",
+        "artifact_refs": [
+          "artifact:demo:1"
+        ],
+        "chunk_refs": [
+          "chunk:demo:7",
+          "chunk:demo:8"
+        ],
+        "relevance_grade": "medium",
+        "noise_flag": false,
+        "latency_ms": 410,
+        "created_at": "2026-05-01T18:00:01+00:00"
+      }
+    ],
+    "reasoning_summaries": [
+      {
+        "reasoning_id": "rs-001",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "reasoning_type": "final_answer",
+        "summary": "Selected passages agree on 45-day timely filing window; abstain on jurisdiction-specific nuances.",
+        "confidence": 0.74,
+        "uncertainty_flags": [
+          "jurisdiction_unknown"
+        ],
+        "decision_rationale_refs": [
+          "policy:timely_filing_v2"
+        ],
+        "evidence_refs": [
+          "artifact:demo:1"
+        ],
+        "redacted": true
+      }
+    ],
+    "evaluation_results": [
+      {
+        "evaluation_id": "ev-001",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "dataset_id": "eval_bench_demo",
+        "test_case_id": "tc-014",
+        "evaluator_type": "rule",
+        "evaluator_name": "groundedness_rules_v1",
+        "metric_name": "groundedness",
+        "score": 0.91,
+        "passed": true,
+        "threshold": 0.85,
+        "expected_summary": "Answer cites retrieval refs only.",
+        "actual_summary": "Answer cites chunk hashes only.",
+        "failure_category": "",
+        "created_at": "2026-05-01T18:00:02+00:00"
+      }
+    ],
+    "latency_cost_metrics": [
+      {
+        "metric_id": "m-001",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "model_name_hash_or_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "provider_class": "internal",
+        "latency_ms": 1200,
+        "input_tokens": 600,
+        "output_tokens": 350,
+        "total_tokens": 950,
+        "estimated_cost": 0.0018,
+        "cache_hit": false,
+        "created_at": "2026-05-01T18:00:02+00:00"
+      }
+    ],
+    "failure_analyses": [],
+    "regression_test_results": [
+      {
+        "regression_id": "reg-001",
+        "test_name": "agent_eval_timely_filing",
+        "test_case_id": "tc-014",
+        "trace_id": "550e8400-e29b-41d4-a716-446655440000",
+        "dataset_id": "eval_bench_demo",
+        "status": "pass",
+        "baseline_score": 0.88,
+        "current_score": 0.91,
+        "delta": 0.03,
+        "blocker": false,
+        "created_at": "2026-05-01T18:00:03+00:00"
+      }
+    ],
+    "escalation_decisions": []
+  },
+  "trust_decision": {
+    "schema_version": "gallodoc.trust_decision.v1.5",
+    "trust_scores": [
+      {
+        "score_id": "ts-demo-001",
+        "subject_type": "document",
+        "subject_id": "doc-v15-trust-decision-001",
+        "score": 88,
+        "grade": "B",
+        "status": "trusted",
+        "calculated_at": "2026-05-02T12:05:00+00:00",
+        "policy_version": "demo_policy_pack_v1",
+        "scoring_profile": "public_example_profile",
+        "components": {
+          "evidence_quality": {
+            "score": 86,
+            "explanation": "Evidence refs present; exports and contradiction checks show no critical gaps in this synthetic record."
+          },
+          "lifecycle_completeness": {
+            "score": 82,
+            "explanation": "Lifecycle stages recorded through governed processing; one optional stage still pending."
+          },
+          "security_posture": {
+            "score": 90,
+            "explanation": "PHI posture summarized as low risk in this demo; encryption flags satisfied for export class actions."
+          },
+          "execution_governance": {
+            "score": 84,
+            "explanation": "Execution receipts link to hashed prompts and policy outcomes only \u2014 no raw prompt bodies."
+          },
+          "consent_custody_attestation": {
+            "score": 80,
+            "explanation": "Consent ledger entries and custody events align with attestation summary for this synthetic workflow."
+          },
+          "residency_training_model_risk": {
+            "score": 78,
+            "explanation": "Model risk block lists approved internal provider class; training reuse denied unless anonymized."
+          },
+          "agent_observability": {
+            "score": 87,
+            "explanation": "Agent trace succeeded; evaluation groundedness passed against demo benchmark."
+          },
+          "human_review": {
+            "score": 83,
+            "explanation": "Human decision record shows reviewer role sign-off where policy required."
+          }
+        },
+        "drivers": [
+          "demo_high_retrieval_confidence",
+          "demo_eval_passed"
+        ],
+        "blockers": [],
+        "warnings": [
+          "demo_optional_stage_pending"
+        ],
+        "explanation_summary": "Synthetic GalloDoc 1.5 illustration \u2014 enterprise deployments attach governed scores and gates without publishing proprietary weights."
+      }
+    ],
+    "decision_gates": [
+      {
+        "gate_id": "gate-export-001",
+        "gate_name": "regulated_export",
+        "action": "export",
+        "subject_type": "document",
+        "subject_id": "doc-v15-trust-decision-001",
+        "required_min_score": 75,
+        "required_components": [
+          "security_posture",
+          "human_review"
+        ],
+        "blocked_conditions": [
+          "critical_contradiction"
+        ],
+        "review_conditions": [
+          "score_below_policy_buffer"
+        ],
+        "decision": "allow",
+        "reason_codes": [
+          "score_above_threshold",
+          "no_active_blockers"
+        ],
+        "evaluated_at": "2026-05-02T12:05:01+00:00",
+        "policy_version": "demo_policy_pack_v1"
+      },
+      {
+        "gate_id": "gate-external-model-001",
+        "gate_name": "external_model_call",
+        "action": "call_external_model",
+        "subject_type": "document",
+        "subject_id": "doc-v15-trust-decision-001",
+        "required_min_score": 80,
+        "required_components": [
+          "residency_training_model_risk"
+        ],
+        "blocked_conditions": [],
+        "review_conditions": [
+          "experimental_model_flag"
+        ],
+        "decision": "warn",
+        "reason_codes": [
+          "score_within_warn_band"
+        ],
+        "evaluated_at": "2026-05-02T12:05:01+00:00",
+        "policy_version": "demo_policy_pack_v1"
+      }
+    ],
+    "policy_outcomes": [
+      {
+        "outcome_id": "po-demo-001",
+        "policy_name": "default_trust_merge",
+        "policy_version": "demo_policy_pack_v1",
+        "decision": "pass_with_warnings",
+        "matched_rules": [
+          "TRUST_MIN_SCORE",
+          "NO_CRITICAL_BLOCKER"
+        ],
+        "warnings": [
+          "demo_optional_stage_pending"
+        ],
+        "blockers": [],
+        "required_actions": [],
+        "evaluated_at": "2026-05-02T12:05:02+00:00"
+      }
+    ],
+    "action_recommendations": [
+      {
+        "recommendation_id": "rec-demo-001",
+        "recommended_action": "attach_external_evidence",
+        "priority": "medium",
+        "reason": "Optional lifecycle stage still pending \u2014 attach corroborating evidence before high-stakes export.",
+        "expected_impact": "Raises evidence_quality and reduces review friction.",
+        "assigned_to_role": "clinical_analyst",
+        "due_hint": "before_next_release_gate",
+        "created_at": "2026-05-02T12:05:03+00:00"
+      }
+    ],
+    "decision_receipts": [
+      {
+        "receipt_id": "rcpt-demo-001",
+        "action": "export",
+        "decision": "allow",
+        "trust_score_id": "ts-demo-001",
+        "gate_id": "gate-export-001",
+        "policy_outcome_id": "po-demo-001",
+        "actor_role": "policy_engine",
+        "created_at": "2026-05-02T12:05:04+00:00",
+        "evidence_refs": [
+          "artifact:demo:1"
+        ],
+        "execution_receipt_refs": [
+          "receipt:demo:exec:001"
+        ],
+        "attestation_refs": [
+          "attest:demo:001"
+        ],
+        "export_refs": [
+          "export:demo:packet:001"
+        ],
+        "portal_refs": []
+      }
+    ]
+  },
+  "query_access": {
+    "schema_version": "gallodoc.query_access.v2.0",
+    "saved_queries": [
+      {
+        "query_id": "gql-001",
+        "name": "Active high-risk documents",
+        "purpose": "List documents with trust score below 80 in the last 30 days.",
+        "query_type": "trust",
+        "filters": {
+          "subject_type": "document",
+          "score_lt": 80,
+          "within_days": 30
+        },
+        "return_fields": [
+          "identity.document_id",
+          "trust_decision.trust_scores.score"
+        ],
+        "max_results": 100,
+        "safe_mode": true,
+        "created_by_role": "compliance_reviewer",
+        "created_at": "2026-05-02T14:30:00+00:00"
+      }
+    ],
+    "query_receipts": [
+      {
+        "receipt_id": "qr-001",
+        "query_id": "gql-001",
+        "executed_by_role": "compliance_reviewer",
+        "executed_at": "2026-05-02T14:45:00+00:00",
+        "result_count": 7,
+        "redaction_applied": true,
+        "phi_removed": true,
+        "policy_outcome_ref": "pe-001",
+        "result_hash": "qrh_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    ],
+    "query_permissions": [
+      {
+        "permission_id": "qp-001",
+        "query_id": "gql-001",
+        "allowed_roles": [
+          "compliance_reviewer"
+        ],
+        "denied_roles": [],
+        "scope_summary": "trust scores only; no PHI return fields",
+        "expires_at": "2027-05-02T00:00:00+00:00"
+      }
+    ]
+  }
+}

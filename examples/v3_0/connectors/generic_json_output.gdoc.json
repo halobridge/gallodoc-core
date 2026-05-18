@@ -1,0 +1,149 @@
+{
+  "schema_version": "gallodoc-core/v3",
+  "identity": {
+    "gallodoc_id": "doc-generic-001",
+    "schema_version": "gallodoc-core/v3",
+    "title": "Quarterly Operations Note",
+    "document_type": "note"
+  },
+  "source": {
+    "source_system": "generic",
+    "source_kind": "json",
+    "readiness_status": "ready",
+    "connector_slug": "generic_json",
+    "sync_run_id": "sync-generic_json-EXAMPLE0001",
+    "connector_lineage": {
+      "schema_version": "gallodoc.connector_lineage.v2.0",
+      "connector_sources": [
+        {
+          "connector_slug": "generic_json",
+          "connector_category": "open_sdk",
+          "status": "active"
+        }
+      ],
+      "sync_runs": [
+        {
+          "sync_run_id": "sync-generic_json-EXAMPLE0001",
+          "connector_slug": "generic_json",
+          "connector_version": "3.0.0",
+          "started_at": "2026-05-16T00:00:00Z",
+          "completed_at": "2026-05-16T00:00:00Z",
+          "record_count": 1,
+          "success_count": 1,
+          "failed_count": 0,
+          "source_ref_hash": null,
+          "status": "completed"
+        }
+      ],
+      "record_receipts": [
+        {
+          "receipt_id": "rcpt-sync-generic_json-EXAMPLE0001",
+          "sync_run_id": "sync-generic_json-EXAMPLE0001",
+          "record_hash": "sha256:0481c3d83b72343448e7a9266ef4c1fe37db71d88267d531b7e92e1592408572",
+          "source_record_id_hash": "sha256:ec701244745867c5b2aa65aed846150aaec096e1587369c7eeffb6687ede3acd",
+          "gallodoc_ref": "doc-generic-001"
+        }
+      ]
+    }
+  },
+  "purpose": {
+    "primary_intent": "ingest",
+    "workflow_intent": "ingest"
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "stages": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": {
+    "schema_version": "gallodoc.relationships.v3.0",
+    "relationships": [],
+    "relationship_evidence": [],
+    "relationship_decisions": []
+  },
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": null,
+    "last_encrypted_at": null
+  },
+  "exports": [],
+  "extensions": {
+    "connector_input": {
+      "generic_json": {
+        "summary": "Quarterly notes captured by the operations team \u2014 synthetic example.",
+        "owner": "ops-team@example.com",
+        "tags": [
+          "operations",
+          "quarterly",
+          "example"
+        ]
+      }
+    }
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "connector_v1",
+    "units": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none"
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "none",
+    "status": "not_created"
+  },
+  "truth_ledger": {
+    "available": false,
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  },
+  "trust": {
+    "schema_version": "gallodoc.trust.v3.0",
+    "components": [],
+    "drivers": [],
+    "blockers": [],
+    "warnings": [],
+    "decision_gates": [],
+    "policy_outcomes": [],
+    "action_recommendations": [],
+    "decision_receipts": []
+  }
+}

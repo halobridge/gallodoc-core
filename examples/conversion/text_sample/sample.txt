@@ -1,0 +1,22 @@
+Q1 Operations Review
+
+This memo summarizes the operations review for the first quarter of
+the fiscal year. The team closed 18 of 20 planned initiatives and
+flagged two items for next quarter.
+
+Highlights
+
+- Closed migration to the new compute trace pipeline on 2026-02-14.
+- Reduced average request latency from 480 ms to 320 ms.
+- Total quarterly compute spend was $48,200.50 USD against a $50,000
+  budget — a $1,799.50 surplus.
+
+Open items
+
+- Vendor contract renewal scheduled for 2026-06-01.
+- Audit report follow-up requested by audit@example.com.
+
+Conclusion
+
+Operations remain on track. No security incidents recorded. The next
+review is scheduled for 2026-07-15.

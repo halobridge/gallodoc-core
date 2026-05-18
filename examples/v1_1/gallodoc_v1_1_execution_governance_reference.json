@@ -1,0 +1,238 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-exec-gov-v11-001",
+    "document_id": "doc-exec-gov-v11-001",
+    "title": "Synthetic execution governance demo",
+    "document_type": "contract",
+    "mime_type": "application/pdf",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-05-01T12:00:00+00:00",
+    "content_hash": "ab000000000000000000000000000000000000000000000000000000000000cd"
+  },
+  "source": {
+    "source_system": "upload_portal",
+    "source_kind": "document",
+    "source_record_id": "",
+    "connector_slug": "",
+    "connection_id": "",
+    "sync_run_id": "",
+    "ingested_at": "2026-05-01T11:58:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "contract_review",
+    "workflow_intent": "contract_review",
+    "app_slug": "",
+    "requested_by": "synthetic@example.com",
+    "reason_code": "",
+    "reason_text": "",
+    "evidence": ["synthetic:v1_1_execution_governance"],
+    "confidence": 0.9
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "schema_version": "",
+    "stages": [],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": null,
+    "last_encrypted_at": null
+  },
+  "exports": [],
+  "extensions": {},
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "units": [],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  },
+  "execution_governance": {
+    "schema_version": "gallodoc.execution_governance.v1.1",
+    "gallodoc_schema_version": "1.1",
+    "execution_governance_version": "1.1",
+    "capability_tokens": [
+      {
+        "token_id": "550e8400-e29b-41d4-a716-446655440000",
+        "token_type": "document_scope",
+        "status": "active",
+        "actor_type": "user",
+        "subject_type": "document",
+        "issued_at": "2026-05-01T10:00:00+00:00",
+        "valid_to": null,
+        "requires_him_review": false
+      }
+    ],
+    "mcp_tool_contracts": [
+      {
+        "tool_id": "vector_search",
+        "tool_name": "Vector Search",
+        "version": "1",
+        "risk_level": "low",
+        "requires_him_review": false,
+        "requires_evidence": false,
+        "resource_scope": {
+          "allowed_collections": ["docs_alpha"]
+        }
+      }
+    ],
+    "a2a_agent_contracts": [
+      {
+        "agent_id": "agent-audit-001",
+        "agent_name": "Audit Helper",
+        "trust_level": "standard",
+        "requires_him_review": true,
+        "capabilities_count": 3
+      }
+    ],
+    "skill_contracts": [
+      {
+        "skill_id": "evidence_pack_generate",
+        "name": "Evidence Pack",
+        "version": "1",
+        "risk_level": "medium",
+        "requires_evidence": true,
+        "requires_him_review": false
+      }
+    ],
+    "prompt_contracts": [
+      {
+        "prompt_id": "prompt.contract_summary",
+        "version": "2",
+        "name": "Contract summary",
+        "purpose": "summarize_terms",
+        "risk_level": "low",
+        "prompt_hash": "sha256:aabbccddeeff0011223344556677889900aabbccddeeff0011223344556677",
+        "response_hash": "sha256:9900aabbccddeeff0011223344556677889900aabbccddeeff00112233445566",
+        "model_family": "gpt-4o",
+        "default_model": "",
+        "requires_him_review": false,
+        "requires_evidence": false,
+        "status": "active"
+      }
+    ],
+    "delegation_policies": [
+      {
+        "policy_id": "del-001",
+        "name": "Agent chain",
+        "source_actor": "agent-a",
+        "target_actor": "agent-b",
+        "max_chain_depth": 2,
+        "requires_him_review": true
+      }
+    ],
+    "execution_requests": [
+      {
+        "request_id": "660e8400-e29b-41d4-a716-446655440001",
+        "action": "ask",
+        "status": "approved",
+        "requested_at": "2026-05-01T10:05:00+00:00",
+        "tool_contract_id": "vector_search",
+        "skill_contract_id": null,
+        "prompt_contract_id": "prompt.contract_summary"
+      }
+    ],
+    "execution_receipts": [
+      {
+        "receipt_id": "770e8400-e29b-41d4-a716-446655440002",
+        "request_id": "660e8400-e29b-41d4-a716-446655440001",
+        "status": "completed",
+        "created_at": "2026-05-01T10:05:01+00:00",
+        "action": "ask",
+        "policy_allowed": true,
+        "him_review_required": false,
+        "model_name": "gpt-4o-mini",
+        "prompt_hash": "sha256:aabbccddeeff0011223344556677889900aabbccddeeff0011223344556677",
+        "response_hash": "sha256:9900aabbccddeeff0011223344556677889900aabbccddeeff00112233445566",
+        "artifact_count": 1,
+        "evidence_pack_id": null
+      }
+    ]
+  }
+}

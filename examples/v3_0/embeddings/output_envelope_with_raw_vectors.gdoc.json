@@ -1,0 +1,271 @@
+{
+  "schema_version": "gallodoc-core/v3",
+  "identity": {
+    "gallodoc_id": "doc_embeddings_example_002",
+    "schema_version": "gallodoc-core/v3",
+    "title": "GalloDoc v3 embeddings example (synthetic)",
+    "document_type": "test_fixture",
+    "mime_type": "application/json",
+    "created_at": "2026-05-16T12:00:00Z",
+    "content_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "source": {
+    "source_system": "example.com/synthetic",
+    "source_kind": "test_fixture",
+    "ingested_at": "2026-05-16T12:00:00Z",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "demo",
+    "workflow_intent": "demo"
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "stages": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": {
+    "schema_version": "gallodoc.relationships.v3.0",
+    "relationships": [],
+    "relationship_evidence": [],
+    "relationship_decisions": []
+  },
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": null,
+    "last_encrypted_at": null
+  },
+  "exports": [],
+  "extensions": {},
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "units": [
+      {
+        "unit_id": "gu_summary",
+        "unit_type": "paragraph",
+        "semantic_role": "document_summary",
+        "text_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "content_summary": "Vendor invoice for office supplies, total $1,234.56.",
+        "confidence": 0.95
+      },
+      {
+        "unit_id": "gu_approver",
+        "unit_type": "entity",
+        "semantic_role": "approver_ref",
+        "text_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "content_summary": "Approver: jane.doe@example.com.",
+        "confidence": 0.95
+      },
+      {
+        "unit_id": "gu_terms",
+        "unit_type": "clause",
+        "semantic_role": "payment_terms",
+        "text_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "content_summary": "Net 30 payment terms; late fees apply after due date.",
+        "confidence": 0.95
+      }
+    ],
+    "embeddings": [
+      {
+        "embedding_id": "emb_c34a07c914554d3f",
+        "unit_id": "gu_summary",
+        "model_id": "gallodoc.embedder.local_stub.v3.0",
+        "model_hash_or_id": "sha256:6d9bd2323920e5c064ac72ef613a5c4a941efc94557840ff0b0ba134915766c1",
+        "dimensions": 32,
+        "vector_ref": "opaque://store/emb_c34a07c914554d3f",
+        "embedding_hash": "sha256:e73e1fda47964ad8994ae7f522b243b2e025d5e90c7b783f914ef4203c172dee",
+        "purpose": "document_summary_embedding",
+        "created_at": "2026-05-17T00:11:47Z",
+        "raw_vector": [
+          -8.328895741952707e-16,
+          -2.378855415654074e-35,
+          -1.24889967774332e-14,
+          3.1090774320945113e-72,
+          7.036536298941782e-52,
+          5.839385797938246e-14,
+          -1.0,
+          2.496814436648971e-23,
+          -8.328895741952707e-16,
+          -2.378855415654074e-35,
+          -1.24889967774332e-14,
+          3.1090774320945113e-72,
+          7.036536298941782e-52,
+          5.839385797938246e-14,
+          -1.0,
+          2.496814436648971e-23,
+          -8.328895741952707e-16,
+          -2.378855415654074e-35,
+          -1.24889967774332e-14,
+          3.1090774320945113e-72,
+          7.036536298941782e-52,
+          5.839385797938246e-14,
+          -1.0,
+          2.496814436648971e-23,
+          -8.328895741952707e-16,
+          -2.378855415654074e-35,
+          -1.24889967774332e-14,
+          3.1090774320945113e-72,
+          7.036536298941782e-52,
+          5.839385797938246e-14,
+          -1.0,
+          2.496814436648971e-23
+        ]
+      },
+      {
+        "embedding_id": "emb_2f9d05aa2b7413f8",
+        "unit_id": "gu_approver",
+        "model_id": "gallodoc.embedder.local_stub.v3.0",
+        "model_hash_or_id": "sha256:6d9bd2323920e5c064ac72ef613a5c4a941efc94557840ff0b0ba134915766c1",
+        "dimensions": 32,
+        "vector_ref": "opaque://store/emb_2f9d05aa2b7413f8",
+        "embedding_hash": "sha256:455c80c1b1e1f65281737ae71149480b98ae55b325c55aab60e747744b75e59d",
+        "purpose": "document_summary_embedding",
+        "created_at": "2026-05-17T00:11:47Z",
+        "raw_vector": [
+          -2.038735380690705e-18,
+          1.0,
+          3.244264278289591e-08,
+          -6.531694372128466e-23,
+          -4.492541320121522e-22,
+          -1.5009829003096726e-29,
+          -1.35658587201687e-44,
+          -4.899609220964341e-53,
+          -2.038735380690705e-18,
+          1.0,
+          3.244264278289591e-08,
+          -6.531694372128466e-23,
+          -4.492541320121522e-22,
+          -1.5009829003096726e-29,
+          -1.35658587201687e-44,
+          -4.899609220964341e-53,
+          -2.038735380690705e-18,
+          1.0,
+          3.244264278289591e-08,
+          -6.531694372128466e-23,
+          -4.492541320121522e-22,
+          -1.5009829003096726e-29,
+          -1.35658587201687e-44,
+          -4.899609220964341e-53,
+          -2.038735380690705e-18,
+          1.0,
+          3.244264278289591e-08,
+          -6.531694372128466e-23,
+          -4.492541320121522e-22,
+          -1.5009829003096726e-29,
+          -1.35658587201687e-44,
+          -4.899609220964341e-53
+        ]
+      },
+      {
+        "embedding_id": "emb_c2c47aed8b901bbe",
+        "unit_id": "gu_terms",
+        "model_id": "gallodoc.embedder.local_stub.v3.0",
+        "model_hash_or_id": "sha256:6d9bd2323920e5c064ac72ef613a5c4a941efc94557840ff0b0ba134915766c1",
+        "dimensions": 32,
+        "vector_ref": "opaque://store/emb_c2c47aed8b901bbe",
+        "embedding_hash": "sha256:79f1efd6fcaf993e22942cb90cba4ced4100b04c659d729572a2921e75e0617e",
+        "purpose": "document_summary_embedding",
+        "created_at": "2026-05-17T00:11:47Z",
+        "raw_vector": [
+          7.784905127119007e-72,
+          9.030797229081746e-26,
+          -1.2287833909923492e-61,
+          -3.440128914725235e-18,
+          -2.9225913260763066e-21,
+          -2.0880040503946697e-34,
+          -1.0,
+          -7.538177930856994e-28,
+          7.784905127119007e-72,
+          9.030797229081746e-26,
+          -1.2287833909923492e-61,
+          -3.440128914725235e-18,
+          -2.9225913260763066e-21,
+          -2.0880040503946697e-34,
+          -1.0,
+          -7.538177930856994e-28,
+          7.784905127119007e-72,
+          9.030797229081746e-26,
+          -1.2287833909923492e-61,
+          -3.440128914725235e-18,
+          -2.9225913260763066e-21,
+          -2.0880040503946697e-34,
+          -1.0,
+          -7.538177930856994e-28,
+          7.784905127119007e-72,
+          9.030797229081746e-26,
+          -1.2287833909923492e-61,
+          -3.440128914725235e-18,
+          -2.9225913260763066e-21,
+          -2.0880040503946697e-34,
+          -1.0,
+          -7.538177930856994e-28
+        ]
+      }
+    ]
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none"
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "none",
+    "status": "not_created"
+  },
+  "truth_ledger": {
+    "available": false,
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  },
+  "trust": {
+    "schema_version": "gallodoc.trust.v3.0",
+    "components": [],
+    "drivers": [],
+    "blockers": [],
+    "warnings": [],
+    "decision_gates": [],
+    "policy_outcomes": [],
+    "action_recommendations": [],
+    "decision_receipts": []
+  },
+  "safety_profile": {
+    "raw_vectors_stored": true
+  }
+}

@@ -1,0 +1,102 @@
+# GalloDoc: Synthetic agent supply chain security demo (v1.6)
+
+_Document ID: `doc-v16-agent-supply-chain-001`_
+
+::gallodoc
+schema_version: gallodoc-core/v1
+doc_id: doc-v16-agent-supply-chain-001
+title: Synthetic agent supply chain security demo (v1.6)
+document_type: agent_skill_bundle_manifest
+mime_type: application/pdf
+source: chase_intelligence
+source_kind: agent_package
+connector_slug: chase_agent_package_review
+created_at: 2026-05-02T13:00:00+00:00
+primary_intent: ai_audit
+workflow_intent: agent_supply_chain_review
+requested_by: security-reviewer@example.com
+confidence: 0.91
+::
+
+## Content
+
+**Title:** Synthetic agent supply chain security demo (v1.6)
+**Primary intent:** ai_audit
+
+## Trust
+
+::trust score=72
+score_id: ts-v16-install-001
+subject_type: execution
+subject_id: install-review:skill-demo-001
+grade: C
+status: review_needed
+calculated_at: 2026-05-02T13:00:00+00:00
+policy_version: agent_supply_chain_policy_v1_6
+scoring_profile: public_supply_chain_example
+components:
+  evidence_quality:
+    score: 78
+    explanation: Manifest and scanner summaries present.
+  lifecycle_completeness:
+    score: 74
+    explanation: Review lifecycle captured through request and receipt refs.
+  security_posture:
+    score: 70
+    explanation: High-risk permission requires HIM-C review before install.
+  execution_governance:
+    score: 82
+    explanation: Execution request and receipt refs present.
+  consent_custody_attestation:
+    score: 72
+    explanation: Reviewer role recorded; no raw identity payload.
+  residency_training_model_risk:
+    score: 76
+    explanation: No external transmission required for sandbox review.
+  agent_observability:
+    score: 80
+    explanation: Trace summary present for review action.
+  human_review:
+    score: 58
+    explanation: HIM-C review required before install.
+drivers:
+  - manifest_hash_present
+  - sandbox_network_off
+warnings:
+  - high_risk_requires_him_c_review
+explanation_summary: Synthetic v1.6 install review requires human approval before install.
+::
+
+## Decisions
+
+::decision action=install_agent_package id=gate-v16-install-001
+gate_name: agent_package_install
+subject_type: execution
+subject_id: install-review:skill-demo-001
+required_min_score: 75
+required_components:
+  - security_posture
+  - human_review
+blocked_conditions:
+  - critical_credential_theft
+  - rce
+  - exfiltration
+review_conditions:
+  - high_risk_permission
+decision: require_review
+reason_codes:
+  - high_risk_requires_him_c_review
+evaluated_at: 2026-05-02T13:00:01+00:00
+policy_version: agent_supply_chain_policy_v1_6
+::
+
+## Agent Supply Chain Security
+
+::agent_security risk_level=high id=asc-find-001
+scan_id: asc-scan-001
+category: browser_agent_permission_risk
+summary: Requested browser automation capability exceeds least-privilege default and requires HIM-C review.
+evidence_hash: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+blocks_install: false
+requires_him_c_review: true
+::

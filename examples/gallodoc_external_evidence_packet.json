@@ -1,0 +1,234 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-evpkt-7700",
+    "document_id": "doc-evpkt-7700",
+    "title": "External evidence packet (synthetic)",
+    "document_type": "external_evidence_packet",
+    "mime_type": "application/json",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-04-30T20:00:00+00:00",
+    "content_hash": ""
+  },
+  "source": {
+    "source_system": "halobridge",
+    "source_kind": "evidence_bundle",
+    "source_record_id": "evpkt:7700",
+    "connector_slug": "",
+    "connection_id": "",
+    "sync_run_id": "",
+    "ingested_at": "2026-04-30T19:55:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "ai_audit",
+    "workflow_intent": "audit_evidence",
+    "app_slug": "ai_audit",
+    "requested_by": "compliance_team",
+    "reason_code": "audit_request",
+    "reason_text": "External evidence rollup for quarterly audit",
+    "evidence": [
+      "metadata:ai_audit"
+    ],
+    "confidence": 0.94
+  },
+  "lifecycle": {
+    "available": true,
+    "current_status": "evidence_assembled",
+    "schema_version": "document_lifecycle/v1",
+    "stages": [
+      {
+        "stage": "evidence_collection",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T19:55:00+00:00",
+        "app_slug": "ai_audit",
+        "source": "external_evidence_service",
+        "metadata": {
+          "sources": 4
+        }
+      }
+    ],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [
+      {
+        "packet_id": "pkt-audit-evidence-77",
+        "packet_type": "audit_evidence_packet",
+        "finding_count": 0
+      }
+    ],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": "2026-04-30T19:55:00+00:00",
+    "last_encrypted_at": null
+  },
+  "exports": [
+    {
+      "export_type": "gallodoc",
+      "artifact_family": "exports.gallodoc",
+      "artifact_key": "gallodoc_envelope_v1",
+      "created_at": "2026-04-30T19:56:00+00:00",
+      "checksum": "9e1d6c7d3e2a1b4c5d6e7f8091a2b3c4d5e6f70a1b2c3d4e5f60718293a4b5c8",
+      "redacted": false,
+      "encrypted": false,
+      "contains_phi": false
+    }
+  ],
+  "external_evidence": [
+    {
+      "source_type": "fda",
+      "source_name": "FDA labeling reference (synthetic)",
+      "source_url_hash": "fda-ref-synth-7700-hash",
+      "external_id": "fda:synth:7700",
+      "title": "Drug labeling reference",
+      "summary": "Synthetic FDA labeling reference for audit alignment.",
+      "evidence_type": "regulatory_reference",
+      "retrieved_at": "2026-04-30T19:50:00+00:00",
+      "payload_metadata": {
+        "section": "indications"
+      }
+    },
+    {
+      "source_type": "cms",
+      "source_name": "CMS coverage database (synthetic)",
+      "source_url_hash": "cms-ref-synth-7700-hash",
+      "external_id": "cms:synth:7700",
+      "title": "Coverage policy reference",
+      "summary": "Synthetic CMS coverage entry for audit alignment.",
+      "evidence_type": "coverage_policy",
+      "retrieved_at": "2026-04-30T19:51:00+00:00",
+      "payload_metadata": {
+        "policy_id": "synth-policy-7700"
+      }
+    },
+    {
+      "source_type": "public_authority",
+      "source_name": "Public agency advisory (synthetic)",
+      "source_url_hash": "pa-ref-synth-7700-hash",
+      "external_id": "pa:synth:7700",
+      "title": "Public advisory",
+      "summary": "Synthetic public advisory used as external corroboration.",
+      "evidence_type": "advisory",
+      "retrieved_at": "2026-04-30T19:52:00+00:00",
+      "payload_metadata": {}
+    },
+    {
+      "source_type": "website",
+      "source_name": "Vendor product page (synthetic)",
+      "source_url_hash": "web-ref-synth-7700-hash",
+      "external_id": "web:synth:7700",
+      "title": "Vendor product page snapshot",
+      "summary": "Synthetic vendor page snapshot used to compare claims.",
+      "evidence_type": "vendor_page",
+      "retrieved_at": "2026-04-30T19:53:00+00:00",
+      "payload_metadata": {
+        "snapshot_kind": "html"
+      }
+    }
+  ],
+  "extensions": {
+    "halobridge": {
+      "source_profile": "enterprise-export",
+      "source_schema": "gallodoc/v1"
+    }
+  },
+  "hashes": {
+    "algorithm": "sha256",
+    "envelope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_envelope_sha256": ""
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "canonical_text_hash": "",
+    "units": [],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  }
+}

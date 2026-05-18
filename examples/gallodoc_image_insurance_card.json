@@ -1,0 +1,218 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-image-card-2200",
+    "document_id": "doc-image-card-2200",
+    "title": "Insurance card photo (synthetic)",
+    "document_type": "insurance_card",
+    "mime_type": "image/jpeg",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-04-30T15:00:00+00:00",
+    "content_hash": ""
+  },
+  "source": {
+    "source_system": "patient_intake",
+    "source_kind": "image_upload",
+    "source_record_id": "intake:2200",
+    "connector_slug": "",
+    "connection_id": "",
+    "sync_run_id": "",
+    "ingested_at": "2026-04-30T14:58:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "rcm_claim",
+    "workflow_intent": "submission_readiness",
+    "app_slug": "rcm_intelligence",
+    "requested_by": "system",
+    "reason_code": "submission_readiness",
+    "reason_text": "",
+    "evidence": [
+      "metadata:submission_readiness"
+    ],
+    "confidence": 0.91
+  },
+  "lifecycle": {
+    "available": true,
+    "current_status": "ocr_complete",
+    "schema_version": "document_lifecycle/v1",
+    "stages": [
+      {
+        "stage": "ingest",
+        "status": "completed",
+        "actor": {
+          "actor_type": "user",
+          "actor_id": "u-200",
+          "actor_name": "patient_portal"
+        },
+        "timestamp": "2026-04-30T14:58:00+00:00",
+        "app_slug": "",
+        "source": "patient_intake",
+        "metadata": {}
+      },
+      {
+        "stage": "ocr",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T14:59:30+00:00",
+        "app_slug": "",
+        "source": "ocr_pipeline",
+        "metadata": {
+          "engine": "rooster_v2"
+        }
+      }
+    ],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": true,
+    "event_count": 1,
+    "counts_by_type": {
+      "uploaded": 1
+    },
+    "latest_events": []
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": true,
+    "phi_categories": [
+      "member_id",
+      "patient_name"
+    ],
+    "phi_risk_level": "medium",
+    "encrypted": true,
+    "encryption_backend": "fernet",
+    "encryption_key_id": "kms:key/intake-2026",
+    "encrypted_fields": [
+      "member_id",
+      "patient_name"
+    ],
+    "masked_fields": [
+      "member_id",
+      "patient_name"
+    ],
+    "redaction_policy": "phi_redact_v2",
+    "raw_export_allowed": false,
+    "encryption_policy_status": "enforced",
+    "last_phi_scan_at": "2026-04-30T14:59:30+00:00",
+    "last_encrypted_at": "2026-04-30T14:59:35+00:00"
+  },
+  "exports": [],
+  "media": {
+    "kind": "image",
+    "mime_type": "image/jpeg",
+    "width_px": 1024,
+    "height_px": 640,
+    "ocr_text_summary": "Insurance card with member id, group number and plan label (PHI redacted in open core).",
+    "regions": [
+      {
+        "label": "member_id_box",
+        "bbox": [
+          120,
+          80,
+          420,
+          120
+        ],
+        "redacted": true
+      },
+      {
+        "label": "patient_name_box",
+        "bbox": [
+          120,
+          140,
+          540,
+          180
+        ],
+        "redacted": true
+      }
+    ]
+  },
+  "extensions": {
+    "halobridge": {
+      "source_profile": "enterprise-export",
+      "source_schema": "gallodoc/v1"
+    }
+  },
+  "hashes": {
+    "algorithm": "sha256",
+    "envelope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_envelope_sha256": ""
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "canonical_text_hash": "",
+    "units": [],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  }
+}

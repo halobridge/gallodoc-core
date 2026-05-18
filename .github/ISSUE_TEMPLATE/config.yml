@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: mailto:security@halobridge.ai
+    about: Email security@halobridge.ai privately. Do NOT open a public issue for security reports.
+  - name: Frozen schema rules
+    url: https://github.com/halobridge/gallodoc/blob/main/docs/GALLODOC_CORE_V1_FROZEN.md
+    about: Read the v1 freeze rules before proposing schema changes.
+  - name: HaloBridge Enterprise inquiries
+    url: https://halobridge.ai/contact
+    about: For connectors, signing, certification workflows, trust scoring, or enterprise deployments, contact HaloBridge.

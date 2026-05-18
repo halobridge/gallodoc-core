@@ -1,0 +1,240 @@
+{
+  "schema_version": "gallodoc-core/v3",
+  "identity": {
+    "gallodoc_id": "invoice:sha256:629102922303a1171512fd46f11a7133cae1ccfcd8ebfadfcc68fff3142022f7",
+    "schema_version": "gallodoc-core/v3",
+    "title": "Invoice INV-EX-0042 \u2014 Example Vendor LLC",
+    "document_type": "invoice"
+  },
+  "source": {
+    "source_system": "internal_invoice_system",
+    "source_kind": "invoice",
+    "readiness_status": "ready",
+    "connector_slug": "invoice_stub",
+    "sync_run_id": "sync-invoice_stub-EXAMPLE0001",
+    "connector_lineage": {
+      "schema_version": "gallodoc.connector_lineage.v2.0",
+      "connector_sources": [
+        {
+          "connector_slug": "invoice_stub",
+          "connector_category": "open_sdk",
+          "status": "active"
+        }
+      ],
+      "sync_runs": [
+        {
+          "sync_run_id": "sync-invoice_stub-EXAMPLE0001",
+          "connector_slug": "invoice_stub",
+          "connector_version": "3.0.0",
+          "started_at": "2026-05-16T00:00:00Z",
+          "completed_at": "2026-05-16T00:00:00Z",
+          "record_count": 1,
+          "success_count": 1,
+          "failed_count": 0,
+          "source_ref_hash": null,
+          "status": "completed"
+        }
+      ],
+      "record_receipts": [
+        {
+          "receipt_id": "rcpt-sync-invoice_stub-EXAMPLE0001",
+          "sync_run_id": "sync-invoice_stub-EXAMPLE0001",
+          "record_hash": "sha256:ade333f11e8805f7a99663b8daab194a323b9ff6d7af5564d1bef82c0b4b06b4",
+          "source_record_id_hash": "sha256:629102922303a1171512fd46f11a7133cae1ccfcd8ebfadfcc68fff3142022f7",
+          "gallodoc_ref": "invoice:sha256:629102922303a1171512fd46f11a7133cae1ccfcd8ebfadfcc68fff3142022f7"
+        }
+      ]
+    }
+  },
+  "purpose": {
+    "primary_intent": "ingest",
+    "workflow_intent": "ingest"
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "stages": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": {
+    "schema_version": "gallodoc.relationships.v3.0",
+    "relationships": [],
+    "relationship_evidence": [],
+    "relationship_decisions": []
+  },
+  "evidence": {
+    "count": 1,
+    "refs": [
+      {
+        "evidence_id": "ev-629102922303a117",
+        "evidence_kind": "invoice_document",
+        "source_ref": "invoice_id:INV-EX-0042",
+        "summary": "Source invoice INV-EX-0042 from Example Vendor LLC"
+      }
+    ]
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": null,
+    "last_encrypted_at": null
+  },
+  "exports": [],
+  "extensions": {
+    "connector_input": {
+      "invoice_stub": {
+        "invoice_id": "INV-EX-0042",
+        "vendor_name": "Example Vendor LLC",
+        "total_amount": 1234.56,
+        "currency": "USD",
+        "due_date": "2026-06-15",
+        "line_items": [
+          {
+            "description": "Widget A",
+            "quantity": 2,
+            "unit_price": 10.0,
+            "amount": 20.0
+          },
+          {
+            "description": "Widget B",
+            "quantity": 3,
+            "unit_price": 50.0,
+            "amount": 150.0
+          },
+          {
+            "description": "Service C",
+            "quantity": 1,
+            "unit_price": 1064.56,
+            "amount": 1064.56
+          }
+        ]
+      }
+    }
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "invoice_line_items_v1",
+    "units": [
+      {
+        "unit_id": "sha256:974e8013121a0a683721a36dc4daddd54783dbbf8f78cb9e52b1a84769739c4b",
+        "unit_type": "table",
+        "semantic_role": "invoice_line_item",
+        "text_hash": "sha256:a9ecbb59a430a3f41397f8130713829a574f839cfa454a909ea0300cf1d36aa3",
+        "content_summary": "Widget A: 2 x 10.0 = 20.0",
+        "evidence_refs": [],
+        "relationship_refs": [],
+        "extractions": {
+          "line_index": 0,
+          "description": "Widget A",
+          "quantity": 2,
+          "unit_price": 10.0,
+          "amount": 20.0
+        },
+        "validation_refs": [],
+        "ai_usage_refs": []
+      },
+      {
+        "unit_id": "sha256:e5c7600b1ce421c165a1b4426a50ace9ec633e17e247302587b08f3b337c0b9c",
+        "unit_type": "table",
+        "semantic_role": "invoice_line_item",
+        "text_hash": "sha256:07b2dde5525edadd8ce340b9c374e83b4ab7eaf9ef0318a20ca7a8cad1ad3a4c",
+        "content_summary": "Widget B: 3 x 50.0 = 150.0",
+        "evidence_refs": [],
+        "relationship_refs": [],
+        "extractions": {
+          "line_index": 1,
+          "description": "Widget B",
+          "quantity": 3,
+          "unit_price": 50.0,
+          "amount": 150.0
+        },
+        "validation_refs": [],
+        "ai_usage_refs": []
+      },
+      {
+        "unit_id": "sha256:42afd8bc1b6c421144cab921f63c2426ab6f4805be59382014fb7c3a8e249db8",
+        "unit_type": "table",
+        "semantic_role": "invoice_line_item",
+        "text_hash": "sha256:ec88789cd03aed6901da728498bccac8f02eb4a0afbbd25267ac7909d2740f03",
+        "content_summary": "Service C: 1 x 1064.56 = 1064.56",
+        "evidence_refs": [],
+        "relationship_refs": [],
+        "extractions": {
+          "line_index": 2,
+          "description": "Service C",
+          "quantity": 1,
+          "unit_price": 1064.56,
+          "amount": 1064.56
+        },
+        "validation_refs": [],
+        "ai_usage_refs": []
+      }
+    ]
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none"
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "none",
+    "status": "not_created"
+  },
+  "truth_ledger": {
+    "available": true,
+    "truth_state": "uncertified",
+    "claims": [
+      {
+        "claim_id": "claim-2e3d0f40ce49abcb",
+        "field_path": "total_amount",
+        "claim_value_summary": "USD 1234.56",
+        "status": "proposed",
+        "confidence": 0.85,
+        "evidence_refs": [],
+        "created_by": "invoice_stub/3.0.0",
+        "created_at": "2026-05-16T00:00:00Z"
+      }
+    ],
+    "events": []
+  },
+  "trust": {
+    "schema_version": "gallodoc.trust.v3.0",
+    "components": [],
+    "drivers": [],
+    "blockers": [],
+    "warnings": [],
+    "decision_gates": [],
+    "policy_outcomes": [],
+    "action_recommendations": [],
+    "decision_receipts": []
+  }
+}

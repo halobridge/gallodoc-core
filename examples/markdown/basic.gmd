@@ -1,0 +1,30 @@
+# GalloDoc: Basic GalloMarkdown Example
+
+::gallodoc
+schema_version: gallodoc-core/v1
+doc_id: gmd-basic-001
+title: Basic GalloMarkdown Example
+document_type: gallomarkdown_document
+source: gallomarkdown
+source_kind: markdown_authored
+created_at: 2026-05-06T00:00:00+00:00
+primary_intent: authoring
+workflow_intent: gallomarkdown_authoring
+confidence: 1.0
+::
+
+## Content
+
+This is a minimal GalloMarkdown file. Anything outside a fenced
+GalloMD block is plain Markdown text — paragraphs, headings, and code
+fences pass through and become GalloUnit candidates when this file is
+compiled.
+
+The file above the first `## Content` heading uses the `::gallodoc`
+header block to declare canonical envelope identity.
+
+## Notes
+
+- the canonical envelope is GalloDoc JSON
+- this file is a *projection* of that envelope
+- compile with: `gallodoc md compile examples/markdown/basic.gmd`

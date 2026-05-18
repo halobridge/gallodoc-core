@@ -1,0 +1,82 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gallodoc"
+version = "3.0.1"
+description = "GalloDoc Core v3 — Portable Operational Intelligence Document Standard. Adds the gallodoc-core/v3 envelope alongside the preserved v1; consolidates trust + relationships + source + lifecycle blocks; introduces an optional federation top-level. Parallel v1 validation stays for a 6-month deprecation window beginning 2026-05-16."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "HaloBridge / GalloDoc maintainers" }
+]
+keywords = [
+  "gallodoc",
+  "document-ai",
+  "ai-governance",
+  "rag",
+  "tokenization",
+  "ai-audit",
+  "gstp",
+  "document-intelligence",
+  "schema",
+  "evidence",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Text Processing",
+  "Topic :: Text Processing :: Linguistic",
+]
+# Core has zero hard dependencies — everything works on stdlib.
+# Optional features (richer JSON-Schema validation, exact tokenization,
+# PDF/DOCX parsing, ML-based unit classification) are gated under extras.
+dependencies = []
+
+[project.optional-dependencies]
+schema = ["jsonschema>=4.0"]
+tokenizer = ["tiktoken>=0.5"]
+nlp = ["scikit-learn>=1.0"]
+pdf = ["pypdf>=4.0"]
+docx = ["python-docx>=1.0"]
+semantic = [
+  "sentence-transformers>=2.2",
+  "numpy>=1.24",
+]
+dev = [
+  "pytest>=7.0",
+  "build>=1.0",
+  "tomli; python_version < '3.11'",
+]
+
+[project.urls]
+Homepage = "https://halobridge.ai/gallodoc/"
+Documentation = "https://halobridge.ai/gallodoc/"
+Source = "https://github.com/halobridge/gallodoc"
+Issues = "https://github.com/halobridge/gallodoc/issues"
+
+[project.scripts]
+gallodoc = "gallodoc.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gallodoc*"]
+
+[tool.setuptools.package-data]
+gallodoc = [
+  "schema/*.json",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

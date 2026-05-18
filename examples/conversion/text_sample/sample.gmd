@@ -1,0 +1,40 @@
+# Sample
+
+::gallodoc
+schema_version: gallodoc-core/v1
+doc_id: gmd-sample
+title: Sample
+document_type: text_document
+source: gallodoc_convert
+source_kind: txt
+connector_slug: gallodoc_convert
+created_at: 2026-05-06T14:27:53+00:00
+primary_intent: conversion
+workflow_intent: gallodoc_convert
+confidence: 1.0
+::
+
+## Content
+
+Q1 Operations Review
+
+This memo summarizes the operations review for the first quarter of
+the fiscal year. The team closed 18 of 20 planned initiatives and
+flagged two items for next quarter.
+
+Highlights
+
+- Closed migration to the new compute trace pipeline on 2026-02-14.
+- Reduced average request latency from 480 ms to 320 ms.
+- Total quarterly compute spend was $48,200.50 USD against a $50,000
+  budget — a $1,799.50 surplus.
+
+Open items
+
+- Vendor contract renewal scheduled for 2026-06-01.
+- Audit report follow-up requested by audit@example.com.
+
+Conclusion
+
+Operations remain on track. No security incidents recorded. The next
+review is scheduled for 2026-07-15.

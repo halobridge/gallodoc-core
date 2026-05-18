@@ -1,0 +1,214 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-audio-call-3300",
+    "document_id": "doc-audio-call-3300",
+    "title": "Patient call recording (synthetic)",
+    "document_type": "call_recording",
+    "mime_type": "audio/mpeg",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-04-30T16:00:00+00:00",
+    "content_hash": ""
+  },
+  "source": {
+    "source_system": "telephony",
+    "source_kind": "audio_recording",
+    "source_record_id": "call:3300",
+    "connector_slug": "telephony_provider",
+    "connection_id": "conn-tel-001",
+    "sync_run_id": "sync-2026-04-30-16",
+    "ingested_at": "2026-04-30T15:55:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "phi_review",
+    "workflow_intent": "phi_review",
+    "app_slug": "phi_review",
+    "requested_by": "system",
+    "reason_code": "compliance_review",
+    "reason_text": "",
+    "evidence": [
+      "metadata:purpose=phi_review"
+    ],
+    "confidence": 0.9
+  },
+  "lifecycle": {
+    "available": true,
+    "current_status": "transcribed",
+    "schema_version": "document_lifecycle/v1",
+    "stages": [
+      {
+        "stage": "ingest",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T15:55:00+00:00",
+        "app_slug": "",
+        "source": "telephony",
+        "metadata": {}
+      },
+      {
+        "stage": "transcription",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T15:58:00+00:00",
+        "app_slug": "",
+        "source": "asr_pipeline",
+        "metadata": {
+          "model": "asr_v3"
+        }
+      }
+    ],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": true,
+    "phi_categories": [
+      "voice",
+      "patient_name"
+    ],
+    "phi_risk_level": "high",
+    "encrypted": true,
+    "encryption_backend": "fernet",
+    "encryption_key_id": "kms:key/telephony-2026",
+    "encrypted_fields": [
+      "transcript",
+      "audio_blob_ref"
+    ],
+    "masked_fields": [
+      "transcript"
+    ],
+    "redaction_policy": "phi_redact_v2",
+    "raw_export_allowed": false,
+    "encryption_policy_status": "enforced",
+    "last_phi_scan_at": "2026-04-30T15:58:00+00:00",
+    "last_encrypted_at": "2026-04-30T15:58:30+00:00"
+  },
+  "exports": [],
+  "media": {
+    "kind": "audio",
+    "mime_type": "audio/mpeg",
+    "duration_seconds": 312.4,
+    "transcript_summary": "Synthetic patient inquiry; PHI redacted. Two speakers detected."
+  },
+  "extensions": {
+    "halobridge": {
+      "source_profile": "enterprise-export",
+      "source_schema": "gallodoc/v1"
+    }
+  },
+  "hashes": {
+    "algorithm": "sha256",
+    "envelope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_envelope_sha256": ""
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "canonical_text_hash": "sha256:audio0000000000000000000000000000000000000000000000000000000000aa",
+    "units": [
+      {
+        "unit_id": "gu_audio_004",
+        "unit_type": "audio_segment",
+        "semantic_role": "patient_identifier",
+        "source_span": {
+          "page": null,
+          "start_char": null,
+          "end_char": null,
+          "start_time_ms": 12000,
+          "end_time_ms": 18500,
+          "region": null
+        },
+        "text_hash": "sha256:9f8e7d6c5b4a3928170f5e4d3c2b1a098f7e6d5c4b3a29180f7e6d5c4b3a2918",
+        "content_summary": "Caller states their member id (PHI redacted in open core).",
+        "confidence": 0.81,
+        "evidence_refs": [],
+        "relationship_refs": [],
+        "extractions": {"speaker": "caller"},
+        "validation_refs": [],
+        "ai_usage_refs": []
+      }
+    ],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  }
+}

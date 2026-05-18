@@ -1,0 +1,12 @@
+{
+  "invoice_id": "INV-EX-0042",
+  "vendor_name": "Example Vendor LLC",
+  "total_amount": 1234.56,
+  "currency": "USD",
+  "due_date": "2026-06-15",
+  "line_items": [
+    {"description": "Widget A", "quantity": 2, "unit_price": 10.00, "amount": 20.00},
+    {"description": "Widget B", "quantity": 3, "unit_price": 50.00, "amount": 150.00},
+    {"description": "Service C", "quantity": 1, "unit_price": 1064.56, "amount": 1064.56}
+  ]
+}

@@ -1,0 +1,490 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-v16-agent-supply-chain-001",
+    "document_id": "doc-v16-agent-supply-chain-001",
+    "title": "Synthetic agent supply chain security demo (v1.6)",
+    "document_type": "agent_skill_bundle_manifest",
+    "mime_type": "application/pdf",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-05-02T13:00:00+00:00",
+    "content_hash": "ac160000000000000000000000000000000000000000000000000000000016ac"
+  },
+  "source": {
+    "source_system": "chase_intelligence",
+    "source_kind": "agent_package",
+    "source_record_id": "",
+    "connector_slug": "chase_agent_package_review",
+    "connection_id": "",
+    "sync_run_id": "",
+    "ingested_at": "2026-05-02T12:58:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "ai_audit",
+    "workflow_intent": "agent_supply_chain_review",
+    "app_slug": "chase_intelligence",
+    "requested_by": "security-reviewer@example.com",
+    "reason_code": "agent_supply_chain_security_demo_v16",
+    "reason_text": "",
+    "evidence": [
+      "synthetic:v1_6_agent_supply_chain_security"
+    ],
+    "confidence": 0.91
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "schema_version": "",
+    "stages": [],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": null,
+    "last_encrypted_at": null
+  },
+  "exports": [],
+  "extensions": {},
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "units": [],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  },
+  "execution_governance": {
+    "schema_version": "gallodoc.execution_governance.v1.1",
+    "gallodoc_schema_version": "1.1",
+    "execution_governance_version": "1.1",
+    "capability_tokens": [
+      {
+        "token_id": "550e8400-e29b-41d4-a716-446655440000",
+        "token_type": "document_scope",
+        "status": "active",
+        "actor_type": "user",
+        "subject_type": "document",
+        "issued_at": "2026-05-01T10:00:00+00:00",
+        "valid_to": null,
+        "requires_him_review": false
+      }
+    ],
+    "mcp_tool_contracts": [
+      {
+        "tool_id": "vector_search",
+        "tool_name": "Vector Search",
+        "version": "1",
+        "risk_level": "low",
+        "requires_him_review": false,
+        "requires_evidence": false,
+        "resource_scope": {
+          "allowed_collections": [
+            "docs_alpha"
+          ]
+        }
+      }
+    ],
+    "a2a_agent_contracts": [
+      {
+        "agent_id": "agent-audit-001",
+        "agent_name": "Audit Helper",
+        "trust_level": "standard",
+        "requires_him_review": true,
+        "capabilities_count": 3
+      }
+    ],
+    "skill_contracts": [
+      {
+        "skill_id": "evidence_pack_generate",
+        "name": "Evidence Pack",
+        "version": "1",
+        "risk_level": "medium",
+        "requires_evidence": true,
+        "requires_him_review": false
+      }
+    ],
+    "prompt_contracts": [
+      {
+        "prompt_id": "prompt.contract_summary",
+        "version": "2",
+        "name": "Contract summary",
+        "purpose": "summarize_terms",
+        "risk_level": "low",
+        "prompt_hash": "sha256:aabbccddeeff0011223344556677889900aabbccddeeff0011223344556677",
+        "response_hash": "sha256:9900aabbccddeeff0011223344556677889900aabbccddeeff00112233445566",
+        "model_family": "gpt-4o",
+        "default_model": "",
+        "requires_him_review": false,
+        "requires_evidence": false,
+        "status": "active"
+      }
+    ],
+    "delegation_policies": [
+      {
+        "policy_id": "del-001",
+        "name": "Agent chain",
+        "source_actor": "agent-a",
+        "target_actor": "agent-b",
+        "max_chain_depth": 2,
+        "requires_him_review": true
+      }
+    ],
+    "execution_requests": [
+      {
+        "request_id": "exec-req-install-review-001",
+        "action": "review_agent_package_install",
+        "subject_ref": "package:skill-demo-001",
+        "capability_token_id": "cap-demo-install-review",
+        "contract_refs": [
+          "skill-contract-demo-001"
+        ],
+        "requested_by_role": "security_reviewer",
+        "requested_at": "2026-05-02T12:59:00+00:00"
+      }
+    ],
+    "execution_receipts": [
+      {
+        "receipt_id": "exec-rcpt-install-review-001",
+        "request_id": "exec-req-install-review-001",
+        "decision": "allowed_for_review",
+        "policy_decision_summary": "Review executed in isolated sandbox; install not performed on host.",
+        "created_at": "2026-05-02T12:59:30+00:00",
+        "request_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+        "response_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    ]
+  },
+  "agent_observability": {
+    "schema_version": "gallodoc.agent_observability.v1.4",
+    "agent_traces": [
+      {
+        "trace_id": "trace-v16-review-001",
+        "agent_id": "chase_supply_chain_reviewer",
+        "task_name": "agent_package_install_review",
+        "status": "success",
+        "execution_request_id": "exec-req-install-review-001",
+        "execution_receipt_id": "exec-rcpt-install-review-001",
+        "started_at": "2026-05-02T12:59:00+00:00",
+        "ended_at": "2026-05-02T12:59:30+00:00"
+      }
+    ],
+    "tool_invocation_logs": [],
+    "retrieval_traces": [],
+    "reasoning_summaries": [
+      {
+        "reasoning_id": "reason-v16-001",
+        "trace_id": "trace-v16-review-001",
+        "summary": "Package posture reviewed from manifest hashes, permission summary, dependency summary, and sandbox observations.",
+        "redacted": true
+      }
+    ],
+    "evaluation_results": [],
+    "latency_cost_metrics": [],
+    "failure_analyses": [],
+    "regression_test_results": [],
+    "escalation_decisions": []
+  },
+  "trust_decision": {
+    "schema_version": "gallodoc.trust_decision.v1.5",
+    "trust_scores": [
+      {
+        "score_id": "ts-v16-install-001",
+        "subject_type": "execution",
+        "subject_id": "install-review:skill-demo-001",
+        "score": 72,
+        "grade": "C",
+        "status": "review_needed",
+        "calculated_at": "2026-05-02T13:00:00+00:00",
+        "policy_version": "agent_supply_chain_policy_v1_6",
+        "scoring_profile": "public_supply_chain_example",
+        "components": {
+          "evidence_quality": {
+            "score": 78,
+            "explanation": "Manifest and scanner summaries present."
+          },
+          "lifecycle_completeness": {
+            "score": 74,
+            "explanation": "Review lifecycle captured through request and receipt refs."
+          },
+          "security_posture": {
+            "score": 70,
+            "explanation": "High-risk permission requires HIM-C review before install."
+          },
+          "execution_governance": {
+            "score": 82,
+            "explanation": "Execution request and receipt refs present."
+          },
+          "consent_custody_attestation": {
+            "score": 72,
+            "explanation": "Reviewer role recorded; no raw identity payload."
+          },
+          "residency_training_model_risk": {
+            "score": 76,
+            "explanation": "No external transmission required for sandbox review."
+          },
+          "agent_observability": {
+            "score": 80,
+            "explanation": "Trace summary present for review action."
+          },
+          "human_review": {
+            "score": 58,
+            "explanation": "HIM-C review required before install."
+          }
+        },
+        "drivers": [
+          "manifest_hash_present",
+          "sandbox_network_off"
+        ],
+        "blockers": [],
+        "warnings": [
+          "high_risk_requires_him_c_review"
+        ],
+        "explanation_summary": "Synthetic v1.6 install review requires human approval before install."
+      }
+    ],
+    "decision_gates": [
+      {
+        "gate_id": "gate-v16-install-001",
+        "gate_name": "agent_package_install",
+        "action": "install_agent_package",
+        "subject_type": "execution",
+        "subject_id": "install-review:skill-demo-001",
+        "required_min_score": 75,
+        "required_components": [
+          "security_posture",
+          "human_review"
+        ],
+        "blocked_conditions": [
+          "critical_credential_theft",
+          "rce",
+          "exfiltration"
+        ],
+        "review_conditions": [
+          "high_risk_permission"
+        ],
+        "decision": "require_review",
+        "reason_codes": [
+          "high_risk_requires_him_c_review"
+        ],
+        "evaluated_at": "2026-05-02T13:00:01+00:00",
+        "policy_version": "agent_supply_chain_policy_v1_6"
+      }
+    ],
+    "policy_outcomes": [],
+    "action_recommendations": [],
+    "decision_receipts": []
+  },
+  "agent_supply_chain_security": {
+    "schema_version": "gallodoc.agent_supply_chain_security.v1.6",
+    "scans": [
+      {
+        "scan_id": "asc-scan-001",
+        "object_type": "skill_bundle",
+        "object_ref": "package:skill-demo-001",
+        "scanner_id": "gallodoc_supply_chain_static_v1",
+        "scanner_version": "1.6.0-rc",
+        "scan_mode": "static_manifest_and_sandbox_summary",
+        "sandbox_network_default": "off",
+        "host_execution_performed": false,
+        "status": "completed",
+        "started_at": "2026-05-02T12:58:10+00:00",
+        "completed_at": "2026-05-02T12:59:20+00:00",
+        "input_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "asc-find-001",
+        "scan_id": "asc-scan-001",
+        "severity": "high",
+        "category": "browser_agent_permission_risk",
+        "summary": "Requested browser automation capability exceeds least-privilege default and requires HIM-C review.",
+        "evidence_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "blocks_install": false,
+        "requires_him_c_review": true
+      }
+    ],
+    "package_manifests": [
+      {
+        "manifest_id": "pkg-manifest-001",
+        "package_type": "executable_skill_bundle",
+        "package_name": "synthetic_chase_claim_review_skill",
+        "package_version": "0.0.1-rc",
+        "publisher_ref": "publisher:synthetic-demo",
+        "manifest_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "bundle_hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "declared_capabilities": [
+          "browser_read_only",
+          "document_summary"
+        ],
+        "delegation_targets": [
+          "agent:chase_supply_chain_reviewer"
+        ]
+      }
+    ],
+    "permission_reviews": [
+      {
+        "permission_review_id": "perm-review-001",
+        "manifest_id": "pkg-manifest-001",
+        "requested_permissions": [
+          "browser_read_only",
+          "document_summary"
+        ],
+        "approved_permissions": [
+          "document_summary"
+        ],
+        "denied_permissions": [
+          "browser_read_only"
+        ],
+        "least_privilege_status": "review_required",
+        "reviewed_by_role": "security_reviewer",
+        "reviewed_at": "2026-05-02T13:00:00+00:00"
+      }
+    ],
+    "dependency_reviews": [
+      {
+        "dependency_review_id": "dep-review-001",
+        "manifest_id": "pkg-manifest-001",
+        "dependency_count": 3,
+        "untrusted_dependency_count": 0,
+        "lockfile_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "summary": "Dependencies pinned by hash; no known critical dependency finding in this synthetic example."
+      }
+    ],
+    "sandbox_observations": [
+      {
+        "observation_id": "sandbox-obs-001",
+        "scan_id": "asc-scan-001",
+        "sandbox_id": "isolated-netoff-demo",
+        "network_enabled": false,
+        "host_filesystem_access": false,
+        "process_spawn_count": 0,
+        "external_connection_attempts": 0,
+        "summary": "No host execution performed; isolated sandbox summary only."
+      }
+    ],
+    "llm_security_reviews": [
+      {
+        "llm_review_id": "llm-sec-001",
+        "scan_id": "asc-scan-001",
+        "prompt_pack_hash": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "review_type": "prompt_pack_policy_review",
+        "jailbreak_risk": "low",
+        "tool_misuse_risk": "medium",
+        "summary": "Prompt pack asks for bounded document summarization and no credential collection."
+      }
+    ],
+    "quarantine_decisions": [
+      {
+        "quarantine_id": "quarantine-001",
+        "object_ref": "package:skill-demo-001",
+        "decision": "not_quarantined_review_required",
+        "reason_codes": [
+          "high_risk_permission"
+        ],
+        "decided_by_role": "policy_engine",
+        "decided_at": "2026-05-02T13:00:02+00:00"
+      }
+    ],
+    "install_receipts": [
+      {
+        "install_receipt_id": "install-rcpt-001",
+        "manifest_id": "pkg-manifest-001",
+        "decision": "require_him_c_review",
+        "install_allowed": false,
+        "limited_permissions": [
+          "document_summary"
+        ],
+        "policy_version": "agent_supply_chain_policy_v1_6",
+        "decision_summary": "Install paused pending HIM-C review because high-risk browser permission was denied by default.",
+        "created_at": "2026-05-02T13:00:03+00:00",
+        "execution_request_id": "exec-req-install-review-001",
+        "execution_receipt_id": "exec-rcpt-install-review-001",
+        "trust_decision_gate_id": "gate-v16-install-001",
+        "agent_trace_id": "trace-v16-review-001"
+      }
+    ]
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "activity": {
+    "available": false,
+    "counts_by_type": {},
+    "event_count": 0,
+    "latest_events": []
+  },
+  "ai_usage": {
+    "runs": [],
+    "summary": {
+      "currency": "USD",
+      "estimated_total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_runs": 0,
+      "total_tokens": 0
+    }
+  },
+  "certification": {
+    "certification_type": "none",
+    "status": "none"
+  },
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "exports": [],
+  "extensions": {},
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "units": [
+      {
+        "confidence": 0.95,
+        "semantic_role": "invoice_total",
+        "text_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "unit_id": "gu_invoice_total",
+        "unit_type": "entity"
+      },
+      {
+        "confidence": 0.95,
+        "semantic_intent": "invoice_to_employee_approver",
+        "semantic_role": "approver_ref",
+        "text_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "unit_id": "gu_approver_ref",
+        "unit_type": "entity"
+      }
+    ]
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "none",
+    "status": "not_created"
+  },
+  "identity": {
+    "content_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "created_at": "2026-05-16T09:00:00Z",
+    "document_type": "invoice",
+    "gallodoc_id": "doc_invoice_001",
+    "mime_type": "application/json",
+    "schema_version": "gallodoc-core/v3",
+    "title": "Synthetic vendor invoice (example fixture)"
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "stages": []
+  },
+  "purpose": {
+    "primary_intent": "ap_review",
+    "workflow_intent": "ap_review"
+  },
+  "relationships": {
+    "relationship_decisions": [
+      {
+        "decided_at": "2026-05-16T10:00:00Z",
+        "decided_by": "human_review",
+        "decision_id": "dec_55548a3fcb7a05ee",
+        "rationale": "vendor verified",
+        "relationship_id": "rel_b1a6ffa24c474dc4",
+        "verdict": "confirmed"
+      }
+    ],
+    "relationship_evidence": [],
+    "relationships": [
+      {
+        "confidence": 1.0,
+        "created_at": "2026-05-16T10:00:00Z",
+        "discovered_by": "gallodoc-linker/3.0.0",
+        "reason_code": "invoice_to_employee_approver",
+        "relationship_evidence": [
+          {
+            "candidate_locator": "gallounits.units[unit_id=gu_employee_name].text_hash",
+            "evidence_type": "shared_text_hash",
+            "source_locator": "gallounits.units[unit_id=gu_approver_ref].text_hash",
+            "value_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "weight": 0.95
+          },
+          {
+            "candidate_locator": "truth_ledger.claims[].evidence_refs[ref=ev:scan:001]",
+            "evidence_type": "shared_evidence_ref",
+            "source_locator": "truth_ledger.claims[].evidence_refs[ref=ev:scan:001]",
+            "weight": 0.6
+          },
+          {
+            "candidate_locator": "gallounits.units[].semantic_intent=invoice_to_employee_approver",
+            "evidence_type": "semantic_intent_match",
+            "source_locator": "gallounits.units[].semantic_intent=invoice_to_employee_approver",
+            "weight": 0.6
+          },
+          {
+            "candidate_locator": "gallounits.units[].semantic_role=approver_ref",
+            "evidence_type": "shared_semantic_role",
+            "source_locator": "gallounits.units[].semantic_role=approver_ref",
+            "weight": 0.1
+          }
+        ],
+        "relationship_id": "rel_b1a6ffa24c474dc4",
+        "relationship_type": "related_to",
+        "semantic_intent": "invoice_to_employee_approver",
+        "source_document_ref": "doc_invoice_001",
+        "status": "confirmed",
+        "target_document_ref": "doc_employee_001"
+      }
+    ],
+    "schema_version": "gallodoc.relationships.v3.0"
+  },
+  "schema_version": "gallodoc-core/v3",
+  "security": {
+    "encrypted": false,
+    "encrypted_fields": [],
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encryption_policy_status": "not_required",
+    "last_encrypted_at": null,
+    "last_phi_scan_at": null,
+    "masked_fields": [],
+    "phi_categories": [],
+    "phi_detected": false,
+    "phi_risk_level": "none",
+    "raw_export_allowed": true,
+    "redaction_policy": null
+  },
+  "source": {
+    "ingested_at": "2026-05-16T09:00:00Z",
+    "readiness_status": "ready",
+    "source_kind": "invoice_record",
+    "source_record_id": "INV-2026-0001",
+    "source_record_id_hash": "sha256:9999999999999999999999999999999999999999999999999999999999999999",
+    "source_system": "example.com/ap"
+  },
+  "trust": {
+    "action_recommendations": [],
+    "blockers": [],
+    "components": [],
+    "decision_gates": [],
+    "decision_receipts": [],
+    "drivers": [],
+    "policy_outcomes": [],
+    "schema_version": "gallodoc.trust.v3.0",
+    "warnings": []
+  },
+  "truth_ledger": {
+    "available": true,
+    "claims": [
+      {
+        "claim_id": "claim:invoice_total:INV-2026-0001",
+        "evidence_refs": [
+          "ev:scan:001"
+        ],
+        "field_path": "invoice.total"
+      }
+    ],
+    "events": [],
+    "truth_state": "certified"
+  },
+  "validations": {
+    "contradictions": [],
+    "model_disagreements": [],
+    "packet_findings": []
+  }
+}

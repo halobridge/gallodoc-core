@@ -1,0 +1,9 @@
+{
+  "phase": "pytest_sessionstart",
+  "connect_target_db": "gallomvp",
+  "server_version": "PostgreSQL 16.12 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+  "postmaster_start_time": "2026-04-28 03:15:28.588913+00:00",
+  "current_database": "gallomvp",
+  "client_backend_pid": 367809,
+  "ok": true
+}

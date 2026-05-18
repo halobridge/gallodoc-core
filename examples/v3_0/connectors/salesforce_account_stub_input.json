@@ -1,0 +1,7 @@
+{
+  "account_id": "001-EX-0001",
+  "name": "Acme Health Co.",
+  "type": "Customer",
+  "industry": "Healthcare",
+  "owner_email": "rep@example.com"
+}

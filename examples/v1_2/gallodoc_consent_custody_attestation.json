@@ -1,0 +1,237 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-compliance-v12-001",
+    "document_id": "doc-compliance-v12-001",
+    "title": "Synthetic consent / custody / attestation demo",
+    "document_type": "clinical_note",
+    "mime_type": "application/pdf",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-05-02T12:00:00+00:00",
+    "content_hash": "cd000000000000000000000000000000000000000000000000000000000000ef"
+  },
+  "source": {
+    "source_system": "ehr_connector",
+    "source_kind": "document",
+    "source_record_id": "",
+    "connector_slug": "demo_ehr",
+    "connection_id": "",
+    "sync_run_id": "",
+    "ingested_at": "2026-05-02T11:58:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "phi_review",
+    "workflow_intent": "phi_review",
+    "app_slug": "",
+    "requested_by": "reviewer@example.com",
+    "reason_code": "compliance_demo",
+    "reason_text": "",
+    "evidence": ["synthetic:v1_2_compliance"],
+    "confidence": 0.88
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "schema_version": "",
+    "stages": [],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": true,
+    "phi_categories": ["clinical_note"],
+    "phi_risk_level": "medium",
+    "encrypted": true,
+    "encryption_backend": "fernet",
+    "encryption_key_id": "kid_demo_001",
+    "encrypted_fields": ["body_blob"],
+    "masked_fields": ["patient_display"],
+    "redaction_policy": "phi_default_v1",
+    "raw_export_allowed": false,
+    "encryption_policy_status": "required",
+    "last_phi_scan_at": "2026-05-02T11:59:00+00:00",
+    "last_encrypted_at": "2026-05-02T11:59:30+00:00"
+  },
+  "exports": [],
+  "extensions": {},
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "units": [],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  },
+  "consent_ledger": {
+    "schema_version": "gallodoc.consent_ledger.v1.2",
+    "entries": [
+      {
+        "consent_id": "consent_sha_demo_01",
+        "subject_type": "document",
+        "consent_basis": "treatment_payment_operations",
+        "granted_by_role": "privacy_officer",
+        "granted_at": "2026-05-01T09:00:00+00:00",
+        "expires_at": null,
+        "scope": {"use": "processing", "jurisdiction": "US"},
+        "restrictions": ["no_secondary_marketing"],
+        "revoked_at": null,
+        "consent_artifact_ref": "artifact:consent:demo01"
+      }
+    ]
+  },
+  "chain_of_custody": {
+    "schema_version": "gallodoc.chain_of_custody.v1.2",
+    "events": [
+      {
+        "custody_event_id": "custody_evt_001",
+        "event_type": "ingest_completed",
+        "actor_role": "connector",
+        "source_location": "ehr_export_bucket",
+        "target_location": "mvp_document_store",
+        "artifact_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+        "package_id": "pkt-demo-001",
+        "occurred_at": "2026-05-02T11:55:00+00:00",
+        "reason_code": "scheduled_sync"
+      },
+      {
+        "custody_event_id": "custody_evt_002",
+        "event_type": "artifact_exported",
+        "actor_role": "system",
+        "source_location": "mvp_document_store",
+        "target_location": "artifact:secure_store:pdf_packet",
+        "artifact_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+        "package_id": "pdf_packet_v1",
+        "occurred_at": "2026-05-02T12:01:00+00:00",
+        "reason_code": "pdf_packet"
+      }
+    ]
+  },
+  "human_decisions": {
+    "schema_version": "gallodoc.human_decisions.v1.2",
+    "decisions": [
+      {
+        "decision_id": "hdemo-001",
+        "reviewer_role": "phi_review",
+        "decision": "completed",
+        "reason_code": "phi_ok_encrypted",
+        "override_flag": false,
+        "him_c_certified": false,
+        "decided_at": "2026-05-02T11:57:00+00:00"
+      }
+    ]
+  },
+  "attestations": {
+    "schema_version": "gallodoc.attestations.v1.2",
+    "records": [
+      {
+        "attestation_id": "attest_demo_001",
+        "statement": "trust_posture_reviewed",
+        "attested_by_role": "trust_engine",
+        "policy_version": "trust_score_v1",
+        "trust_score_summary": "82:B",
+        "evidence_refs": ["ext_ev:sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"],
+        "attested_at": "2026-05-02T12:00:30+00:00",
+        "signature_ref": null
+      }
+    ]
+  },
+  "redaction_manifest": {
+    "schema_version": "gallodoc.redaction_manifest.v1.2",
+    "entries": [
+      {
+        "redaction_id": "redact_demo_001",
+        "policy_id": "phi_default_v1",
+        "categories_redacted": ["clinical_note"],
+        "fields_redacted": ["patient_display"],
+        "method": "masked",
+        "performed_at": "2026-05-02T11:59:00+00:00",
+        "performed_by_role": "phi_classifier"
+      }
+    ]
+  },
+  "evidence_quality": {
+    "schema_version": "gallodoc.evidence_quality.v1.2",
+    "summary": {
+      "score": 82.0,
+      "grade": "B",
+      "source_authority": "mixed",
+      "freshness": "referenced",
+      "hash_present": true,
+      "human_verified": true,
+      "external_internal": "external",
+      "drivers": ["phi_encrypted", "lifecycle_complete"],
+      "blockers": []
+    }
+  }
+}

@@ -1,0 +1,61 @@
+# GalloDoc: Chase External Intelligence Packet
+
+::gallodoc
+schema_version: gallodoc-core/v1
+doc_id: gmd-chase-intel-001
+title: Chase External Intelligence Packet
+document_type: chase_external_intelligence_packet
+source: gallomarkdown
+source_kind: markdown_authored
+created_at: 2026-05-06T11:00:00+00:00
+primary_intent: external_intelligence_review
+workflow_intent: chase_evidence_packet
+requested_by: chase-reviewer@example.com
+confidence: 0.88
+::
+
+## Content
+
+External intelligence summary compiled from publicly observable
+sources. The packet captures crawled pages, PDF screenshots, and
+compliance scanner findings against a target site. No raw model
+prompts, raw model responses, or PHI are recorded — only hashes,
+summaries, and decision metadata.
+
+## Evidence
+
+::evidence id=ev-crawl-001
+source_ref: chase:crawl-run-2026-05-06
+hash: sha256:aaaa1111aaaa1111aaaa1111aaaa1111aaaa1111aaaa1111aaaa1111aaaa1111
+summary: Public landing-page crawl captured 14 distinct sub-pages.
+::
+
+::evidence id=ev-pdf-001
+source_ref: chase:browser-capture-pdf-001
+hash: sha256:bbbb2222bbbb2222bbbb2222bbbb2222bbbb2222bbbb2222bbbb2222bbbb2222
+summary: PDF rendering of the cookie-consent flow.
+::
+
+## Trust
+
+::trust score=78 level=MEDIUM
+grade: C
+status: review_needed
+explanation: Compliance scanner flagged two cookie-policy gaps. Reviewer required.
+::
+
+## Decisions
+
+::decision action=review id=gate-chase-001
+gate_name: chase_intelligence_packet_review
+decision: require_review
+reason: cookie_policy_gap
+::
+
+## Policy
+
+::policy decision=warn id=pol-chase-001
+policy_name: chase_external_intel_v1
+policy_version: v1
+summary: Two findings require reviewer follow-up before publication.
+::

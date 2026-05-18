@@ -1,0 +1,126 @@
+{
+  "activity": {
+    "available": false,
+    "counts_by_type": {},
+    "event_count": 0,
+    "latest_events": []
+  },
+  "ai_usage": {
+    "runs": [],
+    "summary": {
+      "currency": "USD",
+      "estimated_total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_runs": 0,
+      "total_tokens": 0
+    }
+  },
+  "certification": {
+    "certification_type": "none",
+    "status": "none"
+  },
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "exports": [],
+  "extensions": {},
+  "federation": {
+    "cross_tenant_policy": {
+      "allowed": true,
+      "embedding_sharing_allowed": true,
+      "fingerprint_sharing_allowed": true,
+      "permitted_relationship_types": [],
+      "raw_data_visible": false,
+      "requires_review": false,
+      "sharing_scope": "trusted_exchange"
+    },
+    "schema_version": "gallodoc.federation.v3.0",
+    "tenant_id_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "units": [
+      {
+        "semantic_role": "invoice_total",
+        "text_hash": "sha256:a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4a1b2c3d4",
+        "unit_id": "ub_invoice_total",
+        "unit_type": "section"
+      }
+    ]
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "none",
+    "status": "not_created"
+  },
+  "identity": {
+    "content_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "created_at": "2026-05-16T00:00:00+00:00",
+    "document_type": "test_fixture",
+    "gallodoc_id": "doc_tenant_b_invoice_002",
+    "mime_type": "application/octet-stream",
+    "schema_version": "gallodoc-core/v3",
+    "title": "Tenant B \u2014 invoice (synthetic)"
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "stages": []
+  },
+  "purpose": {
+    "primary_intent": "test",
+    "workflow_intent": "test"
+  },
+  "relationships": {
+    "relationship_decisions": [],
+    "relationship_evidence": [],
+    "relationships": [],
+    "schema_version": "gallodoc.relationships.v3.0"
+  },
+  "schema_version": "gallodoc-core/v3",
+  "security": {
+    "encrypted": false,
+    "encrypted_fields": [],
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encryption_policy_status": "not_required",
+    "last_encrypted_at": null,
+    "last_phi_scan_at": null,
+    "masked_fields": [],
+    "phi_categories": [],
+    "phi_detected": false,
+    "phi_risk_level": "none",
+    "raw_export_allowed": true,
+    "redaction_policy": null
+  },
+  "source": {
+    "ingested_at": "2026-05-16T00:00:00+00:00",
+    "readiness_status": "ready",
+    "source_kind": "test_fixture",
+    "source_system": "synthetic"
+  },
+  "trust": {
+    "action_recommendations": [],
+    "blockers": [],
+    "components": [],
+    "decision_gates": [],
+    "decision_receipts": [],
+    "drivers": [],
+    "policy_outcomes": [],
+    "schema_version": "gallodoc.trust.v3.0",
+    "warnings": []
+  },
+  "truth_ledger": {
+    "available": false,
+    "claims": [],
+    "events": [],
+    "truth_state": "uncertified"
+  },
+  "validations": {
+    "contradictions": [],
+    "model_disagreements": [],
+    "packet_findings": []
+  }
+}

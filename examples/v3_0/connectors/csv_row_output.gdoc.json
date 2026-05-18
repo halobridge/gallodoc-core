@@ -1,0 +1,147 @@
+{
+  "schema_version": "gallodoc-core/v3",
+  "identity": {
+    "gallodoc_id": "csv-doc-001",
+    "schema_version": "gallodoc-core/v3",
+    "title": "Onboarding checklist"
+  },
+  "source": {
+    "source_system": "csv",
+    "source_kind": "csv_row",
+    "readiness_status": "ready",
+    "connector_slug": "csv_row",
+    "sync_run_id": "sync-csv_row-EXAMPLE0001",
+    "connector_lineage": {
+      "schema_version": "gallodoc.connector_lineage.v2.0",
+      "connector_sources": [
+        {
+          "connector_slug": "csv_row",
+          "connector_category": "open_sdk",
+          "status": "active"
+        }
+      ],
+      "sync_runs": [
+        {
+          "sync_run_id": "sync-csv_row-EXAMPLE0001",
+          "connector_slug": "csv_row",
+          "connector_version": "3.0.0",
+          "started_at": "2026-05-16T00:00:00Z",
+          "completed_at": "2026-05-16T00:00:00Z",
+          "record_count": 1,
+          "success_count": 1,
+          "failed_count": 0,
+          "source_ref_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "status": "completed"
+        }
+      ],
+      "record_receipts": [
+        {
+          "receipt_id": "rcpt-sync-csv_row-EXAMPLE0001",
+          "sync_run_id": "sync-csv_row-EXAMPLE0001",
+          "record_hash": "sha256:41921bfd68efd521c3886af0beeac4fa257704e5e8de7b2a5a35d5e757aa2ff9",
+          "source_record_id_hash": "sha256:e3c3e5d368530076cdfae8f506ee3dd1b98287fdd20878b6b1a2efe07dd76b51",
+          "gallodoc_ref": "csv-doc-001"
+        }
+      ]
+    }
+  },
+  "purpose": {
+    "primary_intent": "ingest",
+    "workflow_intent": "ingest"
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "stages": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": {
+    "schema_version": "gallodoc.relationships.v3.0",
+    "relationships": [],
+    "relationship_evidence": [],
+    "relationship_decisions": []
+  },
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": null,
+    "last_encrypted_at": null
+  },
+  "exports": [],
+  "extensions": {
+    "connector_input": {
+      "csv_row": {
+        "row": {
+          "note": "Initial onboarding tasks",
+          "owner": "ops@example.com"
+        },
+        "row_number": 1,
+        "filename": "csv_row_input.csv"
+      }
+    }
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "connector_v1",
+    "units": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none"
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "none",
+    "status": "not_created"
+  },
+  "truth_ledger": {
+    "available": false,
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  },
+  "trust": {
+    "schema_version": "gallodoc.trust.v3.0",
+    "components": [],
+    "drivers": [],
+    "blockers": [],
+    "warnings": [],
+    "decision_gates": [],
+    "policy_outcomes": [],
+    "action_recommendations": [],
+    "decision_receipts": []
+  }
+}

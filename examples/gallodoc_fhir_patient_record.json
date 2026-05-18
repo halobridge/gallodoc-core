@@ -1,0 +1,232 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-fhir-patient-9001",
+    "document_id": "doc-fhir-patient-9001",
+    "title": "Patient summary (synthetic)",
+    "document_type": "fhir_patient_record",
+    "mime_type": "application/fhir+json",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-04-30T14:00:00+00:00",
+    "content_hash": ""
+  },
+  "source": {
+    "source_system": "ehr",
+    "source_kind": "fhir_bundle",
+    "source_record_id": "Patient/synth-9001",
+    "connector_slug": "ehr_fhir",
+    "connection_id": "conn-ehr-001",
+    "sync_run_id": "sync-2026-04-30-14",
+    "ingested_at": "2026-04-30T13:55:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "phi_review",
+    "workflow_intent": "phi_review",
+    "app_slug": "phi_review",
+    "requested_by": "system",
+    "reason_code": "ehr_sync",
+    "reason_text": "Nightly EHR sync",
+    "evidence": [
+      "metadata:purpose=phi_review"
+    ],
+    "confidence": 0.92
+  },
+  "lifecycle": {
+    "available": true,
+    "current_status": "phi_classified",
+    "schema_version": "document_lifecycle/v1",
+    "stages": [
+      {
+        "stage": "ingest",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T13:55:00+00:00",
+        "app_slug": "",
+        "source": "ehr_fhir",
+        "metadata": {}
+      },
+      {
+        "stage": "phi_classification",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T13:57:00+00:00",
+        "app_slug": "phi_review",
+        "source": "phi_protection",
+        "metadata": {
+          "categories": 4
+        }
+      }
+    ],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": true,
+    "event_count": 1,
+    "counts_by_type": {
+      "ingested": 1
+    },
+    "latest_events": [
+      {
+        "event_type": "ingested",
+        "created_at": "2026-04-30T13:55:00+00:00",
+        "who": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "what": {
+          "document_id": "doc-fhir-patient-9001"
+        },
+        "where": {
+          "source": "ehr_fhir",
+          "route": "/connectors/ehr_fhir/sync/"
+        },
+        "why": {
+          "reason_code": "scheduled_sync",
+          "reason_text": ""
+        },
+        "metadata": {
+          "resource_count": 12
+        }
+      }
+    ]
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": true,
+    "phi_categories": [
+      "patient_name",
+      "dob",
+      "mrn",
+      "address"
+    ],
+    "phi_risk_level": "high",
+    "encrypted": true,
+    "encryption_backend": "fernet",
+    "encryption_key_id": "kms:key/ehr-2026",
+    "encrypted_fields": [
+      "patient_name",
+      "dob",
+      "mrn",
+      "address"
+    ],
+    "masked_fields": [
+      "patient_name",
+      "dob",
+      "mrn",
+      "address"
+    ],
+    "redaction_policy": "phi_redact_v2",
+    "raw_export_allowed": false,
+    "encryption_policy_status": "enforced",
+    "last_phi_scan_at": "2026-04-30T13:57:00+00:00",
+    "last_encrypted_at": "2026-04-30T13:57:30+00:00"
+  },
+  "exports": [],
+  "media": {
+    "kind": "binary",
+    "mime_type": "application/fhir+json"
+  },
+  "extensions": {
+    "halobridge": {
+      "source_profile": "enterprise-export",
+      "source_schema": "gallodoc/v1"
+    },
+    "fhir": {
+      "resource_types": [
+        "Patient",
+        "Observation",
+        "Condition"
+      ],
+      "bundle_type": "collection",
+      "bundle_resource_count": 12
+    }
+  },
+  "hashes": {
+    "algorithm": "sha256",
+    "envelope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_envelope_sha256": ""
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "canonical_text_hash": "",
+    "units": [],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  }
+}

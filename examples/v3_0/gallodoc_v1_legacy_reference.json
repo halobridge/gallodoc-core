@@ -1,0 +1,368 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-pdf-contract-0001",
+    "document_id": "doc-pdf-contract-0001",
+    "title": "Master Services Agreement (synthetic)",
+    "document_type": "contract",
+    "mime_type": "application/pdf",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-04-30T12:00:00+00:00",
+    "content_hash": "5b1f6c7d3e2a1b4c5d6e7f8091a2b3c4d5e6f70a1b2c3d4e5f60718293a4b5c6"
+  },
+  "source": {
+    "source_system": "upload_portal",
+    "source_kind": "document",
+    "source_record_id": "",
+    "connector_slug": "",
+    "connection_id": "",
+    "sync_run_id": "",
+    "ingested_at": "2026-04-30T11:58:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "contract_review",
+    "workflow_intent": "contract_review",
+    "app_slug": "contract_review",
+    "requested_by": "synthetic@example.com",
+    "reason_code": "vendor_renewal",
+    "reason_text": "Annual renewal review",
+    "evidence": [
+      "metadata:purpose=contract_review"
+    ],
+    "confidence": 0.95
+  },
+  "lifecycle": {
+    "available": true,
+    "current_status": "review_complete",
+    "schema_version": "document_lifecycle/v1",
+    "stages": [
+      {
+        "stage": "intake",
+        "status": "completed",
+        "actor": {
+          "actor_type": "user",
+          "actor_id": "u-001",
+          "actor_name": "synthetic@example.com"
+        },
+        "timestamp": "2026-04-30T11:58:00+00:00",
+        "app_slug": "",
+        "source": "upload_portal",
+        "metadata": {}
+      },
+      {
+        "stage": "app_execution",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T11:59:00+00:00",
+        "app_slug": "contract_review",
+        "source": "pipeline_v3",
+        "metadata": {
+          "clauses_extracted": 27
+        }
+      }
+    ],
+    "provenance_chain": [
+      {
+        "step": "ingest",
+        "produced_at": "2026-04-30T11:58:00+00:00"
+      },
+      {
+        "step": "extract",
+        "produced_at": "2026-04-30T11:59:00+00:00"
+      }
+    ]
+  },
+  "activity": {
+    "available": true,
+    "event_count": 3,
+    "counts_by_type": {
+      "viewed": 2,
+      "exported": 1
+    },
+    "latest_events": [
+      {
+        "event_type": "exported",
+        "created_at": "2026-04-30T12:00:30+00:00",
+        "who": {
+          "actor_type": "user",
+          "actor_id": "u-001",
+          "actor_name": "synthetic@example.com"
+        },
+        "what": {
+          "document_id": "doc-pdf-contract-0001"
+        },
+        "where": {
+          "source": "export_center",
+          "route": "/exports/pdf_packet/"
+        },
+        "why": {
+          "reason_code": "client_request",
+          "reason_text": "Renewal package"
+        },
+        "metadata": {}
+      },
+      {
+        "event_type": "viewed",
+        "created_at": "2026-04-30T12:00:00+00:00",
+        "who": {
+          "actor_type": "user",
+          "actor_id": "u-002",
+          "actor_name": "reviewer@example.com"
+        },
+        "what": {
+          "document_id": "doc-pdf-contract-0001"
+        },
+        "where": {
+          "source": "ops_console",
+          "route": "/ops/documents/doc-pdf-contract-0001/"
+        },
+        "why": {
+          "reason_code": "review",
+          "reason_text": ""
+        },
+        "metadata": {}
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel-0001",
+      "relationship_type": "prior_version",
+      "source_document_id": "doc-pdf-contract-0001",
+      "target_document_id": "doc-pdf-contract-0000",
+      "method": "hash_match",
+      "status": "confirmed",
+      "confidence": 0.98,
+      "evidence": {
+        "summary": "Renewal supersedes 2025 MSA"
+      }
+    }
+  ],
+  "evidence": {
+    "count": 1,
+    "refs": [
+      {
+        "id": "ev-0001",
+        "label": "Clause table",
+        "kind": "extracted_table"
+      }
+    ]
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": false,
+    "phi_categories": [],
+    "phi_risk_level": "none",
+    "encrypted": false,
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encrypted_fields": [],
+    "masked_fields": [],
+    "redaction_policy": null,
+    "raw_export_allowed": true,
+    "encryption_policy_status": "not_required",
+    "last_phi_scan_at": "2026-04-30T11:59:30+00:00",
+    "last_encrypted_at": null
+  },
+  "exports": [
+    {
+      "export_type": "pdf_packet",
+      "artifact_family": "exports.pdf_packet",
+      "artifact_key": "pdf_packet_v1",
+      "created_at": "2026-04-30T12:00:30+00:00",
+      "checksum": "8a1d6c3e2a1b4c5d6e7f8091a2b3c4d5e6f70a1b2c3d4e5f60718293a4b5c601",
+      "redacted": false,
+      "encrypted": false,
+      "contains_phi": false
+    }
+  ],
+  "media": {
+    "kind": "binary",
+    "mime_type": "application/pdf",
+    "page_count": 18
+  },
+  "extensions": {
+    "halobridge": {
+      "source_profile": "enterprise-export",
+      "source_schema": "gallodoc/v1"
+    }
+  },
+  "hashes": {
+    "algorithm": "sha256",
+    "envelope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_envelope_sha256": "5b1f6c7d3e2a1b4c5d6e7f8091a2b3c4d5e6f70a1b2c3d4e5f60718293a4b5c6"
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 1,
+      "total_input_tokens": 1820,
+      "total_output_tokens": 410,
+      "total_tokens": 2230,
+      "estimated_total_cost": 0.0089,
+      "currency": "USD"
+    },
+    "runs": [
+      {
+        "run_id": "run-extract-pdf-0001",
+        "operation": "extraction",
+        "provider": "openai",
+        "model": "gpt-4o-2024-08-06",
+        "input_tokens": 1820,
+        "output_tokens": 410,
+        "total_tokens": 2230,
+        "estimated_cost": 0.0089,
+        "currency": "USD",
+        "latency_ms": 2150,
+        "status": "success",
+        "retry_count": 0,
+        "started_at": "2026-04-30T11:59:00+00:00",
+        "completed_at": "2026-04-30T11:59:02+00:00",
+        "data_mode": "redacted",
+        "purpose": "clause_extraction",
+        "prompt_hash": "sha256:1f2a3b4c5d6e7f8091a2b3c4d5e6f70a1b2c3d4e5f60718293a4b5c601d1f2a3",
+        "response_hash": "sha256:9f8e7d6c5b4a39281706f5e4d3c2b1a09f8e7d6c5b4a39281706f5e4d3c2b1a0",
+        "stored_prompt": false,
+        "stored_response": false
+      }
+    ]
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "canonical_text_hash": "sha256:abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
+    "units": [
+      {
+        "unit_id": "gu_001",
+        "unit_type": "clause",
+        "semantic_role": "payment_terms",
+        "source_span": {
+          "page": 3,
+          "start_char": 1280,
+          "end_char": 1410,
+          "start_time_ms": null,
+          "end_time_ms": null,
+          "region": null
+        },
+        "text_hash": "sha256:1a2b3c4d5e6f70819ace0bda1c2b3a4d5e6f70819ace0bda1c2b3a4d5e6f7081",
+        "content_summary": "Net 30 payment terms for vendor renewals (synthetic).",
+        "confidence": 0.93,
+        "evidence_refs": ["ev-0001"],
+        "relationship_refs": [],
+        "extractions": {"net_terms_days": 30},
+        "validation_refs": [],
+        "ai_usage_refs": ["run-extract-pdf-0001"]
+      },
+      {
+        "unit_id": "gu_002",
+        "unit_type": "clause",
+        "semantic_role": "termination_clause",
+        "source_span": {
+          "page": 7,
+          "start_char": 4220,
+          "end_char": 4560,
+          "start_time_ms": null,
+          "end_time_ms": null,
+          "region": null
+        },
+        "text_hash": "sha256:9b8a7c6d5e4f30219abc1def2b3a4c5d6e7f80910a2b3c4d5e6f708192a3b4c5",
+        "content_summary": "Termination for convenience after 90-day notice (synthetic).",
+        "confidence": 0.9,
+        "evidence_refs": ["ev-0001"],
+        "relationship_refs": [],
+        "extractions": {"notice_days": 90},
+        "validation_refs": [],
+        "ai_usage_refs": ["run-extract-pdf-0001"]
+      }
+    ],
+    "model_projections": [
+      {
+        "projection_id": "p1",
+        "unit_id": "gu_001",
+        "provider": "openai",
+        "model_family": "gpt-4o",
+        "model": "gpt-4o-2024-08-06",
+        "tokenizer": "o200k_base",
+        "token_count": 142,
+        "projection_hash": "sha256:aaa00000000000000000000000000000000000000000000000000000000000aa",
+        "created_at": "2026-04-30T11:59:00+00:00"
+      },
+      {
+        "projection_id": "p2",
+        "unit_id": "gu_001",
+        "provider": "anthropic",
+        "model_family": "claude-4",
+        "model": "claude-opus-4-7",
+        "tokenizer": "anthropic_v2",
+        "token_count": 156,
+        "projection_hash": "sha256:bbb00000000000000000000000000000000000000000000000000000000000bb",
+        "created_at": "2026-04-30T11:59:00+00:00"
+      },
+      {
+        "projection_id": "p3",
+        "unit_id": "gu_002",
+        "provider": "openai",
+        "model_family": "gpt-4o",
+        "model": "gpt-4o-2024-08-06",
+        "tokenizer": "o200k_base",
+        "token_count": 211,
+        "projection_hash": "sha256:ccc00000000000000000000000000000000000000000000000000000000000cc",
+        "created_at": "2026-04-30T11:59:00+00:00"
+      }
+    ]
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  }
+}

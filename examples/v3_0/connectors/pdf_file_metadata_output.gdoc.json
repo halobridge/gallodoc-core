@@ -1,0 +1,148 @@
+{
+  "activity": {
+    "available": false,
+    "counts_by_type": {},
+    "event_count": 0,
+    "latest_events": []
+  },
+  "ai_usage": {
+    "runs": [],
+    "summary": {
+      "currency": "USD",
+      "estimated_total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_runs": 0,
+      "total_tokens": 0
+    }
+  },
+  "certification": {
+    "certification_type": "none",
+    "status": "none"
+  },
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "exports": [],
+  "extensions": {
+    "connector_input": {
+      "pdf_file_metadata": {
+        "file_name": "pdf_file_metadata_input.pdf",
+        "file_path_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "file_size_bytes": 86,
+        "mtime_iso": "2026-05-16T00:00:00Z",
+        "page_count": null
+      }
+    }
+  },
+  "gallounits": {
+    "unit_strategy": "connector_v1",
+    "units": []
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "none",
+    "status": "not_created"
+  },
+  "identity": {
+    "document_type": "pdf_file",
+    "gallodoc_id": "pdf-file:sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "mime_type": "application/pdf",
+    "schema_version": "gallodoc-core/v3",
+    "title": "pdf_file_metadata_input.pdf"
+  },
+  "lifecycle": {
+    "available": false,
+    "current_status": "",
+    "stages": []
+  },
+  "purpose": {
+    "primary_intent": "ingest",
+    "workflow_intent": "ingest"
+  },
+  "relationships": {
+    "relationship_decisions": [],
+    "relationship_evidence": [],
+    "relationships": [],
+    "schema_version": "gallodoc.relationships.v3.0"
+  },
+  "schema_version": "gallodoc-core/v3",
+  "security": {
+    "encrypted": false,
+    "encrypted_fields": [],
+    "encryption_backend": null,
+    "encryption_key_id": null,
+    "encryption_policy_status": "not_required",
+    "last_encrypted_at": null,
+    "last_phi_scan_at": null,
+    "masked_fields": [],
+    "phi_categories": [],
+    "phi_detected": false,
+    "phi_risk_level": "none",
+    "raw_export_allowed": true,
+    "redaction_policy": null
+  },
+  "source": {
+    "connector_lineage": {
+      "connector_sources": [
+        {
+          "connector_category": "open_sdk",
+          "connector_slug": "pdf_file_metadata",
+          "status": "active"
+        }
+      ],
+      "record_receipts": [
+        {
+          "gallodoc_ref": "pdf-file:sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "receipt_id": "rcpt-sync-pdf_file_metadata-EXAMPLE0001",
+          "record_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "source_record_id_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "sync_run_id": "sync-pdf_file_metadata-EXAMPLE0001"
+        }
+      ],
+      "schema_version": "gallodoc.connector_lineage.v2.0",
+      "sync_runs": [
+        {
+          "completed_at": "2026-05-16T00:00:00Z",
+          "connector_slug": "pdf_file_metadata",
+          "connector_version": "3.0.0",
+          "failed_count": 0,
+          "record_count": 1,
+          "source_ref_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "started_at": "2026-05-16T00:00:00Z",
+          "status": "completed",
+          "success_count": 1,
+          "sync_run_id": "sync-pdf_file_metadata-EXAMPLE0001"
+        }
+      ]
+    },
+    "connector_slug": "pdf_file_metadata",
+    "readiness_status": "ready",
+    "source_kind": "pdf_file",
+    "source_system": "filesystem",
+    "sync_run_id": "sync-pdf_file_metadata-EXAMPLE0001"
+  },
+  "trust": {
+    "action_recommendations": [],
+    "blockers": [],
+    "components": [],
+    "decision_gates": [],
+    "decision_receipts": [],
+    "drivers": [],
+    "policy_outcomes": [],
+    "schema_version": "gallodoc.trust.v3.0",
+    "warnings": []
+  },
+  "truth_ledger": {
+    "available": false,
+    "claims": [],
+    "events": [],
+    "truth_state": "uncertified"
+  },
+  "validations": {
+    "contradictions": [],
+    "model_disagreements": [],
+    "packet_findings": []
+  }
+}

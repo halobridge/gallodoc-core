@@ -1,0 +1,76 @@
+# GalloDoc: Contract Review
+
+::gallodoc
+schema_version: gallodoc-core/v1
+doc_id: gmd-contract-review-001
+title: Contract Review
+document_type: contract
+source: gallomarkdown
+source_kind: markdown_authored
+created_at: 2026-05-06T10:00:00+00:00
+primary_intent: contract_review
+workflow_intent: review_evidence_packet
+requested_by: reviewer@example.com
+confidence: 0.92
+::
+
+## Content
+
+Reviewer summary of a 12-month service agreement between Acme Corp
+(supplier) and Widgets Inc. (buyer). Total contract value redacted
+in this synthetic example. Scope: managed-services + 24/7 support.
+
+The contract was reviewed against the standard policy
+`contract_review_v1`. Two extracted artifacts (line items, payment
+terms) drove the trust score. No PHI or secrets were present in the
+source document.
+
+## Artifacts
+
+::artifact family=line_items id=art-line-items-001
+description: Managed services — base tier
+quantity: 12
+period: monthly
+::
+
+::artifact family=payment_terms id=art-pay-001
+net_terms: 30
+currency: USD
+::
+
+## Evidence
+
+::evidence id=ev-page-2-001
+source_ref: doc:contract-page-2
+hash: sha256:1111111111111111111111111111111111111111111111111111111111111111
+summary: Quoted base-tier line item.
+::
+
+::evidence id=ev-signature-001
+source_ref: doc:contract-page-12
+hash: sha256:2222222222222222222222222222222222222222222222222222222222222222
+summary: Counterparty signature block confirmed.
+::
+
+## Trust
+
+::trust score=92 level=HIGH
+grade: A
+status: trusted
+explanation: All extracted artifacts have evidence anchors; no PHI risk; signatures present.
+::
+
+## Decisions
+
+::decision action=approve confidence=0.91 id=gate-contract-001
+gate_name: contract_approval
+reason: evidence_validated
+::
+
+## Policy
+
+::policy decision=allow id=pol-contract-001
+policy_name: contract_review_v1
+policy_version: v1
+summary: Standard contract policy passed.
+::

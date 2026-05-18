@@ -1,0 +1,60 @@
+# GalloDoc: Agent Supply Chain Security Review
+
+::gallodoc
+schema_version: gallodoc-core/v1
+doc_id: gmd-agent-sec-001
+title: Agent Supply Chain Security Review
+document_type: agent_skill_bundle_manifest
+source: gallomarkdown
+source_kind: markdown_authored
+created_at: 2026-05-06T12:00:00+00:00
+primary_intent: ai_audit
+workflow_intent: agent_supply_chain_review
+requested_by: security-reviewer@example.com
+confidence: 0.91
+::
+
+## Content
+
+A reviewer-authored summary of a static + sandboxed agent-package
+review. The package requested a high-risk browser automation
+capability that is denied by the default policy. No host execution
+was performed.
+
+## Trust
+
+::trust score=72 level=MEDIUM
+grade: C
+status: review_needed
+explanation: Manifest hashes verified; high-risk capability requires HIM-C review.
+::
+
+## Decisions
+
+::decision action=require_review id=gate-install-001
+gate_name: agent_package_install
+decision: require_review
+reason: high_risk_requires_him_c_review
+required_components: security_posture, human_review
+blocked_conditions: critical_credential_theft, rce, exfiltration
+review_conditions: high_risk_permission
+policy_version: agent_supply_chain_policy_v1_6
+::
+
+## Agent Supply Chain Security
+
+::agent_security risk_level=high decision=require_review id=asc-find-001
+category: browser_agent_permission_risk
+risk_score: 78
+summary: Browser automation capability exceeds least-privilege default.
+blocks_install: false
+requires_him_c_review: true
+::
+
+::agent_security risk_level=low decision=allow id=asc-find-002
+category: dependency_review
+risk_score: 18
+summary: Dependencies pinned by hash; no known critical finding.
+blocks_install: false
+requires_him_c_review: false
+::

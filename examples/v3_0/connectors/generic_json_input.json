@@ -1,0 +1,8 @@
+{
+  "id": "doc-generic-001",
+  "title": "Quarterly Operations Note",
+  "document_type": "note",
+  "summary": "Quarterly notes captured by the operations team — synthetic example.",
+  "owner": "ops-team@example.com",
+  "tags": ["operations", "quarterly", "example"]
+}

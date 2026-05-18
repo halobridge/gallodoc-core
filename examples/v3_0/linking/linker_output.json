@@ -1,0 +1,44 @@
+{
+  "candidates": [
+    {
+      "confidence": 1.0,
+      "created_at": "2026-05-16T10:00:00Z",
+      "discovered_by": "gallodoc-linker/3.0.0",
+      "reason_code": "invoice_to_employee_approver",
+      "relationship_evidence": [
+        {
+          "candidate_locator": "gallounits.units[unit_id=gu_employee_name].text_hash",
+          "evidence_type": "shared_text_hash",
+          "source_locator": "gallounits.units[unit_id=gu_approver_ref].text_hash",
+          "value_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "weight": 0.95
+        },
+        {
+          "candidate_locator": "truth_ledger.claims[].evidence_refs[ref=ev:scan:001]",
+          "evidence_type": "shared_evidence_ref",
+          "source_locator": "truth_ledger.claims[].evidence_refs[ref=ev:scan:001]",
+          "weight": 0.6
+        },
+        {
+          "candidate_locator": "gallounits.units[].semantic_intent=invoice_to_employee_approver",
+          "evidence_type": "semantic_intent_match",
+          "source_locator": "gallounits.units[].semantic_intent=invoice_to_employee_approver",
+          "weight": 0.6
+        },
+        {
+          "candidate_locator": "gallounits.units[].semantic_role=approver_ref",
+          "evidence_type": "shared_semantic_role",
+          "source_locator": "gallounits.units[].semantic_role=approver_ref",
+          "weight": 0.1
+        }
+      ],
+      "relationship_id": "rel_b1a6ffa24c474dc4",
+      "relationship_type": "related_to",
+      "semantic_intent": "invoice_to_employee_approver",
+      "source_document_ref": "doc_invoice_001",
+      "status": "suggested",
+      "target_document_ref": "doc_employee_001"
+    }
+  ],
+  "source_document_id": "doc_invoice_001"
+}

@@ -1,0 +1,227 @@
+{
+  "schema_version": "gallodoc-core/v1",
+  "profile": "open-core",
+  "identity": {
+    "gallodoc_id": "doc-video-proc-4400",
+    "document_id": "doc-video-proc-4400",
+    "title": "Procedure clip (synthetic)",
+    "document_type": "procedure_video",
+    "mime_type": "video/mp4",
+    "schema_version": "gallodoc-core/v1",
+    "source_schema_version": "gallodoc/v1",
+    "created_at": "2026-04-30T17:00:00+00:00",
+    "content_hash": ""
+  },
+  "source": {
+    "source_system": "or_capture",
+    "source_kind": "video_recording",
+    "source_record_id": "or:4400",
+    "connector_slug": "or_capture",
+    "connection_id": "conn-or-001",
+    "sync_run_id": "sync-2026-04-30-17",
+    "ingested_at": "2026-04-30T16:45:00+00:00",
+    "readiness_status": "ready"
+  },
+  "purpose": {
+    "primary_intent": "ai_audit",
+    "workflow_intent": "audit_evidence",
+    "app_slug": "ai_audit",
+    "requested_by": "system",
+    "reason_code": "audit_evidence",
+    "reason_text": "",
+    "evidence": [
+      "metadata:ai_audit"
+    ],
+    "confidence": 0.94
+  },
+  "lifecycle": {
+    "available": true,
+    "current_status": "frames_extracted",
+    "schema_version": "document_lifecycle/v1",
+    "stages": [
+      {
+        "stage": "ingest",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T16:45:00+00:00",
+        "app_slug": "",
+        "source": "or_capture",
+        "metadata": {}
+      },
+      {
+        "stage": "frame_extraction",
+        "status": "completed",
+        "actor": {
+          "actor_type": "system",
+          "actor_id": null,
+          "actor_name": "system"
+        },
+        "timestamp": "2026-04-30T16:55:00+00:00",
+        "app_slug": "",
+        "source": "video_pipeline",
+        "metadata": {
+          "frames": 412
+        }
+      }
+    ],
+    "provenance_chain": []
+  },
+  "activity": {
+    "available": false,
+    "event_count": 0,
+    "counts_by_type": {},
+    "latest_events": []
+  },
+  "relationships": [],
+  "evidence": {
+    "count": 0,
+    "refs": []
+  },
+  "validations": {
+    "contradictions": [],
+    "packet_findings": [],
+    "model_disagreements": []
+  },
+  "security": {
+    "phi_detected": true,
+    "phi_categories": [
+      "face",
+      "patient_id_overlay"
+    ],
+    "phi_risk_level": "high",
+    "encrypted": true,
+    "encryption_backend": "fernet",
+    "encryption_key_id": "kms:key/or-2026",
+    "encrypted_fields": [
+      "video_blob_ref",
+      "keyframe_blob_ref"
+    ],
+    "masked_fields": [
+      "face_regions"
+    ],
+    "redaction_policy": "phi_redact_v2",
+    "raw_export_allowed": false,
+    "encryption_policy_status": "enforced",
+    "last_phi_scan_at": "2026-04-30T16:55:00+00:00",
+    "last_encrypted_at": "2026-04-30T16:55:30+00:00"
+  },
+  "exports": [],
+  "media": {
+    "kind": "video",
+    "mime_type": "video/mp4",
+    "duration_seconds": 1840.0,
+    "width_px": 1920,
+    "height_px": 1080,
+    "keyframes": [
+      {
+        "timestamp_seconds": 12.5,
+        "summary": "Tool tray (synthetic)",
+        "redacted": false
+      },
+      {
+        "timestamp_seconds": 245.0,
+        "summary": "Patient field (synthetic; faces redacted)",
+        "redacted": true
+      }
+    ]
+  },
+  "extensions": {
+    "halobridge": {
+      "source_profile": "enterprise-export",
+      "source_schema": "gallodoc/v1"
+    }
+  },
+  "hashes": {
+    "algorithm": "sha256",
+    "envelope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_envelope_sha256": ""
+  },
+  "ai_usage": {
+    "summary": {
+      "total_runs": 0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_tokens": 0,
+      "estimated_total_cost": 0.0,
+      "currency": "USD"
+    },
+    "runs": []
+  },
+  "gallounits": {
+    "unit_strategy": "gallounit_v1",
+    "canonical_text_hash": "sha256:video000000000000000000000000000000000000000000000000000000000bb",
+    "units": [
+      {
+        "unit_id": "gu_video_002",
+        "unit_type": "video_segment",
+        "semantic_role": "evidence",
+        "source_span": {
+          "page": null,
+          "start_char": null,
+          "end_char": null,
+          "start_time_ms": 244000,
+          "end_time_ms": 246500,
+          "region": {"kind": "bbox", "x": 320, "y": 120, "w": 480, "h": 360}
+        },
+        "text_hash": "sha256:5e4d3c2b1a09182736455e4d3c2b1a09182736455e4d3c2b1a09182736455e4d",
+        "content_summary": "Procedure clip — anatomical region (synthetic; faces redacted).",
+        "confidence": 0.7,
+        "evidence_refs": [],
+        "relationship_refs": [],
+        "extractions": {"keyframe_index": 412},
+        "validation_refs": [],
+        "ai_usage_refs": []
+      }
+    ],
+    "model_projections": []
+  },
+  "certification": {
+    "status": "none",
+    "certification_type": "none",
+    "certified_by": "",
+    "certified_at": "",
+    "policy_id": "",
+    "policy_version": "",
+    "case_id": "",
+    "intent": "",
+    "evidence_manifest_hash": "",
+    "payload_hash": "",
+    "signature_algorithm": "ed25519",
+    "signature_id": "",
+    "gstp_package_id": "",
+    "revocation_status": "unknown",
+    "revocation_reason": ""
+  },
+  "gstp": {
+    "package_id": "",
+    "package_type": "gallodoc_secure_transport_package",
+    "status": "not_created",
+    "payload_hash": "",
+    "manifest_hash": "",
+    "signature_algorithm": "ed25519",
+    "signed_at": "",
+    "signed_by_org": "",
+    "verification_mode": "not_available",
+    "contains": [],
+    "verification_instructions": [],
+    "public_key_reference": "",
+    "cert_chain_reference": ""
+  },
+  "truth_ledger": {
+    "available": false,
+    "ledger_id": "",
+    "current_snapshot_id": "",
+    "authoritative_at": "",
+    "claim_count": 0,
+    "event_count": 0,
+    "latest_event_hash": "",
+    "snapshot_hash": "",
+    "truth_state": "uncertified",
+    "claims": [],
+    "events": []
+  }
+}
